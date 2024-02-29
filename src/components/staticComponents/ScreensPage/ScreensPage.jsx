@@ -1,24 +1,16 @@
+import ScreensPageInfo from './ScreensPageInfo';
+import css from './ScreensPage.module.css';
+
 const ScreensPage = () => {
+  const board = true;
+
   return (
-    <div
-      style={{
-        height: 'calc(100vh - 68px)',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-        fontSize: 16,
-        color: '#010101',
-        border: '1px solid #010101',
-        marginLeft: '260px',
-      }}
-    >
-      <p>
-        Before starting your project, it is essential to create a board to
-        visualize and track all the necessary tasks and milestones. This board
-        serves as a powerful tool to organize the workflow and ensure effective
-        collaboration among team members.
-      </p>
+    <div className={css.wrapper}>
+      <div className={css.title}>
+        {board && <h1 className={css.text}>Title</h1>}
+        <button type="button">Filter</button>
+      </div>
+      {board && <ScreensPageInfo />}
     </div>
   );
 };
