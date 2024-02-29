@@ -9,6 +9,7 @@ const Header = () => {
         fontSize: 16,
         color: '#010101',
         border: '1px solid #010101',
+        marginLeft: '260px',
       }}
     >
       Header

@@ -2,7 +2,7 @@ const Sidebar = () => {
   return (
     <div
       style={{
-        height: '90vh',
+        height: '100vh',
         width: '260px',
         display: 'flex',
         flexDirection: 'column',
@@ -11,6 +11,8 @@ const Sidebar = () => {
         fontSize: 16,
         color: '#010101',
         border: '1px solid #010101',
+        position: 'absolute',
+        top: '0',
       }}
     >
       <p>Dashboard 1</p>
