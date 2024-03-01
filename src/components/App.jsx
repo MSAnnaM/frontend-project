@@ -26,6 +26,7 @@ export const App = () => {
           </Route>
 
           <Route path="edit" element={<EditUserModal />} />
+
         </Route>
       </Routes>
     </>
