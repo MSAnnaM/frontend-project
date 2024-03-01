@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import style from '../AuthView/AuthView.module.css';
-// import sprite from './icons/sprite.svg';
+import sprite from '../../../img/icons/sprite.svg';
 import { login } from '../Schemas/login.js';
 
 const initialValues = {
@@ -60,7 +60,7 @@ export default function LoginForm() {
                 className={style.icon}
                 onClick={handleTogglePassword}
               >
-                {/* <use href={`${sprite}#icon-eye`} /> */}
+                <use href={`${sprite}#icon-eye`} />
               </svg>
             </div>
           </div>

@@ -1,15 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import style from './WelcomeView.module.css';
-// import sprite from './icons/sprite.svg'
+import ava from '../../../img/programmer.png';
+import sprite from '../../../img/icons/sprite.svg';
 
 export default function WelcomeView() {
   return (
     <div className={style.section}>
-      {/* USER-IMG */}
+      <img src={ava} alt="" className={style.image} />
       <div className={style.box}>
-        <svg className={style.icon} width={40} height={40}>
-          {/* <use href={`${sprite}#icon-logo`} /> */}
-        </svg>
+        <div className={style['icon-box']}>
+          <svg className={style.icon} width={18} height={24}>
+            <use href={`${sprite}#icon-logo`} />
+          </svg>
+        </div>
         <h1 className={style.title}>Task Pro</h1>
       </div>
       <p className={style.descr}>
@@ -17,10 +20,10 @@ export default function WelcomeView() {
         Pro - Don't wait, start achieving your goals now!
       </p>
       <div className={style['links-box']}>
-        <NavLink to='auth/register' className={style.register}>
+        <NavLink to="auth/register" className={style.register}>
           Registration
         </NavLink>
-        <NavLink to='auth/login' className={style.login}>
+        <NavLink to="auth/login" className={style.login}>
           Log In
         </NavLink>
       </div>
