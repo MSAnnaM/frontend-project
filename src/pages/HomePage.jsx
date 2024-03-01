@@ -1,12 +1,8 @@
-import Header from 'components/staticComponents/Header';
-import ScreensPage from 'components/staticComponents/ScreensPage/ScreensPage';
-import Sidebar from 'components/staticComponents/Sidebar';
+import ScreensPage from 'pages/ScreensPage';
 
 const HomePage = () => {
   return (
     <>
-      <Header />
-      <Sidebar />
       <ScreensPage />
     </>
   );

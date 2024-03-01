@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  max-width: 335px;
+  /* height: 80px; */
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 258px;
+
+  color: #ffffff80;
+
+  @media screen and (min-width: 768px) {
+    /* width: 486px; */
+    /* width: 100%; */
+    min-width: 486px;
+    /* height: 72px; */
+    font-size: 14px;
+    padding-top: 368px;
+
+    @media screen and (min-width: 1440px) {
+      padding-top: 248px;
+    }
+  }
+}
+
+.button {
+  font-size: inherit;
+  color: #bedbb0;
+  /* ------------------------------------ */
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  user-select: none;
+  border: none;
+  background-color: transparent;
+}

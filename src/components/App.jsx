@@ -1,3 +1,4 @@
+// import HomePage from 'pages/HomePage';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
@@ -6,6 +7,7 @@ const AuthPage = lazy(() => import('pages/AuthPage'));
 const WelcomeView = lazy(() =>
   import('components/Auth/WelcomeView/WelcomeView')
 );
+const HomePage = lazy(() => import('pages/HomePage'));
 
 const Register = lazy(() =>
   import('components/Auth/RegisterForm/RegisterForm')
@@ -23,6 +25,7 @@ export const App = () => {
             <Route path="login" element={<Login />} />
           </Route>
         </Route>
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </>
   );
