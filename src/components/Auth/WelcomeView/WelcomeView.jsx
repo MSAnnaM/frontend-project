@@ -1,9 +1,20 @@
+/* import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { isLoggedIn } from '../../../redux/auth/selectors';
+import { useSelector } from 'react-redux'; */
+
 import { NavLink } from 'react-router-dom';
 import style from './WelcomeView.module.css';
 import ava from '../../../img/programmer.png';
 import sprite from '../../../img/icons/sprite.svg';
 
 export default function WelcomeView() {
+  /* const isAuthorized = useSelector(isLoggedIn);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+      if (isAuthorized) return navigate('/home');
+    }, [navigate, isAuthorized]); */
   return (
     <div className={style.section}>
       <img src={ava} alt="" className={style.image} />

@@ -1,8 +1,13 @@
 import { useState } from 'react';
+/* // useEffect
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { login } from '../../../redux/auth/operations';
+import { isLoggedIn } from '../../../redux/auth/selectors'; */
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import style from '../AuthView/AuthView.module.css';
 import sprite from '../../../img/icons/sprite.svg';
-import { login } from '../Schemas/login.js';
+import { loginSchema } from '../Schemas/loginSchema.js';
 
 const initialValues = {
   email: '',
@@ -10,18 +15,27 @@ const initialValues = {
 };
 
 export default function LoginForm() {
+  /*   const dispatch = useDispatch();
+  const isLogin = useSelector(isLoggedIn);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLogin) navigate('/home', { replace: true });
+  }, [isLogin, navigate]); */
+
   const [showPassword, setShowPassword] = useState(false);
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
   const handleForSubmit = async (values, { resetForm }) => {
+    // await dispatch(login(values));
     resetForm();
   };
   return (
     <Formik
       initialValues={initialValues}
-      validationSchema={login}
+      validationSchema={loginSchema}
       onSubmit={handleForSubmit}
     >
       <Form className={style.form}>
