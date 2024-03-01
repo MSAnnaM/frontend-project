@@ -25,7 +25,6 @@ export const App = () => {
             <Route path="login" element={<Login />} />
           </Route>
 
-
           <Route path="edit" element={<EditUserModal />} />
 
         </Route>
