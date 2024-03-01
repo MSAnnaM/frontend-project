@@ -13,7 +13,7 @@ const Register = lazy(() =>
   import('components/Auth/RegisterForm/RegisterForm')
 );
 const Login = lazy(() => import('components/Auth/LoginForm/LoginForm'));
-const Sidebar = lazy(() => import('components/sidebarComponents/Sidebar/Sidebar'))
+// const Sidebar = lazy(() => import('components/sidebarComponents/Sidebar/Sidebar'))
 export const App = () => {
   return (
     <>
