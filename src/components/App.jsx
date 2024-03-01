@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import EditUserModal from './staticComponents/EditUserModal';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage'));
@@ -22,6 +23,7 @@ export const App = () => {
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Login />} />
           </Route>
+          <Route path="edit" element={<EditUserModal />} />
         </Route>
       </Routes>
     </>

@@ -35,70 +35,72 @@ export default function RegisterForm() {
     resetForm();
   };
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={registerSchema}
-      onSubmit={handleForSubmit}
-    >
-      <Form className={style.form} autoComplete="off">
-        <div className={style['input-box']}>
-          <div className={style.wrap}>
-            <ErrorMessage
-              name="name"
-              render={message => (
-                <p className={style['error-message']}>{message}</p>
-              )}
-            />
-            <Field
-              className={style.input}
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-            />
-          </div>
-          <div className={style.wrap}>
-            <ErrorMessage
-              name="email"
-              render={message => (
-                <p className={style['error-message']}>{message}</p>
-              )}
-            />
-            <Field
-              className={style.input}
-              type="text"
-              name="email"
-              placeholder="Enter your email"
-            />
-          </div>
-          <div className={style.wrap}>
-            <ErrorMessage
-              name="password"
-              render={message => (
-                <p className={style['error-message']}>{message}</p>
-              )}
-            />
-            <Field
-              className={style.input}
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              placeholder="Confirm a password"
-            />
-            <div className={style.wrapper}>
-              <svg
-                width={18}
-                height={18}
-                className={style.icon}
-                onClick={handleTogglePassword}
-              >
-                <use href={`${sprite}#icon-eye`} />
-              </svg>
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={registerSchema}
+        onSubmit={handleForSubmit}
+      >
+        <Form className={style.form} autoComplete="off">
+          <div className={style['input-box']}>
+            <div className={style.wrap}>
+              <ErrorMessage
+                name="name"
+                render={message => (
+                  <p className={style['error-message']}>{message}</p>
+                )}
+              />
+              <Field
+                className={style.input}
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+              />
+            </div>
+            <div className={style.wrap}>
+              <ErrorMessage
+                name="email"
+                render={message => (
+                  <p className={style['error-message']}>{message}</p>
+                )}
+              />
+              <Field
+                className={style.input}
+                type="text"
+                name="email"
+                placeholder="Enter your email"
+              />
+            </div>
+            <div className={style.wrap}>
+              <ErrorMessage
+                name="password"
+                render={message => (
+                  <p className={style['error-message']}>{message}</p>
+                )}
+              />
+              <Field
+                className={style.input}
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                placeholder="Confirm a password"
+              />
+              <div className={style.wrapper}>
+                <svg
+                  width={18}
+                  height={18}
+                  className={style.icon}
+                  onClick={handleTogglePassword}
+                >
+                  <use href={`${sprite}#icon-eye`} />
+                </svg>
+              </div>
             </div>
           </div>
-        </div>
-        <button className={style.button} type="submit">
-          Register Now
-        </button>
-      </Form>
-    </Formik>
+          <button className={style.button} type="submit">
+            Register Now
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 }
