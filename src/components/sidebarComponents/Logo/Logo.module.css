@@ -1,0 +1,26 @@
+.logo {
+  width: 104px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo_icon_box {
+  width: 32px;
+  height: 32px;
+  background-color: #161616;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar_logo_text {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-align: left;
+}
+.sidebar_logo_icon {
+  fill: #fff;
+}

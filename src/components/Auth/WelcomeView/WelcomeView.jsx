@@ -8,6 +8,7 @@ import style from './WelcomeView.module.css';
 import ava from '../../../img/programmer.png';
 import sprite from '../../../img/icons/sprite.svg';
 
+
 export default function WelcomeView() {
   /* const isAuthorized = useSelector(isLoggedIn);
     const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function WelcomeView() {
     }, [navigate, isAuthorized]); */
   return (
     <div className={style.section}>
+
       <img src={ava} alt="" className={style.image} />
       <div className={style.box}>
         <div className={style['icon-box']}>

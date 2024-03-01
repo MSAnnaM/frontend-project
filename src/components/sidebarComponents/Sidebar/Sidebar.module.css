@@ -1,126 +1,17 @@
 .sidebar {
   width: 260px;
-  height: 770px;
+  height: 100%;
   float: left;
   background: #121212;
-  padding: 24 0 24 0;
 }
-:root {
-  --font-family: 'Poppins', sans-serif;
-}
+
 .sidebar_container {
-  padding-left: 24px;
-  padding-right: 24px;
-}
-.sidebar_logo {
-  width: 104px;
-  height: 32px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.sidebar_logo_text {
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: -0.04em;
-  color: #fff;
-  text-align: left;
-}
-.sidebar_logo_icon {
-  fill: #fff;
-  width: 32px;
-  height: 32px;
-}
-.logo {
-  width: 104px;
-  height: 32px;
-  padding-top: 24px;
-
-  align-items: center;
-}
-.sidebar_boards_title {
-  font-weight: 400;
-  font-size: 12px;
-  letter-spacing: -0.02em;
-  color: rgba(255, 255, 255, 0.5);
-  padding-top: 60px;
-  margin: 0;
-}
-.sidebar_button_title {
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: -0.02em;
-  color: #fff;
-  width: 74px;
-  height: 42px;
-  margin: 0;
-}
-.sidebar_button_icon {
-  fill: #121212;
-}
-.create_board {
-  height: 70px;
-  width: 212px;
+  padding: 24px;
+  height: 722px;
+  position: relative;
 }
 
-.button_container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 19px;
-
-  align-items: center;
-}
-.create_board_button {
-  background: #bedbb0;
-  border-radius: 6px;
-  width: 40px;
-  height: 36px;
-  margin: 0;
-  padding: 0;
-}
-.sidebar_help_text {
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.42857;
-  letter-spacing: -0.02em;
-  color: #fff;
-
-  width: 172px;
-  height: 102px;
-}
-.sidebar_help {
-  border-radius: 8px;
-  width: 212px;
-  height: 272px;
-  background: #1f1f1f;
-}
-.sidebar_help_button {
-  display: flex;
-}
-.sidebar_button_help {
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0;
-  background: #1f1f1f;
-  border: none;
-}
-.cactus_container {
-  padding: 20px;
-}
-.logout_button {
-  display: flex;
-  background: #121212;
-  border: none;
-  font-weight: 500;
-  font-size: 16px;
-  color: #fff;
-}
-.logout {
-  padding-top: 15px;
-}
-.logout_button_icon {
-  stroke: #fff;
+.sidebar_down {
+  position: absolute;
+  bottom: 0;
 }

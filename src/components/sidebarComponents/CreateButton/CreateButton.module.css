@@ -1,0 +1,31 @@
+.button_container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 15px;
+  align-items: center;
+}
+.sidebar_button_title {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  width: 74px;
+  height: 42px;
+  margin: 0;
+}
+.create_board_button {
+  background: #bedbb0;
+  border-radius: 6px;
+  width: 40px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+}
+.create_board_button:hover,
+.create_board_button:focus {
+  background: #9dc888;
+  transform: scale(1.05);
+}
+.sidebar_button_icon {
+  stroke: #121212;
+}

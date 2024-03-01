@@ -1,0 +1,23 @@
+.sidebar_help_text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.42857;
+  letter-spacing: -0.02em;
+  color: #fff;
+
+  width: 172px;
+  height: 102px;
+}
+.sidebar_help {
+  border-radius: 8px;
+  width: 212px;
+  height: 272px;
+  background: #1f1f1f;
+}
+
+.cactus_container {
+  padding: 20px;
+}
+.sidebar_span {
+  color: #bedbb0;
+}

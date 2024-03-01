@@ -1,7 +1,8 @@
+import css from "./ListBoards.module.css";
 
 const ListBoards = ({ boards }) => {
     if (!boards || boards.length === 0) {
-        return <div style={{ height: "184px" }}></div>;
+        return <div className={css.sidebar_boards_list}></div>;
     }
     return (
         <div>

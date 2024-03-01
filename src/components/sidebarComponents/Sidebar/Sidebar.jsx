@@ -13,8 +13,10 @@ const Sidebar = () => {
                 <Logo />
                 <NewBoard />
                 <ListBoards />
-                <HelpMenu />
-                <LogOut />
+                <div className={css.sidebar_down}>
+                    <HelpMenu />
+                    <LogOut />
+                </div>
             </div>
         </section>
     )
