@@ -1,0 +1,9 @@
+export const isLoggedIn = state => state.auth.isLoggedIn;
+export const selectUser = state => state.auth.user;
+export const isRefreshing = state => state.auth.isRefreshing;
+export const getError = state => state.auth.error;
+export const selectToken = state => state.auth.token;
+export const getStatusAuth = state => state.auth.status;
+export const selectEmail = state => state.auth.email;
+export const getTheme = state => state.auth.user.theme;
+export const selectComment = state => state.auth.comment;
