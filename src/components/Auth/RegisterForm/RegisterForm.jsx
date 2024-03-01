@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { register } from '../../../redux/auth/operations';
 import { isLoggedIn } from '../../../redux/auth/selectors'; */
+// Error
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import style from '../AuthView/AuthView.module.css';
 import sprite from '../../../img/icons/sprite.svg';
