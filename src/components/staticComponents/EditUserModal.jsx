@@ -1,13 +1,30 @@
 import { Field, Form, Formik } from 'formik';
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+// import { useLocation } from 'react-router-dom';
 
 export default function EditUserModal() {
+  //   const location = useLocation();
+
   const [showPassword, setShowPassword] = useState(false);
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
+  };
+
+  useEffect(() => {
+    setName('Nastya');
+    setEmail('futgfggv');
+    setPassword('6796976976976');
+  }, []);
+
+  const updateData = () => {
+    console.log(name, email, password);
   };
 
   return (
@@ -31,16 +48,30 @@ export default function EditUserModal() {
         <Form className={style.form} autoComplete="off">
           <div className={style['input-box']}>
             <div className={style.wrap}>
-              <Field className={style.input} type="text" name="name" />
+              <Field
+                className={style.input}
+                type="text"
+                name="name"
+                defaultValue={name}
+                onChange={e => setName(e.target.value)}
+              />
             </div>
             <div className={style.wrap}>
-              <Field className={style.input} type="text" name="email" />
+              <Field
+                className={style.input}
+                type="text"
+                name="email"
+                defaultValue={email}
+                onChange={e => setEmail(e.target.value)}
+              />
             </div>
             <div className={style.wrap}>
               <Field
                 className={style.input}
                 type={showPassword ? 'text' : 'password'}
                 name="password"
+                defaultValue={password}
+                onChange={e => setPassword(e.target.value)}
               />
               <div className={style.wrapper}>
                 <svg
@@ -54,7 +85,7 @@ export default function EditUserModal() {
               </div>
             </div>
           </div>
-          <button className={style.button} type="submit">
+          <button className={style.button} type="submit" onClick={updateData}>
             Send
           </button>
         </Form>
