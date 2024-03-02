@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-export const registerSchema = yup.object({
+export const authSchema = yup.object({
   name: yup
     .string()
     .trim()
