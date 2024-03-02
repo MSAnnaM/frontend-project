@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px 0 20px;
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    padding: 26px 32px 0 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 10px 24px 0 0px;
+    margin-left: 284px;
+  }
+}
+
+.title {
+  color: #fff;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+
+  @media screen and (max-width: 767px) {
+    color: #161616;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.28px;
+  }
+}

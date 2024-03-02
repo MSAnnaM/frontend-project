@@ -1,0 +1,54 @@
+.section {
+  background-color: #1f1f1f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 60px);
+
+  @media screen and (min-width: 1440px) {
+    padding-left: 256px;
+    height: 100%;
+  }
+  @media screen and (max-width: 374px) {
+    width: 100%;
+    height: 100vh;
+  }
+}
+
+.text {
+  color: rgba(255, 255, 255, 0.5);
+  width: 486px;
+  text-align: center;
+  padding: 0 20px;
+  line-height: 18px;
+  letter-spacing: 0.02;
+  font-weight: 400;
+  font-size: 14px;
+  @media screen and (max-width: 374px) {
+    width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  @media screen and (min-width: 375px) and (max-width: 767px) {
+    font-size: 12px;
+    line-height: 16px;
+    width: 335px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    width: 486px;
+  }
+}
+
+.button {
+  color: #bedbb0;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.button:hover {
+  color: red;
+}

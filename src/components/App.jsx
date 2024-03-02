@@ -1,7 +1,6 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import EditUserModal from './staticComponents/EditUserModal';
-import { Header } from './Header/Header';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage'));
@@ -9,10 +8,11 @@ const WelcomeView = lazy(() =>
   import('components/Auth/WelcomeView/WelcomeView')
 );
 
-const Register = lazy(() =>
+const RegisterForm = lazy(() =>
   import('components/Auth/RegisterForm/RegisterForm')
 );
-const Login = lazy(() => import('components/Auth/LoginForm/LoginForm'));
+const LoginForm = lazy(() => import('components/Auth/LoginForm/LoginForm'));
+const HomePage = lazy(() => import('pages/HomePage'));
 // const Sidebar = lazy(() => import('components/sidebarComponents/Sidebar/Sidebar'))
 export const App = () => {
   return (
@@ -20,14 +20,19 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<WelcomePage />}>
           <Route index element={<WelcomeView />} />
+          {/* Public Route from AuthPage */}
           <Route path="/auth/*" element={<AuthPage />}>
-            <Route path="register" element={<Register />} />
-            <Route path="login" element={<Login />} />
+            <Route path="register" element={<RegisterForm />} />
+            <Route path="login" element={<LoginForm />} />
           </Route>
 
           <Route path="edit" element={<EditUserModal />} />
         </Route>
-        <Route path="home" element={<Header />} />
+
+        {/* Private Route from HomePage */}
+        <Route path="/home" element={<HomePage />}>
+          {/* <Route path="/home/:boardName" element={<ScreensPage />} /> */}
+        </Route>
       </Routes>
     </>
   );
