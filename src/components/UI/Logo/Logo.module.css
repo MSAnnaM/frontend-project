@@ -1,0 +1,52 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo.big {
+  gap: 14px;
+}
+.box {
+  width: 32px;
+  height: 32px;
+  background-color: #161616;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box.big {
+  width: 40px;
+  height: 40px;
+  @media screen and (min-width: 768px) {
+    width: 48px;
+    height: 48px;
+  }
+}
+.title {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.title.big {
+  font-size: 28px;
+  color: #161616;
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    letter-spacing: -1.6px;
+  }
+}
+.icon {
+  fill: #fff;
+  width: 12px;
+  height: 16px;
+}
+.icon.big {
+  width: 15px;
+  height: 20px;
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 24px;
+  }
+}

@@ -13,19 +13,3 @@
   height: 42px;
   margin: 0;
 }
-.create_board_button {
-  background: #bedbb0;
-  border-radius: 6px;
-  width: 40px;
-  height: 36px;
-  margin: 0;
-  padding: 0;
-}
-.create_board_button:hover,
-.create_board_button:focus {
-  background: #9dc888;
-  transform: scale(1.05);
-}
-.sidebar_button_icon {
-  stroke: #121212;
-}
