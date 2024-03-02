@@ -8,15 +8,16 @@ const CreateButton = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className={css.button_container}>
-            <p className={css.sidebar_button_title}>Create a new board</p>
-            <button type="button" className={css.create_board_button} onClick={() => dispatch(openModal('modal1', <CreateBoardModal />))} >
+        <div className={css.sidebar_button_container}>
+            <div className={css.button_container}>
+                <p className={css.sidebar_button_title}>Create a new board</p>
+                <button type="button" className={css.create_board_button} onClick={() => dispatch(openModal('modal1', <CreateBoardModal />))} >
 
-                <svg className={css.sidebar_button_icon} width="20" height="20" >
-                    <use href={`${sprite}#icon-plus`} />
-                </svg>
+                    <svg className={css.sidebar_button_icon} width="20" height="20" >
+                        <use href={`${sprite}#icon-plus`} />
+                    </svg>
 
-            </button></div>
+                </button></div></div>
     )
 }
 export default CreateButton

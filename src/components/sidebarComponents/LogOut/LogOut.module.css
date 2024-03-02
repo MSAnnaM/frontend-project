@@ -25,6 +25,7 @@
 
 .logout_button_icon {
   stroke: #bedbb0;
+  background: #121212;
 }
 .logout_button_text {
   text-align: left;

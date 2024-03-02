@@ -5,6 +5,7 @@ import ListBoards from "../ListBoards/ListBoards"
 import HelpMenu from "../HelpMenu/HelpMenu"
 import NewBoard from "../NewBoard/NewBoard"
 import HelpModal from "../HelpModal/HelpModal"
+import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
 
 const Sidebar = () => {
 
@@ -20,6 +21,7 @@ const Sidebar = () => {
                     <LogOut />
                 </div>
                 <HelpModal />
+                <CreateBoardModal />
             </div>
         </section>
     )

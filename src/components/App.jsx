@@ -14,7 +14,7 @@ const RegisterForm = lazy(() =>
 
 const LoginForm = lazy(() => import('components/Auth/LoginForm/LoginForm'));
 const HomePage = lazy(() => import('pages/HomePage'));
-const Sidebar = lazy(() => import('components/sidebarComponents/Sidebar/Sidebar'))
+
 
 export const App = () => {
   return (
