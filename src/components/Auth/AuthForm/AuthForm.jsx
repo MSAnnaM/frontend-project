@@ -5,10 +5,13 @@ import { login } from '../../../redux/auth/operations';
 import { isLoggedIn } from '../../../redux/auth/selectors'; */
 
 import { useState } from 'react';
-import { ErrorMessage, Field, Form, Formik } from 'formik';
-import style from '../AuthView/AuthView.module.css';
-import sprite from '../../../img/icons/sprite.svg';
+import { Form, Formik } from 'formik';
+import style from './AuthForm.module.css';
 import { authSchema } from '../Schemas/authSchema.js';
+import Button from './Button/Button';
+import Eye from './Eye/Eye';
+import Error from './Error/Error';
+import Input from './Input/Input';
 
 const initialValues = {
   email: '',
@@ -30,7 +33,6 @@ export default function AuthForm({ type }) {
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const handleSubmit = async (values, { resetForm }) => {
-    // Dispatch login or register based on 'type'
     // await dispatch(type === 'login' ? login(values) : register(values));
     resetForm();
   };
@@ -44,63 +46,26 @@ export default function AuthForm({ type }) {
       <Form className={style.form} autoComplete="off">
         {type === 'register' && (
           <div className={style.wrap}>
-            <ErrorMessage
-              name="name"
-              render={message => (
-                <p className={style['error-message']}>{message}</p>
-              )}
-            />
-            <Field
-              className={style.input}
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-            />
+            <Error name="name" />
+            <Input type="text" name="name" text="Enter your name" />
           </div>
         )}
         <div className={style.wrap}>
-          <ErrorMessage
-            name="email"
-            render={message => (
-              <p className={style['error-message']}>{message}</p>
-            )}
-          />
-          <Field
-            className={style.input}
-            type="text"
-            name="email"
-            placeholder="Enter your email"
-          />
+          <Error name="email" />
+          <Input type="text" name="email" text="Enter your email" />
         </div>
         <div className={style.wrap}>
-          <ErrorMessage
-            name="password"
-            render={message => (
-              <p className={style['error-message']}>{message}</p>
-            )}
-          />
-          <Field
-            className={style.input}
+          <Error name="password" />
+          <Input
             type={showPassword ? 'text' : 'password'}
             name="password"
-            placeholder={`${
-              type === 'register' ? 'Create' : 'Confirm'
-            } a password`}
+            text={`${type === 'register' ? 'Create' : 'Confirm'} a password`}
           />
-          <div className={style.wrapper}>
-            <svg
-              width={18}
-              height={18}
-              className={style.icon}
-              onClick={handleTogglePassword}
-            >
-              <use href={`${sprite}#icon-eye`} />
-            </svg>
-          </div>
+          <Eye toggle={handleTogglePassword} />
         </div>
-        <button className={style.button} type="submit">
-          {type === 'login' ? 'Log In Now' : 'Register Now'}
-        </button>
+        <Button type="submit">
+          {`${type === 'login' ? 'Log In' : 'Register'} Now`}
+        </Button>
       </Form>
     </Formik>
   );
