@@ -44,7 +44,12 @@ export default function EditUserModal() {
 
       <div className={style.icon_div}>
         {image ? (
-          <img src={URL.createObjectURL(image)} width={68} height={68} />
+          <img
+            src={URL.createObjectURL(image)}
+            width={68}
+            height={68}
+            alt="avatar"
+          />
         ) : (
           <svg width={68} height={68} className={style.icon_user}>
             <use href={`${sprite}#icon-user`} />
@@ -115,9 +120,3 @@ export default function EditUserModal() {
     </div>
   );
 }
-
-//   <div className={style.icon_plus_div}>
-//           <svg width={10} height={10} className={style.icon_plus}>
-//             <use href={`${sprite}#icon-plus`} />
-//           </svg>
-//         </div>
