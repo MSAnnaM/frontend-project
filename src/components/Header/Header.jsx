@@ -2,6 +2,9 @@ import sprite from '../../img/icons/sprite.svg';
 import style from './Header.module.css';
 import BasicModal from '../Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
+import { Select } from './Select/Select';
+
+import userImage from '../../img/user.png';
 
 export default function Header({ toggleMenu }) {
   const [showEditProfile, setShowEditProfile] = useState(false);
@@ -24,24 +27,36 @@ export default function Header({ toggleMenu }) {
     <div className={style.container}>
       {windowWidth < 1440 ? (
         <button onClick={toggleMenu} className={style.menu} type="button">
-          <svg className={style.icon} width="32" height="32">
+          <svg className={style.icon} width="24" height="24">
             <use xlinkHref={`${sprite}#icon-menu`} />
           </svg>
         </button>
       ) : null}
       <div className={style.options}>
-        {/* Theme */}
+        <Select />
         <div className={style.info}>
           <p className={style.name}>Name</p>
-          <button
+          {/* <button
             type="button"
             className={style.button}
             onClick={toggleEditProfile}
           >
-            {/* <img src="" alt="" width={32} height={32} /> */}
-            <svg width="32" height="32">
-              <use xlinkHref={`${sprite}#icon-user`} />
-            </svg>
+            
+            <div className={style.box_icon_user}>
+              <svg width="24" height="20">
+                <use xlinkHref={`${sprite}#icon-user`} />
+              </svg>
+            </div>
+          </button> */}
+
+          <button type="button" className={style.button}>
+            <img
+              src={userImage}
+              alt="users avatar"
+              width={32}
+              height={32}
+              className={style.img}
+            />
           </button>
         </div>
       </div>
