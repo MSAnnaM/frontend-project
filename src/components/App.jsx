@@ -1,7 +1,7 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import EditUserModal from './staticComponents/EditUserModal';
-
+import { Header } from './Header/Header';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage'));
@@ -26,8 +26,8 @@ export const App = () => {
           </Route>
 
           <Route path="edit" element={<EditUserModal />} />
-
         </Route>
+        <Route path="home" element={<Header />} />
       </Routes>
     </>
   );

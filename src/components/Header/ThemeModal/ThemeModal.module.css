@@ -1,0 +1,29 @@
+.modal_box {
+  background-color: #151515;
+  border-radius: 8px;
+  border: 1px solid #bedbb0;
+  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  position: absolute;
+  bottom: -95px;
+  right: 72px;
+  padding: 18px 44px 18px 18px;
+}
+
+.modal_list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.modal_theme_btn {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: Poppins;
+  font-size: 14px;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.modal_theme_btn:focus,
+.modal_theme_btn:hover {
+  color: #bedbb0;
+}
