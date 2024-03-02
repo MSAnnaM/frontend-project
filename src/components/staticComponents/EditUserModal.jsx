@@ -13,6 +13,13 @@ export default function EditUserModal() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [image, setImage] = useState('');
+
+  const editProfileImage = e => {
+    const file = e.target.files[0];
+    setImage(file);
+  };
+
   const handleTogglePassword = () => {
     setShowPassword(!showPassword);
   };
@@ -30,18 +37,33 @@ export default function EditUserModal() {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Edit Profile</h3>
+
       <svg width={18} height={18} className={style.icon_close}>
         <use href={`${sprite}#icon-close`} />
       </svg>
+
       <div className={style.icon_div}>
-        <svg width={68} height={68} className={style.icon_user}>
-          <use href={`${sprite}#icon-user`} />
-        </svg>
-        <div className={style.icon_plus_div}>
+        {image ? (
+          <img src={URL.createObjectURL(image)} width={68} height={68} />
+        ) : (
+          <svg width={68} height={68} className={style.icon_user}>
+            <use href={`${sprite}#icon-user`} />
+          </svg>
+        )}
+
+        <label htmlFor="file-upload" className={style.icon_plus_div}>
           <svg width={10} height={10} className={style.icon_plus}>
             <use href={`${sprite}#icon-plus`} />
           </svg>
-        </div>
+        </label>
+
+        <input
+          id="file-upload"
+          type="file"
+          onChange={editProfileImage}
+          accept="image/*"
+          className={style.input_hidden}
+        />
       </div>
 
       <Formik>
@@ -93,3 +115,9 @@ export default function EditUserModal() {
     </div>
   );
 }
+
+//   <div className={style.icon_plus_div}>
+//           <svg width={10} height={10} className={style.icon_plus}>
+//             <use href={`${sprite}#icon-plus`} />
+//           </svg>
+//         </div>
