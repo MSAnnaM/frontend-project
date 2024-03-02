@@ -1,13 +1,15 @@
-// import { useDispatch } from 'react-redux';
-// import { logout } from "../../../redux/auth/operations"
+import { useDispatch } from 'react-redux';
+import { logout } from "../../../redux/auth/operations"
 import css from "./LogOut.module.css"
 import sprite from '../../../img/icons/sprite.svg';
+
+
 const LogOut = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     return (
         <div className={css.logout}>
             <button className={css.logout_button} type="button"
-            // onClick={() => dispatch(logout())}
+                onClick={() => dispatch(logout())}
             >
                 <svg className={css.logout_button_icon} width="32" height="32" >
                     <use href={`${sprite}#icon-login`} />

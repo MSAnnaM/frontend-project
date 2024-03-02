@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { authReducer } from './auth/slice';
 import storage from 'redux-persist/lib/storage';
+import modalReducer from './modal/modalSlice';
 
 import {
   persistStore,
@@ -25,6 +26,7 @@ const auth = persistReducer(
 export const store = configureStore({
   reducer: {
     auth,
+    modal: modalReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
