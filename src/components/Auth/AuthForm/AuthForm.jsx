@@ -83,7 +83,9 @@ export default function AuthForm({ type }) {
             className={style.input}
             type={showPassword ? 'text' : 'password'}
             name="password"
-            placeholder="Enter your password"
+            placeholder={`${
+              type === 'register' ? 'Create' : 'Confirm'
+            } a password`}
           />
           <div className={style.wrapper}>
             <svg
