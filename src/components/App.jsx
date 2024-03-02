@@ -31,6 +31,7 @@ export const App = () => {
           <Route path="edit" element={<EditUserModal />} />
 
         </Route>
+
         {/* Private Route from HomePage */}
         <Route path="/home" element={<HomePage />}>
           {/* <Route path="/home/:boardName" element={<ScreensPage />} /> */}

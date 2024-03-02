@@ -70,6 +70,10 @@
   color: #fff;
 }
 
+.input_hidden {
+  display: none;
+}
+
 .wrapper {
   position: relative;
   top: -50px;
