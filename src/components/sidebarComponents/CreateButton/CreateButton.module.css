@@ -1,9 +1,33 @@
+.sidebar_button_container {
+  height: 70px;
+}
 .button_container {
+  position: relative;
   display: flex;
+
   justify-content: space-between;
   padding-top: 15px;
   align-items: center;
 }
+.button_container::before {
+  position: absolute;
+  top: 10%;
+  content: url('../../../img/icons/sprite.svg#icon-vector');
+  width: 212px;
+  height: 2px;
+  background-color: white;
+  opacity: 0.1;
+}
+.button_container::after {
+  position: absolute;
+  top: 120%;
+  content: url('../../../img/icons/sprite.svg#icon-vector');
+  width: 212px;
+  height: 2px;
+  background-color: white;
+  opacity: 0.1;
+}
+
 .sidebar_button_title {
   font-weight: 500;
   font-size: 14px;
@@ -12,6 +36,8 @@
   width: 74px;
   height: 42px;
   margin: 0;
+  display: flex;
+  align-items: center;
 }
 .create_board_button {
   background: #bedbb0;
