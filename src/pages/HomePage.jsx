@@ -1,10 +1,11 @@
 import SideBar from 'components/sidebarComponents/Sidebar/Sidebar';
-import style from './HomePage.moduel.css';
+import style from './HomePage.module.css';
 import Header from 'components/Header/Header';
 import { useEffect, useState } from 'react';
 import Backdrop from 'components/Backdrop/Backdrop';
 import BasicModal from 'components/Modals/BasicModal/BasicModal';
 import HomeView from 'components/Dashboard/HomeView/HomeView';
+import ScreensPage from './ScreensPage';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,13 +41,13 @@ export default function HomePage() {
   }, [showModal]); //boards, dispatch
   return (
     <>
-      <Header toggleMenu={toggleMenu} />
       <div className={style.container}>
         <section className={style.section}>
           <SideBar />
           {isMenuOpen && window.innerWidth < 1440 && <Backdrop />}
-          <section>
-            <HomeView />
+          <section className={style.homepage_wrapper}>
+            <Header toggleMenu={toggleMenu} />
+            <ScreensPage />
             {showModal && (
               <BasicModal onClose={createBoard}>
                 {/* <AddEditBoard onClose={toggleModal} boardId={boardId} /> */}
@@ -57,4 +58,23 @@ export default function HomePage() {
       </div>
     </>
   );
+  // return (
+  //   <>
+  //     <Header toggleMenu={toggleMenu} />
+  //     <div className={style.container}>
+  //       <section className={style.section}>
+  //         <SideBar />
+  //         {isMenuOpen && window.innerWidth < 1440 && <Backdrop />}
+  //         <section>
+  //           <HomeView />
+  //           {showModal && (
+  //             <BasicModal onClose={createBoard}>
+  //               {/* <AddEditBoard onClose={toggleModal} boardId={boardId} /> */}
+  //             </BasicModal>
+  //           )}
+  //         </section>
+  //       </section>
+  //     </div>
+  //   </>
+  // );
 }

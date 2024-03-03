@@ -1,7 +1,8 @@
 import BoardEmpty from '../components/ScreensPage/BoardEmpty/BoardEmpty';
 import BoardCreated from 'components/ScreensPage/BoardCreated/BoardCreated';
+import Button from 'components/ScreensPage/Button/Button';
+import Icon from 'components/ScreensPage/Icon/Icon';
 import css from './ScreensPage.module.css';
-import sprite from '../img/icons/sprite.svg';
 
 const ScreensPage = () => {
   const board = true;
@@ -10,14 +11,13 @@ const ScreensPage = () => {
     <div className={css.section}>
       <div className={css.wrapper}>
         {board && <h2 className={css.title}>Board Title</h2>}
-        <button className={css.button} type="button" onClick="">
-          <svg className={css.icon_filter} width="16" height="16">
-            <use href={`${sprite}#icon-filter`} />
-          </svg>
+        <Button className={css.button}>
+          {' '}
+          <Icon className={css.icon_filter} id="icon-filter" />
           Filters
-        </button>
+        </Button>
       </div>
-      {!board ? <BoardCreated /> : <BoardEmpty />}
+      {board ? <BoardCreated /> : <BoardEmpty />}
     </div>
   );
 };

@@ -1,0 +1,17 @@
+.column {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: calc(100% - 126px);
+  margin-top: 10px;
+  margin-left: 20px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 32px;
+    height: calc(100% - 158px);
+    @media screen and (min-width: 1440px) {
+      margin-left: 24px;
+      height: calc(100% - 138px);
+    }
+  }
+}

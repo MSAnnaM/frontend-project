@@ -1,5 +1,12 @@
+import Column from '../Column/Column';
+import css from './BoardCreated.module.css';
+
 const BoardCreated = () => {
-  return <div>BoardCreated</div>;
+  return (
+    <div className={css.column}>
+      <Column />
+    </div>
+  );
 };
 
 export default BoardCreated;
