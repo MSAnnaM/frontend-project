@@ -1,4 +1,4 @@
-import css from "./HelpButton.module.css";
+import css from './HelpButton.module.css';
 import sprite from '../../../img/icons/sprite.svg';
 import { useDispatch } from 'react-redux';
 import { openModal } from '../../../redux/modal/modalSlice';

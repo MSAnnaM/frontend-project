@@ -1,4 +1,4 @@
-import Wrapper from 'components/Auth/Wrapper/Wrapper';
+import Wrapper from 'components/UI/Wrapper/Wrapper';
 import Loader from 'components/UI/Loader/Loader';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';

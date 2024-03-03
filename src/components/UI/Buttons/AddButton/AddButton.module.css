@@ -1,0 +1,19 @@
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bedbb0;
+  border-radius: 6px;
+  width: 40px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+}
+.add-button:hover,
+.add-button:focus {
+  background: #9dc888;
+  transform: scale(1.05);
+}
+.icon {
+  stroke: #121212;
+}

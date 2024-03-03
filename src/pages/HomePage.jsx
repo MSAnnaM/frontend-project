@@ -6,6 +6,8 @@ import Backdrop from 'components/Backdrop/Backdrop';
 import BasicModal from 'components/Modals/BasicModal/BasicModal';
 // import HomeView from 'components/Dashboard/HomeView/HomeView';
 import ScreensPage from './ScreensPage';
+import HomeView from 'components/Dashboard/HomeView/HomeView';
+
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

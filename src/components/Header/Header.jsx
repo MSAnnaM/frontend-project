@@ -1,6 +1,6 @@
 import sprite from '../../img/icons/sprite.svg';
 import style from './Header.module.css';
-import BasicModal from '../Modals/BasicModal/BasicModal';
+import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
 import { Select } from './Select/Select';
 
@@ -41,7 +41,7 @@ export default function Header({ toggleMenu }) {
             className={style.button}
             onClick={toggleEditProfile}
           >
-            
+
             <div className={style.box_icon_user}>
               <svg width="24" height="20">
                 <use xlinkHref={`${sprite}#icon-user`} />
