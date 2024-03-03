@@ -21,14 +21,13 @@ const validationSchema = Yup.object({
   comment: Yup.string().required('Comment is required'),
 });
 
-const HelpForm = () => {
+const HelpForm = ({ onClose }) => {
   //   const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
     // await dispatch(userComment(values));
     resetForm();
   };
-  const handleCloseModal = () => {};
 
   return (
     <Formik
@@ -41,7 +40,7 @@ const HelpForm = () => {
           className={style.help_form_close_btn}
           width="18"
           height="18"
-          onClick={handleCloseModal}
+          onClick={onClose}
         >
           <use href={`${sprite}#icon-close`}></use>
         </svg>
