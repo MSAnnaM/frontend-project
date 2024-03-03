@@ -16,7 +16,7 @@ const offToken = () => {
 
 const registration = async user => {
     console.log(user);
-    const data = await api.post(`/users/register`, user);
+    const {data} = await api.post(`/users/register`, user);
     console.log(data);
     setToken(data.token);
   return data;
