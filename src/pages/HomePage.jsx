@@ -4,7 +4,7 @@ import Header from 'components/Header/Header';
 import { useEffect, useState } from 'react';
 import Backdrop from 'components/Backdrop/Backdrop';
 import BasicModal from 'components/Modals/BasicModal/BasicModal';
-import HomeView from 'components/Dashboard/HomeView/HomeView';
+// import HomeView from 'components/Dashboard/HomeView/HomeView';
 import ScreensPage from './ScreensPage';
 
 export default function HomePage() {
