@@ -1,0 +1,113 @@
+.column_item {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.column {
+  display: block;
+  min-width: 335px;
+  width: 100%;
+  margin-right: 20px;
+
+  @media screen and (min-width: 768px) {
+    min-width: 334px;
+  }
+}
+
+.column_create_btn {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 500;
+  background-color: #121212;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.column_btn_icon_bg {
+  background-color: #fff;
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.column_btn_icon {
+  width: 14px;
+  height: 14px;
+  stroke: #161616;
+}
+
+.column_section {
+  display: flex;
+  width: 334px;
+  background-color: #121212;
+  margin-bottom: 10px;
+  height: 56px;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.column_title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 20px;
+  padding: 10px;
+  color: #fff;
+}
+
+.column_edit_btn {
+  display: flex;
+  width: 40px;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-right: 20px;
+}
+
+.column_edit_btn :first-child {
+  margin-right: 2px;
+}
+
+.column_icon {
+  width: 16px;
+  height: 16px;
+  stroke: #ffffff80;
+  fill: transparent;
+}
+
+.card_create_btn {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  font-size: 14px;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  background-color: #bedbb0;
+  color: #161616;
+}
+
+.card_btn_icon_bg {
+  background-color: #161616;
+  width: 28px;
+  height: 28px;
+  margin-right: 15px;
+  padding: 7px;
+  border-radius: 8px;
+}
+
+.card_btn_icon {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
+}

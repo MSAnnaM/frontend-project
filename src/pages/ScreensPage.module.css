@@ -1,0 +1,53 @@
+.section {
+  height: 100vh;
+  width: 100%;
+  background-color: #232323;
+}
+
+.wrapper {
+  min-height: 34px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  padding: 14px 20px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 26px 32px;
+
+    @media screen and (min-width: 1440px) {
+      padding: 10px 24px;
+    }
+  }
+}
+
+.title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+  }
+}
+
+.icon_filter {
+  fill: transparent;
+  stroke: #ffffffcc;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.button {
+  display: flex;
+  min-width: 64px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: #ffffffcc;
+  margin: 0;
+  user-select: none;
+}
