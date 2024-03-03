@@ -1,7 +1,7 @@
 import Radio from '@mui/material/Radio';
 import { Field, Form, Formik } from 'formik';
 import style from './AddCardModal.module.css';
-import sprite from '../img/icons/sprite.svg';
+import sprite from '../../img/icons/sprite.svg';
 import { FormLabel } from '@mui/material';
 import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
@@ -156,7 +156,7 @@ export default function AddCardModal() {
                 minDate={new Date()}
                 customInput={<CustomInput />}
                 dateFormat="MMMM d"
-                calendarClassName={style.calendar_colors}
+                calendarClassName={style.calendar_color}
               />
 
               <svg width={18} height={18} className={style.icon_down}>
