@@ -1,17 +1,36 @@
-import { Field, Form, Formik } from 'formik';
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
-import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router-dom';
 
-export default function EditUserModal() {
-  //   const location = useLocation();
+import { useState } from 'react';
+import { authSchema } from '../Auth/Schemas/authSchema.js';
+import FormButton from 'components/UI/Buttons/FormButton/FormButton';
+import Eye from 'components/UI/Forma/Eye/Eye';
+import Error from 'components/UI/Forma/Error/Error';
+import Input from 'components/UI/Forma/Input/Input';
+import Forma from 'components/UI/Forma/Forma';
 
-  const [showPassword, setShowPassword] = useState(false);
+const initialValues = {
+  name: 'Nastya',
+  email: 'futgfggv',
+  password: '6796976976976',
+};
 
-  const [name, setName] = useState('');
+export default function EditUserModal({ type = login }) {
+  /*   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  useEffect(() => {
+    setName('Nastya');
+    setEmail('futgfggv');
+    setPassword('6796976976976');
+  }, []); */
+
+  // import { useDispatch } from 'react-redux';
+  // import { loginUser, registerUser } from '../../../redux/user/userApi';
+
+  //   const dispatch = useDispatch();
+  //   const handleSubmit = values =>
+  //     dispatch(type === 'login' ? loginUser(values) : registerUser(values));
 
   const [image, setImage] = useState('');
 
@@ -20,19 +39,8 @@ export default function EditUserModal() {
     setImage(file);
   };
 
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
-  useEffect(() => {
-    setName('Nastya');
-    setEmail('futgfggv');
-    setPassword('6796976976976');
-  }, []);
-
-  const updateData = () => {
-    console.log(name, email, password);
-  };
+  const [showPassword, setShowPassword] = useState(false);
+  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   return (
     <div className={style.box}>
@@ -70,53 +78,26 @@ export default function EditUserModal() {
           className={style.input_hidden}
         />
       </div>
-
-      <Formik>
-        <Form className={style.form} autoComplete="off">
-          <div className={style['input-box']}>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type="text"
-                name="name"
-                defaultValue={name}
-                onChange={e => setName(e.target.value)}
-              />
-            </div>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type="text"
-                name="email"
-                defaultValue={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </div>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                defaultValue={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <div className={style.wrapper}>
-                <svg
-                  width={18}
-                  height={18}
-                  className={style.icon}
-                  onClick={handleTogglePassword}
-                >
-                  <use href={`${sprite}#icon-eye`} />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <button className={style.button} type="submit" onClick={updateData}>
-            Send
-          </button>
-        </Form>
-      </Formik>
+      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
+        <div className={style.wrap}>
+          <Error name="name" />
+          <Input type="text" name="name" text={initialValues.name} />
+        </div>
+        <div className={style.wrap}>
+          <Error name="email" />
+          <Input type="text" name="email" text={initialValues.email} />
+        </div>
+        <div className={style.wrap}>
+          <Error name="password" />
+          <Input
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            text={initialValues.password}
+          />
+          <Eye toggle={handleTogglePassword} />
+        </div>
+        <FormButton type="submit">Send</FormButton>
+      </Forma>
     </div>
   );
 }
