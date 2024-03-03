@@ -15,7 +15,7 @@ const initialValues = {
   password: '6796976976976',
 };
 
-export default function EditUserModal({ type = login }) {
+export default function EditUserModal() {
   /*   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -78,7 +78,7 @@ export default function EditUserModal({ type = login }) {
           className={style.input_hidden}
         />
       </div>
-      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
+      <Forma initial={initialValues} schema={authSchema} >
         <div className={style.wrap}>
           <Error name="name" />
           <Input type="text" name="name" text={initialValues.name} />
