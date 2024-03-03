@@ -4,6 +4,8 @@ import css from "../Sidebar/Sidebar.module.css"
 import ListBoards from "../ListBoards/ListBoards"
 import HelpMenu from "../HelpMenu/HelpMenu"
 import NewBoard from "../NewBoard/NewBoard"
+import HelpModal from "../HelpModal/HelpModal"
+import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
 
 const Sidebar = () => {
 
@@ -15,8 +17,11 @@ const Sidebar = () => {
                 <ListBoards />
                 <div className={css.sidebar_down}>
                     <HelpMenu />
+
                     <LogOut />
                 </div>
+                <HelpModal />
+                <CreateBoardModal />
             </div>
         </section>
     )
