@@ -8,7 +8,6 @@ const AuthPage = lazy(() => import('pages/AuthPage'));
 const WelcomeView = lazy(() =>
   import('components/Auth/WelcomeView/WelcomeView')
 );
-const HomePage = lazy(() => import('pages/HomePage'));
 
 const RegisterForm = lazy(() =>
   import('components/Auth/RegisterForm/RegisterForm')

@@ -1,5 +1,5 @@
-import BoardEmpty from '../components/staticComponents/ScreensPage/BoardEmpty/BoardEmpty';
-import BoardCreated from 'components/staticComponents/ScreensPage/BoardCreated/BoardCreated';
+import BoardEmpty from '../components/ScreensPage/BoardEmpty/BoardEmpty';
+import BoardCreated from 'components/ScreensPage/BoardCreated/BoardCreated';
 import css from './ScreensPage.module.css';
 import sprite from '../img/icons/sprite.svg';
 
