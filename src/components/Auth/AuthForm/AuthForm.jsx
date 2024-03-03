@@ -1,9 +1,3 @@
-/* // useEffect
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../../../redux/auth/operations';
-import { isLoggedIn } from '../../../redux/auth/selectors'; */
-
 import { useState } from 'react';
 import style from './AuthForm.module.css';
 import { authSchema } from '../Schemas/authSchema.js';
@@ -14,7 +8,7 @@ import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 
 import { useDispatch } from 'react-redux';
-import { registerUser } from '../../../redux/user/userApi';
+import { loginUser, registerUser } from '../../../redux/user/userApi';
 
 const initialValues = {
   email: '',
@@ -24,20 +18,11 @@ const initialValues = {
 
 export default function AuthForm({ type }) {
   const [showPassword, setShowPassword] = useState(false);
-
   const dispatch = useDispatch();
-  // const isLogin = useSelector(isLoggedIn);
-  // const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   if (isLogin) navigate('/home', { replace: true });
-  // }, [isLogin, navigate]);
-
   const handleTogglePassword = () => setShowPassword(!showPassword);
+  const handleSubmit = values =>
+    dispatch(type === 'login' ? loginUser(values) : registerUser(values));
 
-  // const handleSubmit = () => await dispatch(type === 'login' ? login(values) : register(values));
-
-  const handleSubmit = values => dispatch(registerUser(values));
   return (
     <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
       {type === 'register' && (
