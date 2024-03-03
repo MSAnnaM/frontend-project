@@ -13,6 +13,9 @@ import Eye from './Eye/Eye';
 import Error from './Error/Error';
 import Input from './Input/Input';
 
+import { useDispatch } from 'react-redux';
+import {registerUser } from '../../../redux/user/userApi';
+
 const initialValues = {
   email: '',
   password: '',
@@ -22,18 +25,20 @@ const initialValues = {
 export default function AuthForm({ type }) {
   const [showPassword, setShowPassword] = useState(false);
 
-  /* const dispatch = useDispatch();
-  const isLogin = useSelector(isLoggedIn);
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  // const isLogin = useSelector(isLoggedIn);
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    if (isLogin) navigate('/home', { replace: true });
-  }, [isLogin, navigate]); */
+  // useEffect(() => {
+  //   if (isLogin) navigate('/home', { replace: true });
+  // }, [isLogin, navigate]);
 
   const handleTogglePassword = () => setShowPassword(!showPassword);
 
   const handleSubmit = async (values, { resetForm }) => {
     // await dispatch(type === 'login' ? login(values) : register(values));
+    dispatch(registerUser(values));
+
     resetForm();
   };
 
