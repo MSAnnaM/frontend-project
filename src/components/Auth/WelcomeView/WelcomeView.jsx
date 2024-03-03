@@ -6,8 +6,7 @@ import { useSelector } from 'react-redux'; */
 import { NavLink } from 'react-router-dom';
 import style from './WelcomeView.module.css';
 import ava from '../../../img/programmer.png';
-import sprite from '../../../img/icons/sprite.svg';
-
+import Logo from 'components/UI/Logo/Logo';
 
 export default function WelcomeView() {
   /* const isAuthorized = useSelector(isLoggedIn);
@@ -18,16 +17,8 @@ export default function WelcomeView() {
     }, [navigate, isAuthorized]); */
   return (
     <div className={style.section}>
-
       <img src={ava} alt="" className={style.image} />
-      <div className={style.box}>
-        <div className={style['icon-box']}>
-          <svg className={style.icon} width={18} height={24}>
-            <use href={`${sprite}#icon-logo`} />
-          </svg>
-        </div>
-        <h1 className={style.title}>Task Pro</h1>
-      </div>
+      <Logo big />
       <p className={style.descr}>
         Supercharge your productivity and take control of your tasks with Task
         Pro - Don't wait, start achieving your goals now!

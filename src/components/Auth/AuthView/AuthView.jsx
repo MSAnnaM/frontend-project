@@ -1,6 +1,6 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import style from './AuthView.module.css';
-import { Suspense } from 'react';
 import Loader from 'components/UI/Loader/Loader';
 
 export default function AuthView() {

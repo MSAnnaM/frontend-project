@@ -1,5 +1,5 @@
 import LogOut from "../LogOut/LogOut"
-import Logo from "../Logo/Logo"
+import Logo from 'components/UI/Logo/Logo';
 import css from "../Sidebar/Sidebar.module.css"
 import ListBoards from "../ListBoards/ListBoards"
 import HelpMenu from "../HelpMenu/HelpMenu"
