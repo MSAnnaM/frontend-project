@@ -1,0 +1,17 @@
+.sidebar {
+  width: 260px;
+  height: 100%;
+  float: left;
+  background: #121212;
+}
+
+.sidebar_container {
+  padding: 24px;
+  height: 722px;
+  position: relative;
+}
+
+.sidebar_down {
+  position: absolute;
+  bottom: 0;
+}

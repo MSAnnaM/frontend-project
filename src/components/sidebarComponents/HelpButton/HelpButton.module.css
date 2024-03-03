@@ -1,0 +1,22 @@
+.sidebar_help_button {
+  width: 94px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+  margin-top: auto;
+}
+.sidebar_help_button:hover,
+.sidebar_help_button:focus {
+  transform: scale(1.05);
+}
+.sidebar_button_help {
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  background: #1f1f1f;
+  border: none;
+}
