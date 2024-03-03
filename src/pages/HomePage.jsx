@@ -2,11 +2,11 @@ import SideBar from 'components/sidebarComponents/Sidebar/Sidebar';
 import style from './HomePage.module.css';
 import Header from 'components/Header/Header';
 import { useEffect, useState } from 'react';
-import Backdrop from 'components/Backdrop/Backdrop';
-import BasicModal from 'components/Modals/BasicModal/BasicModal';
+import Backdrop from '../components/UI/Backdrop/Backdrop';
+import BasicModal from '../components/UI/Modals/BasicModal/BasicModal';
 // import HomeView from 'components/Dashboard/HomeView/HomeView';
 import ScreensPage from './ScreensPage';
-import HomeView from 'components/Dashboard/HomeView/HomeView';
+// import HomeView from 'components/Dashboard/HomeView/HomeView';
 
 
 export default function HomePage() {
