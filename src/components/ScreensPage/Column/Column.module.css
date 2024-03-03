@@ -6,12 +6,11 @@
 
 .column {
   display: block;
-  min-width: 335px;
-  width: 100%;
+  width: 335px;
   margin-right: 20px;
 
   @media screen and (min-width: 768px) {
-    min-width: 334px;
+    width: 334px;
   }
 }
 
@@ -110,4 +109,24 @@
   width: 14px;
   height: 14px;
   stroke: #fff;
+}
+
+.card_container {
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  margin-right: 40px;
+}
+
+.card:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.scroll_container {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
