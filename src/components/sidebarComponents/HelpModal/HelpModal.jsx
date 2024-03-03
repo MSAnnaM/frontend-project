@@ -31,7 +31,7 @@ const HelpModal = () => {
     ? createPortal(
         <div className={css.modal_backdrop} onClick={handleBackdropClick}>
           <div div className={css.modal_content}>
-            <HelpForm />
+            <HelpForm onClose={() => dispatch(closeModal('modal2'))} />
           </div>
         </div>,
         document.querySelector('#modal-root2')
