@@ -1,8 +1,9 @@
 import { Form, Formik } from 'formik';
 import css from './Forma.module.css';
 
-export default function Forma({ children, initial, schema }) {
+export default function Forma({ children, initial, schema, handle }) {
   const handleSubmit = async (values, { resetForm }) => {
+    handle(values);
     resetForm();
   };
 

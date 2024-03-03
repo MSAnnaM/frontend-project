@@ -14,7 +14,7 @@ import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 
 import { useDispatch } from 'react-redux';
-import {registerUser } from '../../../redux/user/userApi';
+import { registerUser } from '../../../redux/user/userApi';
 
 const initialValues = {
   email: '',
@@ -37,9 +37,9 @@ export default function AuthForm({ type }) {
 
   // const handleSubmit = () => await dispatch(type === 'login' ? login(values) : register(values));
 
-
+  const handleSubmit = values => dispatch(registerUser(values));
   return (
-    <Forma initial={initialValues} schema={authSchema}>
+    <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
       {type === 'register' && (
         <div className={style.wrap}>
           <Error name="name" />
