@@ -7,10 +7,17 @@ import NewBoard from "../NewBoard/NewBoard"
 import HelpModal from "../HelpModal/HelpModal"
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
 
-const Sidebar = () => {
+
+const Sidebar = ({ isMenuOpen, toggleMenu }) => {
+
+    console.log(toggleMenu)
+    const handleBackdropClick = () => {
+        toggleMenu();
+
+    };
 
     return (
-        <section className={css.sidebar}>
+        <section className={`${css.sidebar} ${isMenuOpen ? css.active : ""}`} onClick={handleBackdropClick}>
             <div className={css.sidebar_container}>
                 <Logo />
                 <NewBoard />
