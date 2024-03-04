@@ -5,7 +5,6 @@ const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.user = payload.user;
     state.isLoggedIn = true;
-    console.log(state);
 };
 const logoutFulfilld = (state, { payload }) => {
   state.token = null;
