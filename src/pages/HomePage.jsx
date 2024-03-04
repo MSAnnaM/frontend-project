@@ -2,7 +2,7 @@ import SideBar from 'components/sidebarComponents/Sidebar/Sidebar';
 import style from './HomePage.module.css';
 import Header from 'components/Header/Header';
 import { useEffect, useState } from 'react';
-import Backdrop from '../components/UI/Backdrop/Backdrop';
+// import Backdrop from '../components/UI/Backdrop/Backdrop';
 import BasicModal from '../components/UI/Modals/BasicModal/BasicModal';
 // import HomeView from 'components/Dashboard/HomeView/HomeView';
 import ScreensPage from './ScreensPage';
@@ -41,12 +41,15 @@ export default function HomePage() {
       window.removeEventListener('resize', handleResize);
     };
   }, [showModal]); //boards, dispatch
+  const handleBackdropClick = () => {
+    setIsMenuOpen(!isMenuOpen)
+  }
   return (
     <>
-      <div className={style.container}>
+      <div className={style.container} onClick={handleBackdropClick}>
         <section className={style.section}>
           <SideBar />
-          {isMenuOpen && window.innerWidth < 1440 && <Backdrop />}
+          {isMenuOpen && window.innerWidth < 1440 && <SideBar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
           <section className={style.homepage_wrapper}>
             <Header toggleMenu={toggleMenu} />
             <ScreensPage />
