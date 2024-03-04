@@ -4,9 +4,9 @@ import Icon from '../Icon/Icon';
 import Card from '../Card/Card';
 
 const Column = () => {
-  const columns1 = [];
+  // const columns = [];
 
-  const columns2 = [
+  const columns = [
     {
       _id: 1,
       title: 'First Column',
@@ -18,11 +18,38 @@ const Column = () => {
           priority: 'Low',
           deadline: '15/04/2024',
         },
+        {
+          _id: 2,
+          title: 'Second Card',
+          description: 'My second card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
+      ],
+    },
+    {
+      _id: 1,
+      title: 'First Column',
+      cards: [
+        {
+          _id: 1,
+          title: 'First Card',
+          description: 'My first card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
+        {
+          _id: 2,
+          title: 'Second Card',
+          description: 'My second card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
       ],
     },
   ];
 
-  const columns = [
+  const columns1 = [
     {
       _id: 1,
       title: 'First Column',

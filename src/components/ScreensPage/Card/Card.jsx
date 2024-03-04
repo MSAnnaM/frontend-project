@@ -28,10 +28,7 @@ const Card = ({ data }) => {
               <ul className={css.actions}>
                 <li className={css.action_item}>
                   <Button className={css.move_card_btn}>
-                    <Icon
-                      className={css.move_card__icon}
-                      id="icon-broken-right"
-                    />
+                    <Icon className={css.move_card__icon} id="icon-normal" />
                   </Button>
                 </li>
                 <li className={css.action_item}>

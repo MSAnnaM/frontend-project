@@ -10,7 +10,7 @@ const ScreensPage = () => {
   return (
     <div className={css.section}>
       <div className={css.wrapper}>
-        {board && <h2 className={css.title}>Board Title</h2>}
+        {<h2 className={css.title}>{board && 'Board Title'}</h2>}
         <Button className={css.button}>
           {' '}
           <Icon className={css.icon_filter} id="icon-filter" />
