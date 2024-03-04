@@ -4,7 +4,7 @@ import { registerUser, loginUser, logoutUser, refreshUser } from './userApi';
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
   state.user = payload.user;
-    state.isLoggedIn = true;
+  state.isLoggedIn = true;
 };
 const logoutFulfilld = (state, { payload }) => {
   state.token = null;
@@ -21,7 +21,7 @@ const refreshFulfilled = (state, action, payload) => {
 const registrationSlice = createSlice({
   name: 'registration',
   initialState: {
-    user: { name: null, email: null, avatarURL: '',theme: 'dark', },
+    user: { name: null, email: null, avatarURL: '', theme: 'dark' },
     token: null,
     isLoading: false,
     isRefreshing: false,
@@ -39,6 +39,33 @@ const registrationSlice = createSlice({
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
       });
+    // .addCase(updateUser.fulfilled, (state, action) => {
+    //   handleFulfilled(state, action.payload);
+    // });
   },
 });
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    user: {
+      name: null,
+      email: null,
+      password: null,
+      avatarURL: '',
+      theme: 'dark',
+    },
+  },
+  reducers: {
+    updateUserField: (state, action) => {
+      const { name, value } = action.payload;
+      state[name] = value;
+    },
+    updateUserImage: (state, action) => {
+      state.avatarURL = action.payload;
+    },
+  },
+});
+
+export const { updateUserField, updateUserImage } = userSlice.actions;
+export default userSlice.reducer;
 export const registrationReducer = registrationSlice.reducer;
