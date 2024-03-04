@@ -11,12 +11,15 @@ import Forma from 'components/UI/Forma/Forma';
 import { updateUser } from '../../redux/user/userApi';
 
 const initialValues = {
-  name: 'Nastya',
-  email: 'futgfggv',
-  password: '6796976976976',
+  name: '',
+  email: '',
+  password: '',
 };
 
 export default function EditUserModal() {
+  const dispatch = useDispatch();
+  const handleSubmit = data => dispatch(updateUser(data));
+
   const [image, setImage] = useState('');
 
   const editProfileImage = e => {
@@ -63,11 +66,7 @@ export default function EditUserModal() {
           className={style.input_hidden}
         />
       </div>
-      <Forma
-        initial={initialValues}
-        schema={authSchema}
-        onSubmit={handleSubmit}
-      >
+      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
         <div className={style.wrap}>
           <Error name="name" />
           <Input type="text" name="name" text={initialValues.name} />

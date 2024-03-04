@@ -39,8 +39,8 @@ const refresh = async () => {
   return data;
 };
 
-const update = async () => {
-  const { data } = await api.post(`/users/update`);
+const update = async user => {
+  const { data } = await api.patch(`/users/update`, user);
   return data;
 };
 
