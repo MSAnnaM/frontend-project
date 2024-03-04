@@ -37,18 +37,18 @@ const Card = ({ data }) => {
               )}
               <ul className={css.actions}>
                 <li className={css.action_item}>
-                  <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card_icon} id="icon-normal" />
+                  <Button className={css.action_btn}>
+                    <Icon className={css.action_btn_icon} id="icon-normal" />
                   </Button>
                 </li>
                 <li className={css.action_item}>
-                  <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card_icon} id="icon-pencil" />
+                  <Button className={css.action_btn}>
+                    <Icon className={css.action_btn_icon} id="icon-pencil" />
                   </Button>
                 </li>
-                <li className={css.actionItem}>
-                  <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card_icon} id="icon-trash" />
+                <li className={css.action_item}>
+                  <Button className={css.action_btn}>
+                    <Icon className={css.action_btn_icon} id="icon-trash" />
                   </Button>
                 </li>
               </ul>

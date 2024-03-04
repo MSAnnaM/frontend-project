@@ -18,17 +18,17 @@
 }
 
 .column::-webkit-scrollbar {
-  width: 5px;
-  height: 10px;
+  height: 12px;
 }
 
 .column::-webkit-scrollbar-track {
   background-color: #161616;
+  border-radius: 6px;
 }
 
 .column::-webkit-scrollbar-thumb {
   background-color: #ffffff1a;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .column::-webkit-scrollbar-thumb:hover {

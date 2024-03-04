@@ -7,10 +7,11 @@
 .column {
   display: block;
   width: 335px;
-  margin-right: 20px;
+  margin-right: 18px;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
-    width: 334px;
+    min-width: 334px;
   }
 }
 
@@ -59,7 +60,6 @@
   margin-left: 20px;
   padding: 10px;
   color: #fff;
-  overflow-y: auto;
 }
 
 .column_edit_btn {
@@ -128,7 +128,7 @@
 
 .card {
   width: 100%;
-  margin-right: 40px;
+  margin-right: 16px;
 }
 
 .card:not(:last-child) {
@@ -140,25 +140,20 @@
   overflow-x: hidden;
 }
 
-.scroll_container::-webkit-scrollbar,
-.column_title::-webkit-scrollbar {
-  width: 10px;
-  height: 5px;
+.scroll_container::-webkit-scrollbar {
+  width: 8px;
 }
 
-.scroll_container::-webkit-scrollbar-track,
-.column_title::-webkit-scrollbar-track {
-  background-color: #3b3838;
-  border-radius: 8px;
-}
-
-.scroll__container::-webkit-scrollbar-thumb,
-.column_title::-webkit-scrollbar-thumb {
+.scroll_container::-webkit-scrollbar-track {
   background-color: #161616;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
-.scroll__container::-webkit-scrollbar-thumb:hover,
-.column_title::-webkit-scrollbar-thumb:hover {
-  background-color: #bcb4b4;
+.scroll_container::-webkit-scrollbar-thumb {
+  background-color: #ffffff1a;
+  border-radius: 4px;
+}
+
+.scroll_container::-webkit-scrollbar-thumb:hover {
+  background-color: #ffffff33;
 }
