@@ -21,11 +21,26 @@ const refreshFulfilled = (state, action, payload) => {
 const registrationSlice = createSlice({
   name: 'registration',
   initialState: {
-    user: { name: null, email: null, avatarURL: '', theme: 'dark' },
+    user: {
+      name: null,
+      email: null,
+      password: null,
+      avatarURL: '',
+      theme: 'dark',
+    },
     token: null,
     isLoading: false,
     isRefreshing: false,
     isLoggedIn: false,
+  },
+  reducers: {
+    updateUserField: (state, action) => {
+      const { name, value } = action.payload;
+      state.user[name] = value;
+    },
+    updateUserImage: (state, action) => {
+      state.user.avatarURL = action.payload;
+    },
   },
   extraReducers: builder => {
     builder
@@ -44,28 +59,7 @@ const registrationSlice = createSlice({
     // });
   },
 });
-const userSlice = createSlice({
-  name: 'user',
-  initialState: {
-    user: {
-      name: null,
-      email: null,
-      password: null,
-      avatarURL: '',
-      theme: 'dark',
-    },
-  },
-  reducers: {
-    updateUserField: (state, action) => {
-      const { name, value } = action.payload;
-      state[name] = value;
-    },
-    updateUserImage: (state, action) => {
-      state.avatarURL = action.payload;
-    },
-  },
-});
 
-export const { updateUserField, updateUserImage } = userSlice.actions;
-export default userSlice.reducer;
+export const { updateUserField, updateUserImage } = registrationSlice.actions;
+
 export const registrationReducer = registrationSlice.reducer;

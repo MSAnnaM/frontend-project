@@ -24,6 +24,7 @@ export default function EditUserModal() {
   //   const file = e.target.files[0];
   //   setImage(file);
   // };
+
   const dispatch = useDispatch();
   const { name, email, password, avatarURL } = useSelector(userSelect);
 
@@ -105,7 +106,7 @@ export default function EditUserModal() {
           />
           <Eye toggle={handleTogglePassword} />
         </div>
-        <FormButton type="submit" onChange={handleChange}>
+        <FormButton type="submit" onClick={handleChange}>
           Send
         </FormButton>
       </Forma>

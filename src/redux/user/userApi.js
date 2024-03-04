@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
 export const api = axios.create({
-  baseURL: 'https://api-server-c4rg.onrender.com/api',
+  baseURL: 'http://localhost:3005/api',
 });
 
 const setToken = token => {
