@@ -3,7 +3,14 @@ import Icon from '../Icon/Icon';
 import css from './Card.module.css';
 
 const Card = ({ data }) => {
-  const { _id, title, description, priority, deadline } = data;
+  const { title, description, priority, deadline } = data;
+
+  const isDeadline = date => {
+    if (date === '04/03/2024') {
+      return true;
+    }
+    return false;
+  };
 
   return (
     <>
@@ -25,20 +32,23 @@ const Card = ({ data }) => {
               <span className={css.addition_value}>{deadline}</span>
             </div>
             <div className={css.actions_wrap}>
+              {isDeadline(deadline) && (
+                <Icon className={css.deadline_icon} id="icon-bell"></Icon>
+              )}
               <ul className={css.actions}>
                 <li className={css.action_item}>
                   <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card__icon} id="icon-normal" />
+                    <Icon className={css.move_card_icon} id="icon-normal" />
                   </Button>
                 </li>
                 <li className={css.action_item}>
                   <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card__icon} id="icon-pencil" />
+                    <Icon className={css.move_card_icon} id="icon-pencil" />
                   </Button>
                 </li>
                 <li className={css.actionItem}>
                   <Button className={css.move_card_btn}>
-                    <Icon className={css.move_card__icon} id="icon-trash" />
+                    <Icon className={css.move_card_icon} id="icon-trash" />
                   </Button>
                 </li>
               </ul>

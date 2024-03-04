@@ -88,6 +88,12 @@
   background-color: var(--card-priority-low-color);
 }
 
+.deadline_icon {
+  width: 16px;
+  height: 16px;
+  stroke: #bedbb0;
+}
+
 .actions_wrap {
   display: flex;
   align-items: center;
@@ -108,7 +114,7 @@
   height: 16px;
 }
 
-.move_card__icon {
+.move_card_icon {
   width: 16px;
   height: 16px;
   stroke: var(--card-description-color);

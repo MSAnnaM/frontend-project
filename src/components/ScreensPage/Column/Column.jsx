@@ -16,6 +16,40 @@ const Column = () => {
           title: 'First Card',
           description: 'My first card',
           priority: 'Low',
+          deadline: '04/03/2024',
+        },
+        {
+          _id: 2,
+          title: 'Second Card',
+          description: 'My second card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
+        {
+          _id: 3,
+          title: 'Second Card',
+          description: 'My second card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
+        {
+          _id: 4,
+          title: 'Second Card',
+          description: 'My second card',
+          priority: 'Low',
+          deadline: '15/04/2024',
+        },
+      ],
+    },
+    {
+      _id: 1,
+      title: 'First Column',
+      cards: [
+        {
+          _id: 1,
+          title: 'First Card',
+          description: 'My first card',
+          priority: 'Low',
           deadline: '15/04/2024',
         },
         {
@@ -83,7 +117,7 @@ const Column = () => {
               </div>
 
               <div className={css.card_container}>
-                <ul className={css.scroll__container}>
+                <ul className={css.scroll_container}>
                   {cards &&
                     cards.map(card => (
                       <li key={card._id} className={css.card}>

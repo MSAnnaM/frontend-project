@@ -59,6 +59,7 @@
   margin-left: 20px;
   padding: 10px;
   color: #fff;
+  overflow-y: auto;
 }
 
 .column_edit_btn {
@@ -115,6 +116,14 @@
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
+  max-height: calc(100vh - 334px);
+
+  @media screen and (min-width: 768px) {
+    max-height: calc(100vh - 384px);
+    @media screen and (min-width: 1440px) {
+      max-height: calc(100vh - 292px);
+    }
+  }
 }
 
 .card {
@@ -129,4 +138,27 @@
 .scroll_container {
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.scroll_container::-webkit-scrollbar,
+.column_title::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+.scroll_container::-webkit-scrollbar-track,
+.column_title::-webkit-scrollbar-track {
+  background-color: #3b3838;
+  border-radius: 8px;
+}
+
+.scroll__container::-webkit-scrollbar-thumb,
+.column_title::-webkit-scrollbar-thumb {
+  background-color: #161616;
+  border-radius: 5px;
+}
+
+.scroll__container::-webkit-scrollbar-thumb:hover,
+.column_title::-webkit-scrollbar-thumb:hover {
+  background-color: #bcb4b4;
 }
