@@ -20,8 +20,10 @@ export default function AuthForm({ type }) {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
   const handleTogglePassword = () => setShowPassword(!showPassword);
-  const handleSubmit = values =>
-    dispatch(type === 'login' ? loginUser(values) : registerUser(values));
+  const handleSubmit = values => {
+    const {email, password} = values
+    const loginData = {email, password}
+    dispatch(type === 'login' ? loginUser(loginData) : registerUser(values));}
 
   return (
     <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
