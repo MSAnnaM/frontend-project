@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logoutUser } from "redux/user/userApi"
+import { logoutUser } from "../../../redux/user/userApi"
 import css from "./LogOut.module.css"
 import sprite from '../../../img/icons/sprite.svg';
 
