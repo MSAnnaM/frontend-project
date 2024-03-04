@@ -41,15 +41,15 @@ export default function HomePage() {
       window.removeEventListener('resize', handleResize);
     };
   }, [showModal]); //boards, dispatch
-  const handleBackdropClick = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  // const handleBackdropClick = () => {
+  //   setIsMenuOpen(!isMenuOpen)
+  // }
   return (
     <>
-      <div className={style.container} onClick={handleBackdropClick}>
+      <div className={style.container}>
         <section className={style.section}>
-          <SideBar />
-          {isMenuOpen && window.innerWidth < 1440 && <SideBar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />}
+
+          <SideBar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <section className={style.homepage_wrapper}>
             <Header toggleMenu={toggleMenu} />
             <ScreensPage />

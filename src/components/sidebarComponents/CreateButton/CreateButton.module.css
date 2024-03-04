@@ -6,25 +6,33 @@
   display: flex;
 
   justify-content: space-between;
-  padding-top: 15px;
+  padding-top: 16px;
   align-items: center;
 }
+
 .button_container::before {
   position: absolute;
   top: 10%;
-  content: url('../../../img/icons/sprite.svg#icon-vector');
+  content: '';
   width: 212px;
   height: 2px;
+  background-image: url('../../../img/icons/sprite.svg#icon-vector');
+  background-size: contain;
+  background-repeat: no-repeat;
   background-color: white;
   opacity: 0.1;
 }
+
 .button_container::after {
   position: absolute;
   top: 120%;
-  content: url('../../../img/icons/sprite.svg#icon-vector');
+  background-image: url('../../../img/icons/sprite.svg#icon-vector');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
   width: 212px;
   height: 2px;
-  background-color: white;
+  content: '';
   opacity: 0.1;
 }
 
@@ -38,4 +46,25 @@
   margin: 0;
   display: flex;
   align-items: center;
+}
+.create_board_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #bedbb0;
+  border-radius: 6px;
+  width: 40px;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+}
+.create_board_button:hover,
+.create_board_button:focus {
+  background: #9dc888;
+  transform: scale(1.05);
+}
+.sidebar_button_icon {
+  stroke: #121212;
+
+  /* padding: 8px 10px 8px 10px; */
 }
