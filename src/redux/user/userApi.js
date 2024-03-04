@@ -15,10 +15,10 @@ const offToken = () => {
 };
 
 const registration = async user => {
-    console.log(user);
-    const {data} = await api.post(`/users/register`, user);
-    console.log(data);
-    setToken(data.token);
+  console.log(user);
+  const { data } = await api.post(`/users/register`, user);
+  console.log(data);
+  setToken(data.token);
   return data;
 };
 
@@ -36,6 +36,11 @@ const logout = async user => {
 
 const refresh = async () => {
   const { data } = await api.get(`/users/current`);
+  return data;
+};
+
+const update = async () => {
+  const { data } = await api.post(`/users/update`);
   return data;
 };
 
@@ -88,6 +93,19 @@ export const refreshUser = createAsyncThunk(
       }
       setToken(savedToken);
       const response = await refresh();
+      return response;
+    } catch (error) {
+      Notiflix.Notify.warning('Oooops, something goes wrong');
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  '/update',
+  async (user, thunkAPI) => {
+    try {
+      const response = await update(user);
       return response;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');

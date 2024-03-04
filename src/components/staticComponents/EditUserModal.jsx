@@ -1,6 +1,6 @@
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
-
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { authSchema } from '../Auth/Schemas/authSchema.js';
 import FormButton from 'components/UI/Buttons/FormButton/FormButton';
@@ -8,6 +8,7 @@ import Eye from 'components/UI/Forma/Eye/Eye';
 import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
+import { updateUser } from '../../redux/user/userApi';
 
 const initialValues = {
   name: 'Nastya',
@@ -16,22 +17,6 @@ const initialValues = {
 };
 
 export default function EditUserModal() {
-  /*   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  useEffect(() => {
-    setName('Nastya');
-    setEmail('futgfggv');
-    setPassword('6796976976976');
-  }, []); */
-
-  // import { useDispatch } from 'react-redux';
-  // import { loginUser, registerUser } from '../../../redux/user/userApi';
-
-  //   const dispatch = useDispatch();
-  //   const handleSubmit = values =>
-  //     dispatch(type === 'login' ? loginUser(values) : registerUser(values));
-
   const [image, setImage] = useState('');
 
   const editProfileImage = e => {
@@ -78,7 +63,11 @@ export default function EditUserModal() {
           className={style.input_hidden}
         />
       </div>
-      <Forma initial={initialValues} schema={authSchema} >
+      <Forma
+        initial={initialValues}
+        schema={authSchema}
+        onSubmit={handleSubmit}
+      >
         <div className={style.wrap}>
           <Error name="name" />
           <Input type="text" name="name" text={initialValues.name} />
