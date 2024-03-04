@@ -1,6 +1,6 @@
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
 import { authSchema } from '../Auth/Schemas/authSchema.js';
 import FormButton from 'components/UI/Buttons/FormButton/FormButton';
@@ -8,35 +8,45 @@ import Eye from 'components/UI/Forma/Eye/Eye';
 import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
-
-const initialValues = {
-  name: 'Nastya',
-  email: 'futgfggv',
-  password: '6796976976976',
-};
+import { updateUser } from '../../redux/user/userApi';
+import { updateUserField, updateUserImage } from '../../redux/user/userSlice';
+import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal() {
-  /*   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  useEffect(() => {
-    setName('Nastya');
-    setEmail('futgfggv');
-    setPassword('6796976976976');
-  }, []); */
+  // const { name, email, password } = useSelector(userSelect);
 
-  // import { useDispatch } from 'react-redux';
-  // import { loginUser, registerUser } from '../../../redux/user/userApi';
+  // const dispatch = useDispatch();
+  // const handleSubmit = data => dispatch(updateUser(data));
 
-  //   const dispatch = useDispatch();
-  //   const handleSubmit = values =>
-  //     dispatch(type === 'login' ? loginUser(values) : registerUser(values));
+  // const [image, setImage] = useState('');
 
-  const [image, setImage] = useState('');
+  // const editProfileImage = e => {
+  //   const file = e.target.files[0];
+  //   setImage(file);
+  // };
 
-  const editProfileImage = e => {
+  const dispatch = useDispatch();
+  const { name, email, password, avatarURL } = useSelector(userSelect);
+
+  const initialValues = {
+    name: name || '',
+    email: email || '',
+    password: password || '',
+    avatarURL: avatarURL || '',
+  };
+
+  const handleChange = e => {
+    const { name: fieldName, value } = e.target;
+    dispatch(updateUserField({ name: fieldName, value }));
+  };
+
+  const handleSubmit = data => {
+    dispatch(updateUser(data));
+  };
+
+  const handleFileChange = e => {
     const file = e.target.files[0];
-    setImage(file);
+    dispatch(updateUserImage(file));
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -51,9 +61,9 @@ export default function EditUserModal() {
       </svg>
 
       <div className={style.icon_div}>
-        {image ? (
+        {avatarURL ? (
           <img
-            src={URL.createObjectURL(image)}
+            src={URL.createObjectURL(avatarURL)}
             width={68}
             height={68}
             alt="avatar"
@@ -73,12 +83,12 @@ export default function EditUserModal() {
         <input
           id="file-upload"
           type="file"
-          onChange={editProfileImage}
+          onChange={handleFileChange}
           accept="image/*"
           className={style.input_hidden}
         />
       </div>
-      <Forma initial={initialValues} schema={authSchema} >
+      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
         <div className={style.wrap}>
           <Error name="name" />
           <Input type="text" name="name" text={initialValues.name} />
@@ -96,7 +106,9 @@ export default function EditUserModal() {
           />
           <Eye toggle={handleTogglePassword} />
         </div>
-        <FormButton type="submit">Send</FormButton>
+        <FormButton type="submit" onClick={handleChange}>
+          Send
+        </FormButton>
       </Forma>
     </div>
   );
