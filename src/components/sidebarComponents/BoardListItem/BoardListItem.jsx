@@ -1,8 +1,9 @@
 
 
-const BoardListItem = ({ title, color }) => {
+const BoardListItem = ({ title, color, icon }) => {
     return (
         <>
+
         </>
     )
 }
