@@ -6,12 +6,13 @@
   top: 0;
   left: 0;
   z-index: 2;
-  transform: translateX(-260px); /* По умолчанию сайдбар сдвинут за экран */
-  transition: transform 1s ease; /* Уменьшил время анимации для мобильных устройств */
+  transform: translateX(-260px);
+  transition: transform 1s ease;
 }
 
-.active {
+.sidebar.active {
   transform: translateX(0);
+  transition: transform 1s ease;
 }
 
 @media screen and (min-width: 1440px) {
@@ -23,7 +24,7 @@
 }
 .sidebar_container {
   padding: 24px;
-  height: 722px;
+  height: 100%;
   position: relative;
 }
 
