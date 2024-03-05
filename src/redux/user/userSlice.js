@@ -1,5 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
+<<<<<<< Updated upstream
 import { registerUser, loginUser, logoutUser, refreshUser } from './userApi';
+=======
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshUser,
+  updateUser,
+} from './userApi';
+>>>>>>> Stashed changes
 
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
