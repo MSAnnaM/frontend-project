@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { selectIsLoggedIn } from '../redux/auth/selectors';
+import { isLoggedIn } from '../redux/auth/selectors';
 
 export const PublicRoute = ({ children }) => {
-  const isAuthorized = useSelector(selectIsLoggedIn);
+  const isAuthorized = useSelector(isLoggedIn);
   return isAuthorized ? <Navigate to="/home" /> : children;
 };
