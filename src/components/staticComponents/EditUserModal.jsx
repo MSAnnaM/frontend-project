@@ -32,7 +32,7 @@ export default function EditUserModal() {
     name: name || '',
     email: email || '',
     password: password || '',
-    avatarURL: avatarURL || '',
+    avatarURL: avatarURL,
   };
 
   const handleChange = e => {
@@ -46,6 +46,9 @@ export default function EditUserModal() {
 
   const handleFileChange = e => {
     const file = e.target.files[0];
+    console.log(file);
+    const files = URL.createObjectURL(file);
+    console.log(files);
     dispatch(updateUserImage(file));
   };
 

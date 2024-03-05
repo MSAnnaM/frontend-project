@@ -1,15 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-<<<<<<< Updated upstream
+
 import { registerUser, loginUser, logoutUser, refreshUser } from './userApi';
-=======
-import {
-  registerUser,
-  loginUser,
-  logoutUser,
-  refreshUser,
-  updateUser,
-} from './userApi';
->>>>>>> Stashed changes
 
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
@@ -35,7 +26,7 @@ const registrationSlice = createSlice({
       name: null,
       email: null,
       password: null,
-      avatarURL: '',
+      avatarURL: null,
       theme: 'dark',
     },
     token: null,
