@@ -83,19 +83,6 @@ const Column = () => {
     },
   ];
 
-  const columns1 = [
-    {
-      _id: 1,
-      title: 'First Column',
-      cards: [{ _id: 1, title: 'First Card', description: 'My first card' }],
-    },
-    {
-      _id: 2,
-      title: 'Second Column',
-      cards: [{ _id: 21, title: 'New Card', description: 'My new card' }],
-    },
-  ];
-
   return (
     <div>
       <ul className={css.column_item}>
