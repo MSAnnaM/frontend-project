@@ -12,7 +12,7 @@ export default function Header({ toggleMenu }) {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const { name } = useSelector(userSelect);
+  const { name, avatarURL } = useSelector(userSelect);
 
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -55,7 +55,7 @@ export default function Header({ toggleMenu }) {
 
           <button type="button" className={style.button}>
             <img
-              src={userImage}
+              src={avatarURL ? avatarURL : userImage}
               alt="users avatar"
               width={32}
               height={32}
