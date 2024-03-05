@@ -6,7 +6,7 @@ import { Select } from './Select/Select';
 
 import userImage from '../../img/user.png';
 
-export default function Header({ toggleMenu }) {
+export default function Header({ onClick }) {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -26,7 +26,7 @@ export default function Header({ toggleMenu }) {
   return (
     <div className={style.container}>
       {windowWidth < 1440 ? (
-        <button onClick={toggleMenu} className={style.menu} type="button">
+        <button onClick={() => onClick()} className={style.menu} type="button">
           <svg className={style.icon} width="24" height="24">
             <use xlinkHref={`${sprite}#icon-menu`} />
           </svg>

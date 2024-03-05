@@ -49,7 +49,7 @@ export default function HomePage() {
         <section className={style.section}>
           <SideBar isMenuOpen={isMenuOpen} onClick={toggleMenu} />
           <section className={style.homepage_wrapper}>
-            <Header toggleMenu={toggleMenu} />
+            <Header onClick={toggleMenu} />
             <ScreensPage />
             {showModal && (
               <BasicModal onClose={createBoard}>
