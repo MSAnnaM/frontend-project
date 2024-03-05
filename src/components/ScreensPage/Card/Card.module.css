@@ -3,8 +3,11 @@
   --card-title-color: #fff;
   --card-description-color: #ffffff80;
   --card-underline-color: #ffffff1a;
-  --card-priority-low-color: #8fa1d0;
   --deadline-icon-color: #bedbb0;
+  --card-priority-low-color: #8fa1d0;
+  --card-priority-medium-color: #e09cb5;
+  --card-priority-high-color: #bedbb0;
+  --card-priority-without-color: #ffffff4d;
 }
 
 .card_container {
