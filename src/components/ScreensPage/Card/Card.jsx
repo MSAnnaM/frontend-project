@@ -7,8 +7,6 @@ import css from './Card.module.css';
 const Card = ({ data }) => {
   const { title, description, priority, deadline } = data;
 
-  const priorityText = priority.replace(priority[0], priority[0].toUpperCase());
-
   const priorityCard = {
     [css.priority_low]: priority === cardPriority.LOW,
     [css.priority_medium]: priority === cardPriority.MEDIUM,
@@ -37,7 +35,7 @@ const Card = ({ data }) => {
                 <div
                   className={classNames(css.priority_icon, priorityCard)}
                 ></div>
-                <span className={css.addition_value}>{priorityText}</span>
+                <span className={css.addition_value}>{priority}</span>
               </div>
             </div>
             <div className={css.addition}>

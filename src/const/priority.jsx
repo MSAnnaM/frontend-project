@@ -1,8 +1,8 @@
 const cardPriority = {
-  LOW: 'low',
-  MEDIUM: 'medium',
-  HIGH: 'high',
-  WO: 'without',
+  LOW: 'Low',
+  MEDIUM: 'Medium',
+  HIGH: 'High',
+  WO: 'Without',
 };
 
 export { cardPriority };
