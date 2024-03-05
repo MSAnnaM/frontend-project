@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { registerUser, loginUser, logoutUser, refreshUser } from './userApi';
+import { registerUser, loginUser, logoutUser, refreshUser, updateUser } from './userApi';
 
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
@@ -18,6 +18,11 @@ const refreshFulfilled = (state, action, payload) => {
   state.isRefreshing = false;
 };
 
+const updateFulfilled = (state, action, payload) => {
+  state.user = action.payload;
+  // state.user.avatarURL = action.payload;
+};
+
 const registrationSlice = createSlice({
   name: 'registration',
   initialState: {
@@ -33,20 +38,21 @@ const registrationSlice = createSlice({
     isRefreshing: false,
     isLoggedIn: false,
   },
-  reducers: {
-    updateUserField: (state, action) => {
-      const { name, value } = action.payload;
-      state.user[name] = value;
-    },
-    updateUserImage: (state, action) => {
-      state.user.avatarURL = action.payload;
-    },
-  },
+  // reducers: {
+  //   updateUserField: (state, action) => {
+  //     const { name, value } = action.payload;
+  //     state.user[name] = value;
+  //   },
+  //   updateUserImage: (state, action) => {
+  //     state.user.avatarURL = action.payload;
+  //   },
+  // },
   extraReducers: builder => {
     builder
       .addCase(registerUser.fulfilled, handleFulfilled)
       .addCase(loginUser.fulfilled, handleFulfilled)
       .addCase(logoutUser.fulfilled, logoutFulfilld)
+      .addCase(updateUser.fulfilled, updateFulfilled)
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
       })
@@ -60,6 +66,6 @@ const registrationSlice = createSlice({
   },
 });
 
-export const { updateUserField, updateUserImage } = registrationSlice.actions;
+// export const { updateUserField, updateUserImage } = registrationSlice.actions;
 
 export const registrationReducer = registrationSlice.reducer;
