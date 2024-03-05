@@ -8,7 +8,6 @@ import BasicModal from '../components/UI/Modals/BasicModal/BasicModal';
 import ScreensPage from './ScreensPage';
 // import HomeView from 'components/Dashboard/HomeView/HomeView';
 
-
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -48,7 +47,6 @@ export default function HomePage() {
     <>
       <div className={style.container}>
         <section className={style.section}>
-
           <SideBar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
           <section className={style.homepage_wrapper}>
             <Header toggleMenu={toggleMenu} />
