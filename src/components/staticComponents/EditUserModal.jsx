@@ -1,38 +1,56 @@
-import { Field, Form, Formik } from 'formik';
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
-import { useEffect, useState } from 'react';
-// import { useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { authSchema } from '../Auth/Schemas/authSchema.js';
+import FormButton from 'components/UI/Buttons/FormButton/FormButton';
+import Eye from 'components/UI/Forma/Eye/Eye';
+import Error from 'components/UI/Forma/Error/Error';
+import Input from 'components/UI/Forma/Input/Input';
+import Forma from 'components/UI/Forma/Forma';
+import { updateUser } from '../../redux/user/userApi';
+import { updateUserField, updateUserImage } from '../../redux/user/userSlice';
+import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal() {
-  //   const location = useLocation();
+  // const { name, email, password } = useSelector(userSelect);
+
+  // const dispatch = useDispatch();
+  // const handleSubmit = data => dispatch(updateUser(data));
+
+  // const [image, setImage] = useState('');
+
+  // const editProfileImage = e => {
+  //   const file = e.target.files[0];
+  //   setImage(file);
+  // };
+
+  const dispatch = useDispatch();
+  const { name, email, password, avatarURL } = useSelector(userSelect);
+
+  const initialValues = {
+    name: name || '',
+    email: email || '',
+    password: password || '',
+    avatarURL: avatarURL || '',
+  };
+
+  const handleChange = e => {
+    const { name: fieldName, value } = e.target;
+    dispatch(updateUserField({ name: fieldName, value }));
+  };
+
+  const handleSubmit = data => {
+    dispatch(updateUser(data));
+  };
+
+  const handleFileChange = e => {
+    const file = e.target.files[0];
+    dispatch(updateUserImage(file));
+  };
 
   const [showPassword, setShowPassword] = useState(false);
-
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const [image, setImage] = useState('');
-
-  const editProfileImage = e => {
-    const file = e.target.files[0];
-    setImage(file);
-  };
-
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
-
-  useEffect(() => {
-    setName('Nastya');
-    setEmail('futgfggv');
-    setPassword('6796976976976');
-  }, []);
-
-  const updateData = () => {
-    console.log(name, email, password);
-  };
+  const handleTogglePassword = () => setShowPassword(!showPassword);
 
   return (
     <div className={style.box}>
@@ -43,9 +61,9 @@ export default function EditUserModal() {
       </svg>
 
       <div className={style.icon_div}>
-        {image ? (
+        {avatarURL ? (
           <img
-            src={URL.createObjectURL(image)}
+            src={URL.createObjectURL(avatarURL)}
             width={68}
             height={68}
             alt="avatar"
@@ -65,58 +83,33 @@ export default function EditUserModal() {
         <input
           id="file-upload"
           type="file"
-          onChange={editProfileImage}
+          onChange={handleFileChange}
           accept="image/*"
           className={style.input_hidden}
         />
       </div>
-
-      <Formik>
-        <Form className={style.form} autoComplete="off">
-          <div className={style['input-box']}>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type="text"
-                name="name"
-                defaultValue={name}
-                onChange={e => setName(e.target.value)}
-              />
-            </div>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type="text"
-                name="email"
-                defaultValue={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </div>
-            <div className={style.wrap}>
-              <Field
-                className={style.input}
-                type={showPassword ? 'text' : 'password'}
-                name="password"
-                defaultValue={password}
-                onChange={e => setPassword(e.target.value)}
-              />
-              <div className={style.wrapper}>
-                <svg
-                  width={18}
-                  height={18}
-                  className={style.icon}
-                  onClick={handleTogglePassword}
-                >
-                  <use href={`${sprite}#icon-eye`} />
-                </svg>
-              </div>
-            </div>
-          </div>
-          <button className={style.button} type="submit" onClick={updateData}>
-            Send
-          </button>
-        </Form>
-      </Formik>
+      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
+        <div className={style.wrap}>
+          <Error name="name" />
+          <Input type="text" name="name" text={initialValues.name} />
+        </div>
+        <div className={style.wrap}>
+          <Error name="email" />
+          <Input type="text" name="email" text={initialValues.email} />
+        </div>
+        <div className={style.wrap}>
+          <Error name="password" />
+          <Input
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            text={initialValues.password}
+          />
+          <Eye toggle={handleTogglePassword} />
+        </div>
+        <FormButton type="submit" onClick={handleChange}>
+          Send
+        </FormButton>
+      </Forma>
     </div>
   );
 }
