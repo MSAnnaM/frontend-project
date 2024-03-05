@@ -40,7 +40,9 @@ const refresh = async () => {
 };
 
 const update = async user => {
+  console.log(user);
   const { data } = await api.patch(`/users/update`, user);
+  console.log(data);
   return data;
 };
 
@@ -102,9 +104,17 @@ export const refreshUser = createAsyncThunk(
 );
 
 export const updateUser = createAsyncThunk(
-  '/update',
+  'authorization/update',
   async (user, thunkAPI) => {
     try {
+      const state = thunkAPI.getState();
+      const savedToken = state.registration.token;
+
+      if (!savedToken) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
+      }
+      setToken(savedToken);
+      
       const response = await update(user);
       return response;
     } catch (error) {
