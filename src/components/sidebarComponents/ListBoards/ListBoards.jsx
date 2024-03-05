@@ -1,12 +1,26 @@
 import css from "./ListBoards.module.css";
+import { useDispatch } from "react-redux";
+import { useEffect } from "react";
+import BoardListItem from "../BoardListItem/BoardListItem";
+
 
 const ListBoards = ({ boards }) => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+
+        dispatch();
+    }, [dispatch]);
+
     if (!boards || boards.length === 0) {
         return <div className={css.sidebar_boards_list}></div>;
     }
     return (
         <div>
-            {/* {boards.map((title, id) => (<div key={id}>{title}</div>))} */}
+            <ul>
+                {boards.map((title, color, id) => (<li key={id}><BoardListItem props={{ title, color }} /></li>))}
+            </ul>
+
         </div>
     )
 }
