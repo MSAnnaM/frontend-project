@@ -1,3 +1,9 @@
+:root {
+  --scrollbar-color: #ffffff1a;
+  --scrollbar-hover-color: #ffffff33;
+  --scrollbar-bg-color: #161616;
+}
+
 .column {
   display: flex;
   flex-wrap: nowrap;
@@ -22,15 +28,15 @@
 }
 
 .column::-webkit-scrollbar-track {
-  background-color: #161616;
+  background-color: var(--scrollbar-bg-color);
   border-radius: 6px;
 }
 
 .column::-webkit-scrollbar-thumb {
-  background-color: #ffffff1a;
+  background-color: var(--scrollbar-color);
   border-radius: 6px;
 }
 
 .column::-webkit-scrollbar-thumb:hover {
-  background-color: #ffffff33;
+  background-color: var(--scrollbar-hover-color);
 }

@@ -4,6 +4,7 @@
   --card-description-color: #ffffff80;
   --card-underline-color: #ffffff1a;
   --card-priority-low-color: #8fa1d0;
+  --deadline-icon-color: #bedbb0;
 }
 
 .card_container {
@@ -91,7 +92,8 @@
 .deadline_icon {
   width: 16px;
   height: 16px;
-  stroke: #bedbb0;
+  stroke: var(--deadline-icon-color);
+  fill: transparent;
 }
 
 .actions_wrap {

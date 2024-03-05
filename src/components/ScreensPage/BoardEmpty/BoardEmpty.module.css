@@ -1,3 +1,8 @@
+:root {
+  --dashboard-text-color: #ffffff80;
+  --dashboard-text-button-color: #bedbb0;
+}
+
 .container {
   width: 100%;
   max-width: 335px;
@@ -6,8 +11,7 @@
   text-align: center;
   margin: 0 auto;
   padding-top: 258px;
-
-  color: #ffffff80;
+  color: var(--dashboard-text-color);
 
   @media screen and (min-width: 768px) {
     min-width: 486px;
@@ -22,7 +26,7 @@
 
 .button {
   font-size: inherit;
-  color: #bedbb0;
+  color: var(--dashboard-text-button-color);
   margin: 0;
   user-select: none;
 }

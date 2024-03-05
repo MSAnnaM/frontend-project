@@ -1,7 +1,13 @@
+:root {
+  --dashboard-background-color: #232323;
+  --dashboard-title-color: #fff;
+  --dashboard-button-color: #ffffffcc;
+}
+
 .section {
   height: 100vh;
   width: 100%;
-  background-color: #232323;
+  background-color: var(--dashboard-background-color);
 }
 
 .wrapper {
@@ -24,7 +30,7 @@
 .title {
   font-size: 14px;
   font-weight: 500;
-  color: #fff;
+  color: var(--dashboard-title-color);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -33,7 +39,7 @@
 
 .icon_filter {
   fill: transparent;
-  stroke: #ffffffcc;
+  stroke: var(--dashboard-button-color);
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -47,7 +53,7 @@
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  color: #ffffffcc;
+  color: var(--dashboard-button-color);
   margin: 0;
   user-select: none;
 }
