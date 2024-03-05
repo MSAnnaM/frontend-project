@@ -1,6 +1,6 @@
 import css from "./ListBoards.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useSelector } from "react-redux";
+// import { useEffect } from "react";
 import BoardListItem from "../BoardListItem/BoardListItem";
 // import { fetchBoards } from "../../../redux/board/boardApi";
 import { selectBoards } from "../../../redux/board/selectors";
