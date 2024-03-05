@@ -12,6 +12,7 @@
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.6.7",
+    "classnames": "^2.5.1",
     "formik": "^2.4.5",
     "nanoid": "^5.0.6",
     "node": "^20.11.1",
