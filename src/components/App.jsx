@@ -17,7 +17,6 @@ const LoginForm = lazy(() => import('components/Auth/LoginForm/LoginForm'));
 const HomePage = lazy(() => import('pages/HomePage'));
 
 export const App = () => {
-
   return (
     <>
       <Routes>
@@ -34,6 +33,7 @@ export const App = () => {
         </Route>
 
         {/* Private Route from HomePage */}
+
         <Route path="/home" element={<HomePage />}>
           {/* <Route path="/home/:boardName" element={<ScreensPage />} /> */}
         </Route>

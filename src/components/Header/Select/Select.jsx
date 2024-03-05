@@ -6,13 +6,17 @@ import { ThemeModal } from '../ThemeModal/ThemeModal';
 export const Select = () => {
   const [isOpen, setisOpen] = useState(false);
 
-  const onClick = () => {
+  const toggleModal = () => {
     setisOpen(prev => !prev);
   };
 
   return (
     <>
-      <button type="button" onClick={onClick} className={style.select_button}>
+      <button
+        type="button"
+        onClick={toggleModal}
+        className={style.select_button}
+      >
         Theme
         <svg width={16} height={16} className={style.svg_icon}>
           <use href={`${sprite}#icon-chevron_down`}></use>
