@@ -14,26 +14,25 @@
   --scrollbar-bg-color: #161616;
 }
 
-.column_item {
+.column {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
 }
 
-.column {
+.column_item {
   display: block;
-  width: 335px;
+  width: 347px;
   margin-right: 18px;
-  width: 100%;
 
   @media screen and (min-width: 768px) {
-    min-width: 334px;
+    width: 350px;
   }
 }
 
 .column_create_btn {
   display: flex;
-  width: 100%;
+  width: 335px;
   height: 56px;
   align-items: center;
   justify-content: center;
@@ -42,6 +41,10 @@
   background-color: var(--column-background-color);
   border-radius: 8px;
   color: var(--dashboard-title-color);
+
+  @media screen and (min-width: 768px) {
+    width: 334px;
+  }
 }
 
 .column_btn_icon_bg {
@@ -61,13 +64,17 @@
 
 .column_section {
   display: flex;
-  width: 334px;
+  width: 335px;
   background-color: var(--column-background-color);
   margin-bottom: 10px;
   height: 56px;
   justify-content: space-between;
   align-items: center;
   border-radius: 8px;
+
+  @media screen and (min-width: 768px) {
+    width: 334px;
+  }
 }
 
 .column_title {
@@ -100,7 +107,7 @@
 
 .card_create_btn {
   display: flex;
-  width: 100%;
+  width: 335px;
   height: 56px;
   font-size: 14px;
   font-weight: 500;
@@ -111,6 +118,10 @@
   border-radius: 8px;
   background-color: var(--card-create-button-color);
   color: var(--card-create-button-text-color);
+
+  @media screen and (min-width: 768px) {
+    width: 334px;
+  }
 }
 
 .card_btn_icon_bg {
@@ -136,6 +147,7 @@
 
   @media screen and (min-width: 768px) {
     max-height: calc(100vh - 384px);
+
     @media screen and (min-width: 1440px) {
       max-height: calc(100vh - 292px);
     }
@@ -144,7 +156,11 @@
 
 .card {
   width: 100%;
-  margin-right: 16px;
+  margin-right: 4px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+  }
 }
 
 .card:not(:last-child) {

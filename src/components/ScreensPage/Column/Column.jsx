@@ -85,10 +85,10 @@ const Column = () => {
 
   return (
     <div>
-      <ul className={css.column_item}>
+      <ul className={css.column}>
         {columns.length !== 0 &&
           columns.map(({ _id, title, cards }) => (
-            <li key={_id} className={css.column}>
+            <li key={_id} className={css.column_item}>
               <div className={css.column_section}>
                 <p className={css.column_title}>{title}</p>
 
@@ -122,7 +122,7 @@ const Column = () => {
               </Button>
             </li>
           ))}
-        <li className={css.column}>
+        <li className={css.column_item}>
           <Button className={css.column_create_btn}>
             <div className={css.column_btn_icon_bg}>
               <Icon className={css.column_btn_icon} id="icon-plus" />
