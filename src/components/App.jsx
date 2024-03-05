@@ -17,6 +17,7 @@ const LoginForm = lazy(() => import('components/Auth/LoginForm/LoginForm'));
 const HomePage = lazy(() => import('pages/HomePage'));
 
 export const App = () => {
+
   return (
     <>
       <Routes>
