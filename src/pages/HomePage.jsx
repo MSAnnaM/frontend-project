@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import BasicModal from '../components/UI/Modals/BasicModal/BasicModal';
 // import HomeView from 'components/Dashboard/HomeView/HomeView';
 import ScreensPage from './ScreensPage';
-import HomeView from 'components/Dashboard/HomeView/HomeView';
+// import HomeView from 'components/Dashboard/HomeView/HomeView';
 
 export default function HomePage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
