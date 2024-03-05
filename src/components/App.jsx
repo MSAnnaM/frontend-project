@@ -36,8 +36,7 @@ export const App = () => {
             <Route path="register" element={<RegisterForm />} />
             <Route path="login" element={<LoginForm />} />
           </Route>
-
-          <Route path="edit" element={<EditUserModal />} />
+          фія <Route path="edit" element={<EditUserModal />} />
           <Route path="add" element={<AddCardModal />} />
         </Route>
 
