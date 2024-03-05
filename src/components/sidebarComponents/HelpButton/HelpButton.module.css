@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0;
-  margin-top: auto;
+  margin-top: 20px;
 }
 .sidebar_help_button:hover,
 .sidebar_help_button:focus {
