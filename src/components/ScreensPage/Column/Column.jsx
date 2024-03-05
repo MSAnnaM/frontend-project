@@ -127,7 +127,7 @@ const Column = () => {
             <div className={css.column_btn_icon_bg}>
               <Icon className={css.column_btn_icon} id="icon-plus" />
             </div>
-            Add another column
+            <p>Add another column</p>
           </Button>
         </li>
       </ul>

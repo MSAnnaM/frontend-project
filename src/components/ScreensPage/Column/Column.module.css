@@ -48,12 +48,14 @@
 }
 
 .column_btn_icon_bg {
-  background-color: var(--column-create-button-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 28px;
   height: 28px;
-  margin-right: 15px;
-  padding: 7px;
-  border-radius: 8px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background-color: var(--column-create-button-bg-color);
 }
 
 .column_btn_icon {
@@ -113,8 +115,7 @@
   font-weight: 500;
   align-items: center;
   justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 10px;
+  margin-top: 14px;
   border-radius: 8px;
   background-color: var(--card-create-button-color);
   color: var(--card-create-button-text-color);
@@ -125,12 +126,14 @@
 }
 
 .card_btn_icon_bg {
-  background-color: var(--card-create-button-bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 28px;
   height: 28px;
-  margin-right: 15px;
-  padding: 7px;
-  border-radius: 8px;
+  margin-right: 8px;
+  border-radius: 6px;
+  background-color: var(--card-create-button-bg-color);
 }
 
 .card_btn_icon {
