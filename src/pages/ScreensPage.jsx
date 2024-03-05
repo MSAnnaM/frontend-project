@@ -5,7 +5,7 @@ import Icon from 'components/ScreensPage/Icon/Icon';
 import css from './ScreensPage.module.css';
 
 const ScreensPage = () => {
-  const board = true;
+  const board = !true;
 
   return (
     <div className={css.section}>
