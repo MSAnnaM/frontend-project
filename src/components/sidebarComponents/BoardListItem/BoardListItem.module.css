@@ -1,0 +1,42 @@
+.board_list_item {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.board_box {
+  display: flex;
+}
+.board_title {
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.02em;
+  color: #fff;
+  text-transform: capitalize;
+}
+.icon_pencil,
+.icon_trash,
+.board_icon {
+  stroke: rgba(255, 255, 255, 0.5);
+}
+.board_icons {
+  margin-right: 20px;
+  margin-left: auto;
+}
+.icon_pencil,
+.board_icon {
+  margin-right: 8px;
+}
+.board_line {
+  border-radius: 4px 0 0 4px;
+  width: 4px;
+  height: 61px;
+  background: #bedbb0;
+}
+
+.icon_pencil:hover,
+.icon_pencil:focus,
+.icon_trash:hover,
+.icon_trash:focus {
+  transform: scale(1.1);
+}

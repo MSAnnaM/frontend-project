@@ -6,14 +6,12 @@ import HelpMenu from "../HelpMenu/HelpMenu"
 import NewBoard from "../NewBoard/NewBoard"
 import HelpModal from "../HelpModal/HelpModal"
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
-import { useSelector } from "react-redux";
-import { tokenSelect } from "../../../redux/user/selectors";
 
-const Sidebar = ({ isMenuOpen, toggleMenu }) => {
-    const token = useSelector(tokenSelect)
-    console.log(token)
+
+const Sidebar = ({ isMenuOpen, onClick }) => {
+
     const handleBackdropClick = () => {
-        toggleMenu();
+        onClick();
 
     };
 

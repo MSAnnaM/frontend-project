@@ -49,7 +49,7 @@ export default function HomePage() {
       <div className={style.container}>
         <section className={style.section}>
 
-          <SideBar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+          <SideBar isMenuOpen={isMenuOpen} onClick={toggleMenu} />
           <section className={style.homepage_wrapper}>
             <Header toggleMenu={toggleMenu} />
             <ScreensPage />
