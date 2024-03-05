@@ -146,13 +146,13 @@
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
-  max-height: calc(100vh - 334px);
+  max-height: 478px;
 
   @media screen and (min-width: 768px) {
-    max-height: calc(100vh - 384px);
+    max-height: 640px;
 
     @media screen and (min-width: 1440px) {
-      max-height: calc(100vh - 292px);
+      max-height: 478px;
     }
   }
 }
