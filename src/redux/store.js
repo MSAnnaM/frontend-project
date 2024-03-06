@@ -4,7 +4,7 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import storage from 'redux-persist/lib/storage';
 import modalReducer from './modal/modalSlice';
 import { registrationReducer } from './user/userSlice';
-
+import boardsReducer from './board/boardSlice';
 import {
   persistStore,
   persistReducer,
@@ -23,11 +23,12 @@ const auth = persistReducer(
   },
   registrationReducer
 );
-const registration = persistReducer({
-  key: 'token',
-  storage,
-  whitelist: ['token'],
-},
+const registration = persistReducer(
+  {
+    key: 'token',
+    storage,
+    whitelist: ['token'],
+  },
   registrationReducer
 );
 
@@ -36,6 +37,7 @@ export const store = configureStore({
     registration,
     auth,
     modal: modalReducer,
+    boards: boardsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

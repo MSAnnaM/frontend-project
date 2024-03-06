@@ -1,3 +1,14 @@
 .sidebar_boards_list {
+  margin-top: 25px;
   height: 180px;
+  position: absolute;
+  right: 0;
+  left: 24px;
+}
+.board_list_item {
+  height: 61px;
+  width: 100%;
+  text-align: center;
+
+  align-items: center;
 }
