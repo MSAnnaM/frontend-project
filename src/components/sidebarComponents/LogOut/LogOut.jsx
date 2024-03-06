@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { logout } from "../../../redux/auth/operations"
+import { logoutUser } from "../../../redux/user/userApi"
 import css from "./LogOut.module.css"
 import sprite from '../../../img/icons/sprite.svg';
 
@@ -9,7 +9,7 @@ const LogOut = () => {
     return (
         <div className={css.logout}>
             <button className={css.logout_button} type="button"
-                onClick={() => dispatch(logout())}
+                onClick={() => dispatch(logoutUser())}
             >
                 <svg className={css.logout_button_icon} width="32" height="32" >
                     <use href={`${sprite}#icon-login`} />

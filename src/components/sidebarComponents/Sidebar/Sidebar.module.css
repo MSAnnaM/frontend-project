@@ -1,13 +1,30 @@
 .sidebar {
   width: 260px;
   height: 100%;
-  float: left;
   background: #121212;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  transform: translateX(-260px);
+  transition: transform 1s ease;
 }
 
+.sidebar.active {
+  transform: translateX(0);
+  transition: transform 1s ease;
+}
+
+@media screen and (min-width: 1440px) {
+  .sidebar {
+    position: relative;
+    z-index: 1;
+    transform: translateX(0);
+  }
+}
 .sidebar_container {
   padding: 24px;
-  height: 722px;
+  height: 100%;
   position: relative;
 }
 

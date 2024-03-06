@@ -9,7 +9,7 @@ import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 import { updateUser } from '../../redux/user/userApi';
-import { updateUserField, updateUserImage } from '../../redux/user/userSlice';
+import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal() {
@@ -35,10 +35,10 @@ export default function EditUserModal() {
     avatarURL: avatarURL,
   };
 
-  const handleChange = e => {
-    const { name: fieldName, value } = e.target;
-    dispatch(updateUserField({ name: fieldName, value }));
-  };
+  // const handleChange = e => {
+  //   const { name: fieldName, value } = e.target;
+  //   dispatch(updateUser({ name: fieldName, value }));
+  // };
 
   const handleSubmit = data => {
     dispatch(updateUser(data));
@@ -109,7 +109,7 @@ export default function EditUserModal() {
           />
           <Eye toggle={handleTogglePassword} />
         </div>
-        <FormButton type="submit" onClick={handleChange}>
+        <FormButton type="submit" onClick={handleSubmit}>
           Send
         </FormButton>
       </Forma>

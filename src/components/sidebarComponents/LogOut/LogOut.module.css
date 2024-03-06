@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0;
-  margin-top: auto;
+  margin-top: 15px;
 }
 .logout_button {
   display: flex;

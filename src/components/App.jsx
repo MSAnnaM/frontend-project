@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import AddCardModal from './AddModal/AddCardModal';
 import EditUserModal from './staticComponents/EditUserModal';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
@@ -28,9 +29,11 @@ export const App = () => {
           </Route>
 
           <Route path="edit" element={<EditUserModal />} />
+          <Route path="add" element={<AddCardModal />} />
         </Route>
 
         {/* Private Route from HomePage */}
+
         <Route path="/home" element={<HomePage />}>
           {/* <Route path="/home/:boardName" element={<ScreensPage />} /> */}
         </Route>
