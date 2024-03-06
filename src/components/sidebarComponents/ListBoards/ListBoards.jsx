@@ -1,18 +1,18 @@
 import css from "./ListBoards.module.css";
-import { useSelector } from "react-redux";
-// import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 import BoardListItem from "../BoardListItem/BoardListItem";
-// import { fetchBoards } from "../../../redux/board/boardApi";
+import { fetchBoards } from "../../../redux/board/boardApi";
 import { selectBoards } from "../../../redux/board/selectors";
 
 
 const ListBoards = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     dispatch(fetchBoards());
-    // }, [dispatch]);
+        dispatch(fetchBoards());
+    }, [dispatch]);
 
     const boards = useSelector(selectBoards);
     console.log(boards)

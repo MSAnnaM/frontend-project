@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteBoard, editBoard, fetchBoards } from './boardApi';
+import { deleteBoard, editBoard, fetchBoards, createBoard } from './boardApi';
 
 const initialState = {
   boards: [{ _id: 1, name: 'cook dinner', icon: 'icon-puzzle' }],
@@ -52,6 +52,18 @@ const boardsSlice = createSlice({
         );
       })
       .addCase(deleteBoard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(createBoard.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(createBoard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.boards.push(action.payload);
+      })
+      .addCase(createBoard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       });
