@@ -39,15 +39,15 @@ const registrationSlice = createSlice({
     isRefreshing: false,
     isLoggedIn: false,
   },
-  // reducers: {
-  //   updateUserField: (state, action) => {
-  //     const { name, value } = action.payload;
-  //     state.user[name] = value;
-  //   },
-  //   updateUserImage: (state, action) => {
-  //     state.user.avatarURL = action.payload;
-  //   },
-  // },
+  reducers: {
+    updateUserField: (state, action) => {
+      const { name, value } = action.payload;
+      state.user[name] = value;
+    },
+    updateUserImage: (state, action) => {
+      state.user.avatarURL = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(registerUser.fulfilled, handleFulfilled)
@@ -67,6 +67,6 @@ const registrationSlice = createSlice({
   },
 });
 
-// export const { updateUserField, updateUserImage } = registrationSlice.actions;
+export const { updateUserField, updateUserImage } = registrationSlice.actions;
 
 export const registrationReducer = registrationSlice.reducer;
