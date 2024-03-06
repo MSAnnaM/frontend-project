@@ -5,10 +5,14 @@ import { useEffect, useState } from 'react';
 import { Select } from './Select/Select';
 
 import userImage from '../../img/user.png';
+import { useSelector } from 'react-redux';
+import { userSelect } from '../../redux/user/selectors';
 
-export default function Header({ toggleMenu }) {
+export default function Header({ onClick }) {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const { name, avatarURL } = useSelector(userSelect);
 
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -26,7 +30,7 @@ export default function Header({ toggleMenu }) {
   return (
     <div className={style.container}>
       {windowWidth < 1440 ? (
-        <button onClick={toggleMenu} className={style.menu} type="button">
+        <button onClick={() => onClick()} className={style.menu} type="button">
           <svg className={style.icon} width="24" height="24">
             <use xlinkHref={`${sprite}#icon-menu`} />
           </svg>
@@ -35,7 +39,7 @@ export default function Header({ toggleMenu }) {
       <div className={style.options}>
         <Select />
         <div className={style.info}>
-          <p className={style.name}>Name</p>
+          <p className={style.name}>{name}</p>
           {/* <button
             type="button"
             className={style.button}
@@ -51,7 +55,7 @@ export default function Header({ toggleMenu }) {
 
           <button type="button" className={style.button}>
             <img
-              src={userImage}
+              src={avatarURL ? avatarURL : userImage}
               alt="users avatar"
               width={32}
               height={32}
