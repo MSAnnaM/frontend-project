@@ -1,0 +1,111 @@
+:root {
+  --filter-title-color: #fff;
+  --filter-underline-color: #ffffff1a;
+  --filter-showall-btn-color: #ffffff80;
+  --filter-showall-btn-hover: #9dc888;
+  --filter-bg: #161616;
+}
+
+.filter_container {
+  width: 252px;
+  height: 186px;
+}
+
+.title {
+  color: var(--filter-title-color);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.filter_wrapper {
+  border-top: 1px solid var(--filter-underline-color);
+  padding-top: 14px;
+}
+
+.filter {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter_title {
+  color: var(--filter-title-color);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+}
+
+.radio_item {
+  color: var(--filter-showall-btn-color);
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.radio_item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.radio_item:hover {
+  color: var(--filter-showall-btn-hover);
+}
+
+.radio_bg {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.visually_hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.visually_hidden:checked + .radio_item .radio_bg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: transparent;
+  border-radius: 50%;
+  border: 2.5px solid var(--filter-bg);
+}
+
+.visually_hidden:checked + .radio_item {
+  color: var(--filter-title-color);
+}
+
+.btn {
+  height: 18px;
+  color: var(--filter-showall-btn-color);
+  font-size: 12px;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  text-decoration-line: underline;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  color: var(--filter-showall-btn-hover);
+}
