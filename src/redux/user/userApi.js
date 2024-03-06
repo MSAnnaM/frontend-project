@@ -114,7 +114,7 @@ export const updateUser = createAsyncThunk(
         return thunkAPI.rejectWithValue('Unable to fetch user');
       }
       setToken(savedToken);
-      
+
       const response = await update(user);
       return response;
     } catch (error) {

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+
 import { registerUser, loginUser, logoutUser, refreshUser, updateUser } from './userApi';
 
 const handleFulfilled = (state, { payload }) => {
@@ -30,7 +31,7 @@ const registrationSlice = createSlice({
       name: null,
       email: null,
       password: null,
-      avatarURL: '',
+      avatarURL: null,
       theme: 'dark',
     },
     token: null,

@@ -9,7 +9,7 @@ import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 import { updateUser } from '../../redux/user/userApi';
-// import { updateUserField, updateUserImage } from '../../redux/user/userSlice';
+import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal() {
@@ -32,7 +32,7 @@ export default function EditUserModal() {
     name: name || '',
     email: email || '',
     password: password || '',
-    avatarURL: avatarURL || '',
+    avatarURL: avatarURL,
   };
 
   // const handleChange = e => {
@@ -46,7 +46,10 @@ export default function EditUserModal() {
 
   const handleFileChange = e => {
     const file = e.target.files[0];
-    dispatch(updateUser(file));
+    console.log(file);
+    const files = URL.createObjectURL(file);
+    console.log(files);
+    dispatch(updateUserImage(file));
   };
 
   const [showPassword, setShowPassword] = useState(false);
