@@ -7,8 +7,16 @@ import { Select } from './Select/Select';
 import userImage from '../../img/user.png';
 import { useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
+import EditUserModal from 'components/staticComponents/EditUserModal';
+import Modal from 'components/UI/Modals/Modal/Modal';
 
 export default function Header({ onClick }) {
+  const [openModal, setModal] = useState(false);
+
+  const handleOpenModal = () => {
+    setModal(true);
+  };
+
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -52,8 +60,17 @@ export default function Header({ onClick }) {
               </svg>
             </div>
           </button> */}
-
-          <button type="button" className={style.button}>
+          {openModal && (
+            <Modal
+              children={<EditUserModal openModal={setModal} />}
+              openModal={setModal}
+            />
+          )}
+          <button
+            type="button"
+            className={style.button}
+            onClick={handleOpenModal}
+          >
             <img
               src={avatarURL ? avatarURL : userImage}
               alt="users avatar"
