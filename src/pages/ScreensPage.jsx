@@ -24,10 +24,6 @@ const ScreensPage = () => {
           children={<Filter openModal={setOpenFilter} />}
           openModal={setOpenFilter}
         />
-        // <BasicModal
-        //   children={<Filter openModal={setOpenFilter} />}
-        //   openModal={setOpenFilter}
-        // />
       )}
       <div className={css.wrapper}>
         {<h2 className={css.title}>{board && 'Board Title'}</h2>}

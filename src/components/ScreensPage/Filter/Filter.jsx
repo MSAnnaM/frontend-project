@@ -4,20 +4,23 @@ import css from './Filter.module.css';
 const Filter = ({ openModal }) => {
   //?????????????????????
 
-  const currentFilter = '';
+  const currentFilter = 'Low';
+
+  const handleChangeFilter = e => {
+    openModal();
+  };
 
   return (
-    <>
+    <div className={css.filter_container}>
       <h2 className={css.title}>Filters</h2>
 
-      <div className={css.filter_container}>
+      <div className={css.filter_wrapper}>
         <Formik
           initialValues={{
             filter: currentFilter,
           }}
-          onChange={''}
         >
-          <Form className={css.filter}>
+          <Form className={css.filter} onChange={handleChangeFilter}>
             <div role="group" className={css.radio}>
               <h3 className={css.filter_title}>Label color</h3>
 
@@ -90,7 +93,7 @@ const Filter = ({ openModal }) => {
           </Form>
         </Formik>
       </div>
-    </>
+    </div>
   );
 };
 

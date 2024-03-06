@@ -6,6 +6,11 @@
   --filter-bg: #161616;
 }
 
+.filter_container {
+  width: 252px;
+  height: 186px;
+}
+
 .title {
   color: var(--filter-title-color);
   font-size: 18px;
@@ -15,7 +20,7 @@
   margin-bottom: 14px;
 }
 
-.filter_container {
+.filter_wrapper {
   border-top: 1px solid var(--filter-underline-color);
   padding-top: 14px;
 }
