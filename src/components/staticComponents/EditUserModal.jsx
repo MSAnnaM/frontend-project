@@ -27,9 +27,9 @@ export default function EditUserModal() {
 
   const dispatch = useDispatch();
   const { name, email, password } = useSelector(userSelect) || {};
-//  const [name, setName] = useState('');
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
+  //  const [name, setName] = useState('');
+  //   const [email, setEmail] = useState('');
+  //   const [password, setPassword] = useState('');
   const [avatarURL, setAvatarURL] = useState(null);
   const initialValues = {
     name: name || '',
@@ -37,7 +37,7 @@ export default function EditUserModal() {
     password: password || '',
     avatarURL: avatarURL,
   };
- 
+
   // const handleChange = e => {
   //   const { name: fieldName, value } = e.target;
   //   dispatch(updateUser({ name: fieldName, value }));
@@ -54,7 +54,7 @@ export default function EditUserModal() {
     formData.append('email', data.email);
     formData.append('password', data.password);
     console.log('FormData:', Object.fromEntries(formData.entries()));
-    
+
     dispatch(updateUser(formData));
   };
 
@@ -74,9 +74,9 @@ export default function EditUserModal() {
     <div className={style.box}>
       <h3 className={style.title}>Edit Profile</h3>
 
-      <svg width={18} height={18} className={style.icon_close}>
+      {/* <svg width={18} height={18} className={style.icon_close}>
         <use href={`${sprite}#icon-close`} />
-      </svg>
+      </svg> */}
 
       <div className={style.icon_div}>
         {avatarURL ? (
