@@ -9,7 +9,7 @@ import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 import { updateUser } from '../../redux/user/userApi';
-import { updateUserImage } from '../../redux/user/userSlice';
+// import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal() {
@@ -26,30 +26,45 @@ export default function EditUserModal() {
   // };
 
   const dispatch = useDispatch();
-  const { name, email, password, avatarURL } = useSelector(userSelect);
-
+  const { name, email, password } = useSelector(userSelect) || {};
+//  const [name, setName] = useState('');
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+  const [avatarURL, setAvatarURL] = useState(null);
   const initialValues = {
     name: name || '',
     email: email || '',
     password: password || '',
     avatarURL: avatarURL,
   };
-
+ 
   // const handleChange = e => {
   //   const { name: fieldName, value } = e.target;
   //   dispatch(updateUser({ name: fieldName, value }));
   // };
 
   const handleSubmit = data => {
-    dispatch(updateUser(data));
+    const formData = new FormData();
+    console.log(avatarURL);
+    console.log(data.name);
+    if (avatarURL) {
+      formData.append('file', avatarURL);
+    }
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('password', data.password);
+    console.log('FormData:', Object.fromEntries(formData.entries()));
+    
+    dispatch(updateUser(formData));
   };
 
   const handleFileChange = e => {
     const file = e.target.files[0];
-    console.log(file);
-    const files = URL.createObjectURL(file);
-    console.log(files);
-    dispatch(updateUserImage(file));
+    setAvatarURL(file);
+    //  const formData = new FormData();
+    // formData.append('file', file);
+    // console.log(formData);
+    // dispatch(updateUserImage(formData));
   };
 
   const [showPassword, setShowPassword] = useState(false);
