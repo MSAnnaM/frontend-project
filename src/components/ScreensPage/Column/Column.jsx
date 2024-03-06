@@ -22,7 +22,7 @@ const Column = () => {
           _id: 2,
           title: 'Second Card',
           description: 'My second card',
-          priority: 'Medim',
+          priority: 'Medium',
           deadline: '15/04/2024',
         },
         {
