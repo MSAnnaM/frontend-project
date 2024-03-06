@@ -2,7 +2,8 @@ import { Field, Form, Formik, ErrorMessage } from 'formik';
 import style from './CreateBoardForm.module.css';
 import sprite from '../../../img/icons/sprite.svg';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { createBoard } from '../../../redux/board/boardApi';
 
 const initialValues = {
   title: '',
@@ -13,10 +14,11 @@ const validationSchema = Yup.object({
 });
 
 const CreateBoardForm = ({ onClose }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
-    // await dispatch(userNewBoard(values));
+    console.log(values)
+    await dispatch(createBoard(values));
     resetForm();
   };
 
@@ -45,7 +47,7 @@ const CreateBoardForm = ({ onClose }) => {
           <Field
             className={style.create_board_input}
             type="text"
-            name="title"
+            name="name"
             placeholder="Title"
           />
         </div>
