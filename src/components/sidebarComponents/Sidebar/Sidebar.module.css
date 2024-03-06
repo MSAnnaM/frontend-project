@@ -31,6 +31,9 @@
     z-index: 1;
     transform: translateX(0);
   }
+  .sidebar_backdrop.active {
+    display: none;
+  }
 }
 .sidebar_container {
   padding: 24px;
