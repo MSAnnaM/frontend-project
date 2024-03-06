@@ -8,6 +8,7 @@ import HelpModal from "../HelpModal/HelpModal"
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
 
 
+
 const Sidebar = ({ isMenuOpen, onClick }) => {
 
     const handleBackdropClick = () => {
@@ -15,9 +16,9 @@ const Sidebar = ({ isMenuOpen, onClick }) => {
 
     };
 
-    return (
+    return (<> <div className={`${css.sidebar_backdrop} ${isMenuOpen ? css.active : ""}`} onClick={handleBackdropClick}></div>
         <section className={`${css.sidebar} ${isMenuOpen ? css.active : ""}`} >
-            <div className={css.sidebar_container} onClick={handleBackdropClick}>
+            <div className={css.sidebar_container} >
                 <Logo />
                 <NewBoard />
                 <ListBoards />
@@ -29,7 +30,7 @@ const Sidebar = ({ isMenuOpen, onClick }) => {
                 <HelpModal />
                 <CreateBoardModal />
             </div>
-        </section>
+        </section></>
     )
 }
 export default Sidebar

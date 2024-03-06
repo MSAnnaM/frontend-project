@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 export const api = axios.create({
+
   baseURL: 'http://localhost:3000',
+
 });
 
 export const fetchBoards = createAsyncThunk(
