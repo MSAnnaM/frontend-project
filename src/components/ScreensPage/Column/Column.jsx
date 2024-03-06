@@ -27,33 +27,40 @@ const Column = () => {
         },
         {
           _id: 3,
-          title: 'Second Card',
-          description: 'My second card',
+          title: 'Third Card',
+          description: 'My third card',
           priority: 'High',
           deadline: '15/04/2024',
         },
         {
           _id: 4,
-          title: 'Second Card',
-          description: 'My second card',
+          title: 'Fourth Card',
+          description: 'My Fourth card',
+          priority: 'Without',
+          deadline: '15/04/2024',
+        },
+        {
+          _id: 5,
+          title: 'Fifth Card',
+          description: 'My Fifth card',
           priority: 'Without',
           deadline: '15/04/2024',
         },
       ],
     },
     {
-      _id: 1,
+      _id: 2,
       title: 'First Column',
       cards: [
         {
-          _id: 1,
+          _id: 11,
           title: 'First Card',
           description: 'My first card',
           priority: 'Low',
           deadline: '15/04/2024',
         },
         {
-          _id: 2,
+          _id: 12,
           title: 'Second Card',
           description: 'My second card',
           priority: 'Low',
@@ -62,21 +69,28 @@ const Column = () => {
       ],
     },
     {
-      _id: 1,
+      _id: 3,
       title: 'First Column',
       cards: [
         {
-          _id: 1,
+          _id: 21,
           title: 'First Card',
           description: 'My first card',
           priority: 'Low',
           deadline: '15/04/2024',
         },
         {
-          _id: 2,
+          _id: 22,
           title: 'Second Card',
           description: 'My second card',
           priority: 'Low',
+          deadline: '15/04/2024',
+        },
+        {
+          _id: 23,
+          title: 'Third Card',
+          description: 'My third card',
+          priority: 'High',
           deadline: '15/04/2024',
         },
       ],
@@ -85,10 +99,10 @@ const Column = () => {
 
   return (
     <div>
-      <ul className={css.column_item}>
+      <ul className={css.column}>
         {columns.length !== 0 &&
           columns.map(({ _id, title, cards }) => (
-            <li key={_id} className={css.column}>
+            <li key={_id} className={css.column_item}>
               <div className={css.column_section}>
                 <p className={css.column_title}>{title}</p>
 
@@ -122,12 +136,12 @@ const Column = () => {
               </Button>
             </li>
           ))}
-        <li className={css.column}>
+        <li className={css.column_item}>
           <Button className={css.column_create_btn}>
             <div className={css.column_btn_icon_bg}>
               <Icon className={css.column_btn_icon} id="icon-plus" />
             </div>
-            Add another column
+            <p>Add another column</p>
           </Button>
         </li>
       </ul>

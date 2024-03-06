@@ -3,7 +3,7 @@ import css from './BoardCreated.module.css';
 
 const BoardCreated = () => {
   return (
-    <div className={css.column}>
+    <div className={css.dashboard}>
       <Column />
     </div>
   );
