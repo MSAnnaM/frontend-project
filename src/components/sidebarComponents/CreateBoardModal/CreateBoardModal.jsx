@@ -30,7 +30,7 @@ const CreateBoardModal = () => {
   return modal1
     ? createPortal(
       <div className={css.modal_backdrop} onClick={handleBackdropClick}>
-        <div div className={css.modal_content}>
+        <div className={css.modal_content}>
           <CreateBoardForm onClose={() => dispatch(closeModal('modal1'))} />
         </div>
       </div>,
