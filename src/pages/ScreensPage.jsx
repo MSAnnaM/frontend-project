@@ -14,7 +14,6 @@ const ScreensPage = () => {
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
-    // console.log('filter');
   };
 
   return (

@@ -1,76 +1,80 @@
+import { Field, Form, Formik } from 'formik';
 import css from './Filter.module.css';
 
 const Filter = ({ openModal }) => {
   //?????????????????????
 
-  const currentFilter = 'Low';
+  const currentFilter = '';
 
   return (
     <>
       <h2 className={css.title}>Filters</h2>
+
       <div className={css.filter_container}>
-        <div className={css.filter_wrapper}>
-          <form onChange="" className={css.filter_list}>
-            <div className={css.radio}>
-              <h3 className={css.list_title}>Label color</h3>
-              <input
-                value={'without'}
+        <Formik
+          initialValues={{
+            filter: currentFilter,
+          }}
+          onChange={''}
+        >
+          <Form className={css.filter}>
+            <div role="group" className={css.radio}>
+              <h3 className={css.filter_title}>Label color</h3>
+
+              <Field
+                value="Without"
                 className={css.visually_hidden}
                 type="radio"
                 name="filter"
                 id="without"
-                defaultChecked={currentFilter === 'Without' ? true : false}
               />
-              <label htmlFor="without" className={css.filter_list_item}>
-                <span
-                  style={{ backgroundColor: '#ffffff33' }}
-                  className={css.input_btn}
-                ></span>
+              <label htmlFor="without" className={css.radio_item}>
+                <div
+                  style={{ backgroundColor: '#ffffff4d' }}
+                  className={css.radio_bg}
+                ></div>
                 Without priority
               </label>
-              <input
-                value={'low'}
+              <Field
+                value="Low"
                 className={css.visually_hidden}
                 type="radio"
                 name="filter"
                 id="low"
-                defaultChecked={currentFilter === 'Low' ? true : false}
               />
-              <label htmlFor="low" className={css.filter_list_item}>
-                <span
+              <label htmlFor="low" className={css.radio_item}>
+                <div
                   style={{ backgroundColor: '#8fa1d0' }}
-                  className={css.input_btn}
-                ></span>
+                  className={css.radio_bg}
+                ></div>
                 Low
               </label>
-              <input
-                value={'medium'}
+              <Field
+                value="Medium"
                 className={css.visually_hidden}
                 type="radio"
                 name="filter"
                 id="medium"
-                defaultChecked={currentFilter === 'medium' ? true : false}
               />
-              <label htmlFor="medium" className={css.filter_list_item}>
-                <span
-                  style={{ backgroundColor: '#e09cb5 ' }}
-                  className={css.input_btn}
-                ></span>
+              <label htmlFor="medium" className={css.radio_item}>
+                <div
+                  style={{ backgroundColor: '#e09cb5' }}
+                  className={css.radio_bg}
+                ></div>
                 Medium
               </label>
-              <input
-                value={'high'}
+              <Field
+                value="High"
                 className={css.visually_hidden}
                 type="radio"
                 name="filter"
                 id="high"
-                defaultChecked={currentFilter === 'high' ? true : false}
               />
-              <label htmlFor="high" className={css.filter_list_item}>
-                <span
-                  style={{ backgroundColor: '#bedbb0 ' }}
-                  className={css.input_btn}
-                ></span>
+              <label htmlFor="high" className={css.radio_item}>
+                <div
+                  style={{ backgroundColor: '#bedbb0' }}
+                  className={css.radio_bg}
+                ></div>
                 High
               </label>
             </div>
@@ -83,8 +87,8 @@ const Filter = ({ openModal }) => {
                 name="filter"
               />
             </label>
-          </form>
-        </div>
+          </Form>
+        </Formik>
       </div>
     </>
   );
