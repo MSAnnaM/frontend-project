@@ -29,13 +29,13 @@ const CreateBoardModal = () => {
 
   return modal1
     ? createPortal(
-        <div className={css.modal_backdrop} onClick={handleBackdropClick}>
-          <div div className={css.modal_content}>
-            <CreateBoardForm onClose={() => dispatch(closeModal('modal1'))} />
-          </div>
-        </div>,
-        document.querySelector('#modal-root1')
-      )
+      <div className={css.modal_backdrop} onClick={handleBackdropClick}>
+        <div className={css.modal_content}>
+          <CreateBoardForm onClose={() => dispatch(closeModal('modal1'))} />
+        </div>
+      </div>,
+      document.querySelector('#modal-root1')
+    )
     : null;
 };
 export default CreateBoardModal;
