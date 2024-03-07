@@ -4,98 +4,98 @@ import Icon from '../Icon/Icon';
 import Card from '../Card/Card';
 
 const Column = () => {
-  // const columns = [];
+  const columns = [];
 
-  const columns = [
-    {
-      _id: 1,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 1,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '04/03/2024',
-        },
-        {
-          _id: 2,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Medium',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 3,
-          title: 'Third Card',
-          description: 'My third card',
-          priority: 'High',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 4,
-          title: 'Fourth Card',
-          description: 'My Fourth card',
-          priority: 'Without',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 5,
-          title: 'Fifth Card',
-          description: 'My Fifth card',
-          priority: 'Without',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-    {
-      _id: 2,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 11,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 12,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-    {
-      _id: 3,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 21,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 22,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 23,
-          title: 'Third Card',
-          description: 'My third card',
-          priority: 'High',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-  ];
+  // const columns = [
+  //   {
+  //     _id: 1,
+  //     title: 'First Column',
+  //     cards: [
+  //       {
+  //         _id: 1,
+  //         title: 'First Card',
+  //         description: 'My first card',
+  //         priority: 'Low',
+  //         deadline: '04/03/2024',
+  //       },
+  //       {
+  //         _id: 2,
+  //         title: 'Second Card',
+  //         description: 'My second card',
+  //         priority: 'Medium',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 3,
+  //         title: 'Third Card',
+  //         description: 'My third card',
+  //         priority: 'High',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 4,
+  //         title: 'Fourth Card',
+  //         description: 'My Fourth card',
+  //         priority: 'Without',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 5,
+  //         title: 'Fifth Card',
+  //         description: 'My Fifth card',
+  //         priority: 'Without',
+  //         deadline: '15/04/2024',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     _id: 2,
+  //     title: 'First Column',
+  //     cards: [
+  //       {
+  //         _id: 11,
+  //         title: 'First Card',
+  //         description: 'My first card',
+  //         priority: 'Low',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 12,
+  //         title: 'Second Card',
+  //         description: 'My second card',
+  //         priority: 'Low',
+  //         deadline: '15/04/2024',
+  //       },
+  //     ],
+  //   },
+  //   {
+  //     _id: 3,
+  //     title: 'First Column',
+  //     cards: [
+  //       {
+  //         _id: 21,
+  //         title: 'First Card',
+  //         description: 'My first card',
+  //         priority: 'Low',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 22,
+  //         title: 'Second Card',
+  //         description: 'My second card',
+  //         priority: 'Low',
+  //         deadline: '15/04/2024',
+  //       },
+  //       {
+  //         _id: 23,
+  //         title: 'Third Card',
+  //         description: 'My third card',
+  //         priority: 'High',
+  //         deadline: '15/04/2024',
+  //       },
+  //     ],
+  //   },
+  // ];
 
   return (
     <div>

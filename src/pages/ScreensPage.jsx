@@ -11,7 +11,7 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 const ScreensPage = () => {
   const [openFilter, setOpenFilter] = useState(false);
 
-  const board = !true;
+  const board = true;
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
