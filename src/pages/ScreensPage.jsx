@@ -13,8 +13,9 @@ import { showBoard } from '../redux/column/columnSlice';
 const ScreensPage = () => {
   const [openFilter, setOpenFilter] = useState(false);
   const [innerWidth, setInnerWidth] = useState(null);
-  const { boardName } = useParams();
   const dispatch = useDispatch();
+
+  const { boardName } = useParams();
 
   const handleOpenFilter = () => {
     setOpenFilter(true);
@@ -42,7 +43,7 @@ const ScreensPage = () => {
         />
       )}
       <div className={css.wrapper}>
-        {<h2 className={css.title}>{boardName && { boardName }}</h2>}
+        {<h2 className={css.title}>{boardName}</h2>}
         <Button className={css.button} onClick={handleOpenFilter}>
           {' '}
           <Icon className={css.icon_filter} id="icon-filter" />
