@@ -32,7 +32,14 @@ export const App = () => {
     !isRefreshed && (
       <>
         <Routes>
-          <Route path="/" element={<WelcomePage />}>
+          <Route
+            path="/"
+            element={
+              <PublicRoute>
+                <WelcomePage />
+              </PublicRoute>
+            }
+          >
             <Route index element={<WelcomeView />} />
             {/* Public Route from AuthPage */}
             <Route
