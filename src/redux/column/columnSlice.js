@@ -15,8 +15,8 @@ const handleRejected = (state, { payload }) => {
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  //   payload.cards = [];
-  //   state.shownBoard.columns.push(payload);
+  payload.cards = [];
+  state.shownBoard.columns.push(payload);
 };
 
 const handleFulfilledUpdateColumnById = (state, { payload }) => {
