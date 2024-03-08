@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { useSelector } from 'react-redux';
-// import { tokenSelect } from '../../redux/user/selectors';
+
 
 const axiosInstance = axios.create({
   baseURL: 'https://api-server-c4rg.onrender.com/api',
