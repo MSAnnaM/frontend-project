@@ -1,28 +1,29 @@
 import { useState } from 'react';
 import css from './BoardEmpty.module.css';
 import Modal from 'components/UI/Modals/Modal/Modal';
+import Button from '../Button/Button';
 
 const BoardEmpty = () => {
-  const [openNewBoardModal, setOpenNewBoardModal] = useState(false);
+  const [openAddBoardModal, setOpenAddBoardModal] = useState(false);
 
   const openModal = () => {
-    setOpenNewBoardModal(!openNewBoardModal);
+    setOpenAddBoardModal(!openAddBoardModal);
   };
 
   return (
     <div className={css.container}>
       <p>
         Before starting your project, it is essential{' '}
-        <button type="button" className={css.button} onClick={openModal}>
+        <Button className={css.button} onClick={openModal}>
           {' '}
           to create a board{' '}
-        </button>{' '}
+        </Button>{' '}
         to visualize and track all the necessary tasks and milestones. This
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </p>
       <div>
-        {openNewBoardModal && (
+        {openAddBoardModal && (
           <Modal openModal={openModal}>
             <p>Create New Board</p>
           </Modal>

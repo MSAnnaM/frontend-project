@@ -11,14 +11,14 @@ import { useDispatch } from 'react-redux';
 import { showBoard } from '../redux/column/columnSlice';
 
 const ScreensPage = () => {
-  const [openFilter, setOpenFilter] = useState(false);
+  const [openFilterModal, setOpenFilterModal] = useState(false);
   const [innerWidth, setInnerWidth] = useState(null);
   const dispatch = useDispatch();
 
   const { boardName } = useParams();
 
-  const handleOpenFilter = () => {
-    setOpenFilter(true);
+  const openModal = () => {
+    setOpenFilterModal(!openFilterModal);
   };
 
   useEffect(() => {
@@ -36,15 +36,15 @@ const ScreensPage = () => {
 
   return (
     <div className={css.section}>
-      {openFilter && (
+      {openFilterModal && (
         <Modal
-          children={<Filter openModal={setOpenFilter} />}
-          openModal={setOpenFilter}
+          children={<Filter openModal={openModal} />}
+          openModal={openModal}
         />
       )}
       <div className={css.wrapper}>
         {<h2 className={css.title}>{boardName}</h2>}
-        <Button className={css.button} onClick={handleOpenFilter}>
+        <Button className={css.button} onClick={openModal}>
           {' '}
           <Icon className={css.icon_filter} id="icon-filter" />
           Filters

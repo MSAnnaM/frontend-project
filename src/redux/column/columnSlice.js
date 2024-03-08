@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addColumn, deleteColumn, updateColumnById } from './columnApi';
+import {
+  addColumn,
+  deleteColumn,
+  getBoardById,
+  updateColumnById,
+} from './columnApi';
 import { toast } from 'react-toastify';
 
 const handlePending = state => {
@@ -39,6 +44,17 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   toast.success(`Column deleted`);
 };
 
+const handleFulfilledGetBoardById = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  if (payload.columns.length && payload.columns[0]._id) {
+    state.shownBoard = payload;
+  } else {
+    state.shownBoard = payload;
+    state.shownBoard.columns = [];
+  }
+};
+
 const initialState = {
   shownBoard: {
     columns: [],
@@ -55,7 +71,7 @@ const columnsSlice = createSlice({
     showBoard(state) {
       state.shownBoard = {
         columns: [],
-        backgroundURL: {},
+        backgroundURL: '',
       };
     },
   },
@@ -65,6 +81,7 @@ const columnsSlice = createSlice({
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumnById)
+      .addCase(getBoardById.fulfilled, handleFulfilledGetBoardById)
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/rejected'), handleRejected),
 });

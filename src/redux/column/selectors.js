@@ -1,1 +1,1 @@
-export const selectColumns = state => state.columns.columns;
+export const selectShownBoard = state => state.columns.shownBoard;
