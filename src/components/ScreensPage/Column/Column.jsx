@@ -1,14 +1,17 @@
+import { useState } from 'react';
+import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
-import css from './Column.module.css';
 import Icon from '../Icon/Icon';
 import Card from '../Card/Card';
-import { useState } from 'react';
 import Modal from 'components/UI/Modals/Modal/Modal';
 import AddColumn from '../AddColumn/AddColumn';
-import { useShownBoard } from 'hooks/useShownBoard';
+import EditColumn from '../EditColumn/EditColumn';
+import css from './Column.module.css';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
+  const [openEditColumnModal, setOpenEditColumnModal] = useState(false);
+  const [getIdColumn, setIdColumn] = useState(null);
 
   const shownBoard = useShownBoard();
 
@@ -16,6 +19,10 @@ const Column = () => {
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
+  };
+
+  const editColumn = () => {
+    setOpenEditColumnModal(!openEditColumnModal);
   };
 
   return (
@@ -28,7 +35,13 @@ const Column = () => {
                 <p className={css.column_title}>{title}</p>
 
                 <div className={css.column_edit_btn}>
-                  <Button className={css.column_edit_btn}>
+                  <Button
+                    className={css.column_edit_btn}
+                    onClick={e => {
+                      editColumn();
+                      setIdColumn(_id);
+                    }}
+                  >
                     <Icon className={css.column_icon} id="icon-pencil" />
                   </Button>
 
@@ -69,6 +82,11 @@ const Column = () => {
       {openAddColumnModal && (
         <Modal openModal={addColumn}>
           <AddColumn closeModal={addColumn} />
+        </Modal>
+      )}
+      {openEditColumnModal && (
+        <Modal openModal={editColumn}>
+          <EditColumn closeModal={editColumn} id={getIdColumn} />
         </Modal>
       )}
     </div>

@@ -5,7 +5,7 @@ import {
   getBoardById,
   updateColumnById,
 } from './columnApi';
-import { toast } from 'react-toastify';
+import { Notify } from 'notiflix';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -14,7 +14,7 @@ const handlePending = state => {
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
-  toast.error(`Something went wrong`);
+  Notify.warning(`Something went wrong`);
 };
 
 const handleFulfilledAddColumn = (state, { payload }) => {
@@ -22,6 +22,7 @@ const handleFulfilledAddColumn = (state, { payload }) => {
   state.error = null;
   payload.cards = [];
   state.shownBoard.columns.push(payload);
+  Notify.success(`Column added`);
 };
 
 const handleFulfilledUpdateColumnById = (state, { payload }) => {
@@ -32,7 +33,7 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
   if (columnIndex !== -1) {
     array[columnIndex].title = payload.title;
   }
-  toast.success(`Column updated`);
+  Notify.success(`Column updated`);
 };
 
 const handleFulfilledDeleteColumn = (state, { payload }) => {
@@ -41,7 +42,7 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   state.shownBoard.columns = state.shownBoard.columns.filter(
     ({ _id }) => _id !== payload
   );
-  toast.success(`Column deleted`);
+  Notify.success(`Column deleted`);
 };
 
 const handleFulfilledGetBoardById = (state, { payload }) => {
