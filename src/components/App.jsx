@@ -7,6 +7,7 @@ import { PublicRoute } from './PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { isRefreshing } from '../redux/user/selectors';
 import { refreshUser } from '../redux/user/userApi';
+import ScreensPage from 'pages/ScreensPage';
 
 const WelcomePage = lazy(() => import('pages/WelcomePage'));
 const AuthPage = lazy(() => import('pages/AuthPage'));
@@ -67,7 +68,7 @@ export const App = () => {
               </PrivateRoute>
             }
           >
-            {/* <Route path="/home/:boardName" element={<ScreensPage />} /> */}
+            <Route path="/home/:boardName" element={<ScreensPage />} />
           </Route>
         </Routes>
       </>
