@@ -26,7 +26,9 @@ export default function EditUserModal() {
   // };
 
   const dispatch = useDispatch();
-  const { name, email, password } = useSelector(userSelect) || {};
+  const user = useSelector(userSelect) || {};
+  const { name, email, password } = user;
+  // const { name, email, password } = useSelector(userSelect) || {};
   //  const [name, setName] = useState('');
   //   const [email, setEmail] = useState('');
   //   const [password, setPassword] = useState('');
