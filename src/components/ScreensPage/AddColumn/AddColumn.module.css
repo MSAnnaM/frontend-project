@@ -1,0 +1,75 @@
+:root {
+  --dashboard-title-color: #fff;
+  --card-create-button-color: #bedbb0;
+  --card-create-button-bg-color: #161616;
+  --card-create-button-text-color: #161616;
+  --card-icon-color: #fff;
+
+  --column-background-color: #121212;
+  --column-create-button-bg-color: #fff;
+  --column-icon-color: #ffffff80;
+  --card-button-icon-color: #fff;
+  --column-button-icon-color: #161616;
+  --scrollbar-color: #ffffff1a;
+  --scrollbar-hover-color: #ffffff33;
+  --scrollbar-bg-color: #161616;
+}
+
+.container {
+  width: 302px;
+}
+.addColumn_title {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: -0.36px;
+  margin-bottom: 24px;
+  color: var(--dashboard-title-color);
+}
+
+.addColumn_input {
+  display: block;
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  opacity: 0.4;
+  border-radius: 8px;
+  border: 1px solid var(--card-create-button-color);
+  background-color: transparent;
+  color: var(--dashboard-title-color);
+}
+
+.addColumn_input:focus {
+  opacity: 1;
+  outline: 1px solid var(--card-create-button-color);
+}
+
+.addColumn_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 10px 0;
+  background-color: var(--card-create-button-color);
+  color: var(--card-create-button-text-color);
+
+  border-radius: 8px;
+}
+
+.iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--card-create-button-bg-color);
+  border-radius: 8px;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
+  stroke: var(--card-icon-color);
+}

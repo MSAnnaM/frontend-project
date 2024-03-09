@@ -1,101 +1,29 @@
+import { useState } from 'react';
+import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
-import css from './Column.module.css';
 import Icon from '../Icon/Icon';
 import Card from '../Card/Card';
+import Modal from 'components/UI/Modals/Modal/Modal';
+import AddColumn from '../AddColumn/AddColumn';
+import EditColumn from '../EditColumn/EditColumn';
+import css from './Column.module.css';
 
 const Column = () => {
-  // const columns = [];
+  const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
+  const [openEditColumnModal, setOpenEditColumnModal] = useState(false);
+  const [getIdColumn, setIdColumn] = useState(null);
 
-  const columns = [
-    {
-      _id: 1,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 1,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '04/03/2024',
-        },
-        {
-          _id: 2,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Medium',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 3,
-          title: 'Third Card',
-          description: 'My third card',
-          priority: 'High',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 4,
-          title: 'Fourth Card',
-          description: 'My Fourth card',
-          priority: 'Without',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 5,
-          title: 'Fifth Card',
-          description: 'My Fifth card',
-          priority: 'Without',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-    {
-      _id: 2,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 11,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 12,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-    {
-      _id: 3,
-      title: 'First Column',
-      cards: [
-        {
-          _id: 21,
-          title: 'First Card',
-          description: 'My first card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 22,
-          title: 'Second Card',
-          description: 'My second card',
-          priority: 'Low',
-          deadline: '15/04/2024',
-        },
-        {
-          _id: 23,
-          title: 'Third Card',
-          description: 'My third card',
-          priority: 'High',
-          deadline: '15/04/2024',
-        },
-      ],
-    },
-  ];
+  const shownBoard = useShownBoard();
+
+  const columns = shownBoard.columns;
+
+  const addColumn = () => {
+    setOpenAddColumnModal(!openAddColumnModal);
+  };
+
+  const editColumn = () => {
+    setOpenEditColumnModal(!openEditColumnModal);
+  };
 
   return (
     <div>
@@ -107,7 +35,13 @@ const Column = () => {
                 <p className={css.column_title}>{title}</p>
 
                 <div className={css.column_edit_btn}>
-                  <Button className={css.column_edit_btn}>
+                  <Button
+                    className={css.column_edit_btn}
+                    onClick={e => {
+                      editColumn();
+                      setIdColumn(_id);
+                    }}
+                  >
                     <Icon className={css.column_icon} id="icon-pencil" />
                   </Button>
 
@@ -137,7 +71,7 @@ const Column = () => {
             </li>
           ))}
         <li className={css.column_item}>
-          <Button className={css.column_create_btn}>
+          <Button className={css.column_create_btn} onClick={addColumn}>
             <div className={css.column_btn_icon_bg}>
               <Icon className={css.column_btn_icon} id="icon-plus" />
             </div>
@@ -145,6 +79,16 @@ const Column = () => {
           </Button>
         </li>
       </ul>
+      {openAddColumnModal && (
+        <Modal openModal={addColumn}>
+          <AddColumn closeModal={addColumn} />
+        </Modal>
+      )}
+      {openEditColumnModal && (
+        <Modal openModal={editColumn}>
+          <EditColumn closeModal={editColumn} id={getIdColumn} />
+        </Modal>
+      )}
     </div>
   );
 };
