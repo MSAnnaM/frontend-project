@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import {
+  getColumns,
   addColumn,
   deleteColumn,
-  getBoardById,
+  // getBoardById,
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
@@ -17,11 +18,17 @@ const handleRejected = (state, { payload }) => {
   Notify.warning(`Something went wrong`);
 };
 
+const handleFulfilledGetColumns = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  state.shownBoard.columns = payload;
+};
+
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   payload.cards = [];
-  state.shownBoard.columns.push(payload);
+  state.shownBoard.push({ payload });
   Notify.success(`Column added`);
 };
 
@@ -45,16 +52,16 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   Notify.success(`Column deleted`);
 };
 
-const handleFulfilledGetBoardById = (state, { payload }) => {
-  state.isLoading = false;
-  state.error = null;
-  if (payload.columns.length && payload.columns[0]._id) {
-    state.shownBoard = payload;
-  } else {
-    state.shownBoard = payload;
-    state.shownBoard.columns = [];
-  }
-};
+// const handleFulfilledGetBoardById = (state, { payload }) => {
+//   state.isLoading = false;
+//   state.error = null;
+//   if (payload.columns.length && payload.columns[0]._id) {
+//     state.shownBoard = payload;
+//   } else {
+//     state.shownBoard = payload;
+//     state.shownBoard.columns = [];
+//   }
+// };
 
 const initialState = {
   shownBoard: {
@@ -75,17 +82,25 @@ const columnsSlice = createSlice({
         backgroundURL: '',
       };
     },
+    setShowBoard(state, action) {
+      state.shownBoard = {
+        ...action.payload,
+        columns: [],
+        backgroundURL: '',
+      };
+    },
   },
 
   extraReducers: builder =>
     builder
+      .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumnById)
-      .addCase(getBoardById.fulfilled, handleFulfilledGetBoardById)
+      // .addCase(getBoardById.fulfilled, handleFulfilledGetBoardById)
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/rejected'), handleRejected),
 });
 
 export const columnsReducer = columnsSlice.reducer;
-export const { showBoard } = columnsSlice.actions;
+export const { showBoard, setShowBoard } = columnsSlice.actions;

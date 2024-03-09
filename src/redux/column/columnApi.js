@@ -28,14 +28,23 @@ api.interceptors.request.use(
   }
 );
 
+export const getColumns = createAsyncThunk(
+  'columns/getColumns',
+  async (boardId, thunkAPI) => {
+    try {
+      const { data } = await api.get(`/columns/${boardId}`);
+      return data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
+    }
+  }
+);
+
 export const addColumn = createAsyncThunk(
   'columns/addColumn',
   async (newColumn, thunkAPI) => {
     try {
-      const { data } = await api.post(
-        `/columns/65e8cbe00d82673706378bfe`,
-        newColumn
-      );
+      const { data } = await api.post(`/columns`, newColumn);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

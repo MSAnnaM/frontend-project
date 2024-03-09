@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
 import Icon from '../Icon/Icon';
@@ -7,13 +7,21 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 import AddColumn from '../AddColumn/AddColumn';
 import EditColumn from '../EditColumn/EditColumn';
 import css from './Column.module.css';
+import { deleteColumn, getColumns } from '../../../redux/column/columnApi';
+import { useDispatch } from 'react-redux';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
   const [openEditColumnModal, setOpenEditColumnModal] = useState(false);
   const [getIdColumn, setIdColumn] = useState(null);
 
+  const dispatch = useDispatch();
   const shownBoard = useShownBoard();
+
+  useEffect(() => {
+    dispatch(getColumns(shownBoard._id));
+    console.log(shownBoard._id);
+  }, [dispatch, shownBoard]);
 
   const columns = shownBoard.columns;
 
@@ -45,7 +53,10 @@ const Column = () => {
                     <Icon className={css.column_icon} id="icon-pencil" />
                   </Button>
 
-                  <Button className={css.column_edit_btn}>
+                  <Button
+                    className={css.column_edit_btn}
+                    onClick={() => dispatch(deleteColumn(_id))}
+                  >
                     <Icon className={css.column_icon} id="icon-trash" />
                   </Button>
                 </div>
