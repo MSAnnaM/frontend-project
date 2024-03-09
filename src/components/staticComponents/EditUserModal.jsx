@@ -12,7 +12,7 @@ import { updateUser } from '../../redux/user/userApi';
 // import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
-export default function EditUserModal() {
+export default function EditUserModal({ openModal }) {
   // const { name, email, password } = useSelector(userSelect);
 
   // const dispatch = useDispatch();
@@ -26,6 +26,7 @@ export default function EditUserModal() {
   // };
 
   const dispatch = useDispatch();
+
   const { name, email, password } = useSelector(userSelect) || {};
   //  const [name, setName] = useState('');
   //   const [email, setEmail] = useState('');
@@ -45,8 +46,6 @@ export default function EditUserModal() {
 
   const handleSubmit = data => {
     const formData = new FormData();
-    console.log(avatarURL);
-    console.log(data.name);
     if (avatarURL) {
       formData.append('file', avatarURL);
     }
@@ -56,6 +55,7 @@ export default function EditUserModal() {
     console.log('FormData:', Object.fromEntries(formData.entries()));
 
     dispatch(updateUser(formData));
+    openModal();
   };
 
   const handleFileChange = e => {
