@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  card: {
+  cards: {
     title: '',
     description: '',
     priority: null,
@@ -10,12 +10,27 @@ const initialState = {
 };
 
 const addCardSlice = createSlice({
-  name: 'addCard',
+  name: 'cards',
   initialState,
   reducers: {
     addCard(state, action) {
       state.card = action.payload;
     },
+  },
+  extraReducers: builder => {
+    // builder
+    //   .addCase(fetchCards.pending, state => {
+    //     state.isLoading = true;
+    //     state.error = null;
+    //   })
+    //   .addCase(fetchCards.fulfilled, (state, action) => {
+    //     state.isLoading = false;
+    //     state.boards = action.payload;
+    //   })
+    //   .addCase(fetchCards.rejected, (state, action) => {
+    //     state.isLoading = false;
+    //     state.error = action.payload;
+    //   });
   },
 });
 

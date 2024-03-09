@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 export const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://localhost:3005/api',
 });
 
 export const addCard = createAsyncThunk(
-  'card/addCard',
+  'cards/addCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/api/card', cardData);
+      const response = await axios.post('/cards', cardData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -17,23 +17,11 @@ export const addCard = createAsyncThunk(
 );
 
 export const editCard = createAsyncThunk(
-  'card/editCard',
+  'cards/editCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`boards/${cardData._id}`, cardData);
+      const response = await axios.put(`cards/${cardData._id}`, cardData);
       return response.data;
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const deleteCard = createAsyncThunk(
-  'card/deleteCard',
-  async (_id, { rejectWithValue }) => {
-    try {
-      await axios.delete(`card/${_id}`);
-      return _id;
     } catch (error) {
       return rejectWithValue(error.message);
     }

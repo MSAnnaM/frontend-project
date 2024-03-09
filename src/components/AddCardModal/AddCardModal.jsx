@@ -8,17 +8,24 @@ import { registerLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addCard } from '../../redux/card/CardSlice';
+import { selectCard } from '../../redux/card/CardSelectors';
 
 registerLocale('en-GB', enGB);
 
 export default function AddCardModal() {
   const dispatch = useDispatch();
-
   const [selectedValue, setSelectedValue] = useState('d');
-
+  // const { title, description, priority, deadline } = useSelector(selectCard);
   const [startDate, setStartDate] = useState(new Date());
+  // const initialState = {
+  //   title: title || '',
+  //   description: description || '',
+  //   priority: selectedValue,
+  //   deadline: deadline,
+  // };
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
@@ -30,16 +37,17 @@ export default function AddCardModal() {
       priority: selectedValue,
       deadline: startDate.getTime(),
     };
-    console.log(cardData);
+    // console.log(cardData);
     dispatch(addCard(cardData));
+    console.log(dispatch(addCard(cardData)));
   };
 
-  const handleChange = event => {
-    setSelectedValue(event.target.value);
-    if (event.target.name === 'title') {
-      setTitle(event.target.value);
-    } else if (event.target.name === 'description') {
-      setDescription(event.target.value);
+  const handleChange = e => {
+    setSelectedValue(e.target.value);
+    if (e.target.name === 'title') {
+      setTitle(e.target.value);
+    } else if (e.target.name === 'description') {
+      setDescription(e.target.value);
     }
   };
 
@@ -192,7 +200,7 @@ export default function AddCardModal() {
             </div>
           </div>
 
-          <button className={style.button} type="submit">
+          <button className={style.button} type="button" onClick={handleSubmit}>
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />
