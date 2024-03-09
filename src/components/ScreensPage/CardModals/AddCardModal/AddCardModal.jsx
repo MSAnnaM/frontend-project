@@ -1,7 +1,7 @@
 import Radio from '@mui/material/Radio';
 import { Field, Form, Formik } from 'formik';
 import style from './AddCardModal.module.css';
-import sprite from '../../img/icons/sprite.svg';
+import sprite from '../../../../img/icons/sprite.svg';
 import { FormLabel } from '@mui/material';
 import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
@@ -9,8 +9,7 @@ import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCard } from '../../redux/card/CardSlice';
-// import { selectCard } from '../../redux/card/CardSelectors';
+import { addCard } from '../../../../redux/card/CardSlice';
 
 registerLocale('en-GB', enGB);
 
