@@ -8,9 +8,9 @@ import { registerLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch} from 'react-redux';
 import { addCard } from '../../redux/card/CardSlice';
-import { selectCard } from '../../redux/card/CardSelectors';
+// import { selectCard } from '../../redux/card/CardSelectors';
 
 registerLocale('en-GB', enGB);
 
