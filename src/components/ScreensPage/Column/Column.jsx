@@ -20,7 +20,6 @@ const Column = () => {
 
   useEffect(() => {
     dispatch(getColumns(shownBoard._id));
-    // console.log(shownBoard.columns.length);
   }, [dispatch, shownBoard._id]);
 
   const columns = shownBoard.columns;

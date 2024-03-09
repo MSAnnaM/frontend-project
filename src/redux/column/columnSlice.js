@@ -35,7 +35,6 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   const array = state.shownBoard.columns;
-  console.log(payload);
   const columnIndex = array.findIndex(el => el._id === payload._id);
   if (columnIndex !== -1) {
     array[columnIndex].title = payload.title;
@@ -46,7 +45,6 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
 const handleFulfilledDeleteColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  console.log(payload);
   state.shownBoard.columns = state.shownBoard.columns.filter(
     ({ _id }) => _id !== payload
   );
