@@ -20,7 +20,7 @@ export const addCard = createAsyncThunk(
   'cards/addCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/cards', cardData);
+      const response = await axios.post('/cards:columnId', cardData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
