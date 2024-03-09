@@ -1,10 +1,18 @@
 import classNames from 'classnames';
+import EditCardModal from 'components/ScreensPage/CardModals/EditCardModal/EditCardModal';
 import { cardPriority } from '../../../const';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import css from './Card.module.css';
+import Modal from 'components/UI/Modals/Modal/Modal';
+import { useState } from 'react';
 
 const Card = ({ data }) => {
+  const [openEditCardModal, setOpenEditCardModal] = useState(false);
+
+  const editCard = () => {
+    setOpenEditCardModal(!openEditCardModal);
+  };
   const { title, description, priority, deadline } = data;
 
   const priorityCard = {
@@ -53,7 +61,12 @@ const Card = ({ data }) => {
                   </Button>
                 </li>
                 <li className={css.action_item}>
-                  <Button className={css.action_btn}>
+                  {openEditCardModal && (
+                    <Modal openModal={editCard}>
+                      <EditCardModal closeModal={editCard} />
+                    </Modal>
+                  )}
+                  <Button className={css.action_btn} onClick={editCard}>
                     <Icon className={css.action_btn_icon} id="icon-pencil" />
                   </Button>
                 </li>

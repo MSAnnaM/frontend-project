@@ -1,6 +1,7 @@
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AddCardModal from './AddCardModal/AddCardModal';
+import AddCardModal from './ScreensPage/CardModals/AddCardModal/AddCardModal';
+import EditCardModal from './ScreensPage/CardModals/EditCardModal/EditCardModal';
 import EditUserModal from './staticComponents/EditUserModal';
 import { PrivateRoute } from './PrivateRoutes';
 import { PublicRoute } from './PublicRoute';
@@ -58,6 +59,7 @@ export const App = () => {
             </Route>
             <Route path="edit" element={<EditUserModal />} />
             <Route path="add" element={<AddCardModal />} />
+            <Route path="editCard" element={<EditCardModal />} />
           </Route>
 
           {/* Private Route from HomePage */}

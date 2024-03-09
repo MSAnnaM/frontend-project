@@ -7,10 +7,12 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 import AddColumn from '../AddColumn/AddColumn';
 import EditColumn from '../EditColumn/EditColumn';
 import css from './Column.module.css';
+import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCardModal';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
   const [openEditColumnModal, setOpenEditColumnModal] = useState(false);
+  const [openAddCardModal, setAddCardModal] = useState(false);
   const [getIdColumn, setIdColumn] = useState(null);
 
   const shownBoard = useShownBoard();
@@ -23,6 +25,9 @@ const Column = () => {
 
   const editColumn = () => {
     setOpenEditColumnModal(!openEditColumnModal);
+  };
+  const addCard = () => {
+    setAddCardModal(!openAddCardModal);
   };
 
   return (
@@ -61,8 +66,12 @@ const Column = () => {
                     ))}
                 </ul>
               </div>
-
-              <Button className={css.card_create_btn}>
+              {openAddCardModal && (
+                <Modal openModal={addCard}>
+                  <AddCardModal closeModal={addCard} />
+                </Modal>
+              )}
+              <Button className={css.card_create_btn} onClick={addCard}>
                 <div className={css.card_btn_icon_bg}>
                   <Icon className={css.card_btn_icon} id="icon-plus" />
                 </div>
