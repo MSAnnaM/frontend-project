@@ -45,9 +45,9 @@ export const addColumn = createAsyncThunk(
 
 export const updateColumnById = createAsyncThunk(
   'columns/updateColumnById',
-  async ({ id, newColumnData }, thunkAPI) => {
+  async ({ _id, newColumnData }, thunkAPI) => {
     try {
-      const { data } = await api.put(`/columns/${id}`, newColumnData);
+      const { data } = await api.put(`/columns/${_id}`, newColumnData);
       return data;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);

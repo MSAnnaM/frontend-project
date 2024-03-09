@@ -18,6 +18,7 @@ export default function AddCardModal() {
 
   const handleChange = event => {
     setSelectedValue(event.target.value);
+    console.log(selectedValue);
   };
 
   const controlProps = item => ({
