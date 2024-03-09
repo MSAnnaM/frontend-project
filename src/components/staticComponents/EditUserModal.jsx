@@ -46,8 +46,6 @@ export default function EditUserModal({ openModal }) {
 
   const handleSubmit = data => {
     const formData = new FormData();
-    console.log(avatarURL);
-    console.log(data.name);
     if (avatarURL) {
       formData.append('file', avatarURL);
     }

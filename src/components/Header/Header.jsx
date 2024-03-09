@@ -20,7 +20,7 @@ export default function Header({ onClick }) {
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  const { name, avatarURL } = useSelector(userSelect);
+  const { name, avatarUrl } = useSelector(userSelect);
 
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -72,7 +72,7 @@ export default function Header({ onClick }) {
             onClick={handleOpenModal}
           >
             <img
-              src={avatarURL ? avatarURL : userImage}
+              src={avatarUrl ? avatarUrl : userImage}
               alt="users avatar"
               width={32}
               height={32}

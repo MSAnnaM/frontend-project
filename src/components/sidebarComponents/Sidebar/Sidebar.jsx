@@ -8,7 +8,6 @@ import HelpModal from "../HelpModal/HelpModal"
 import CreateBoardModal from "../CreateBoardModal/CreateBoardModal"
 
 
-
 const Sidebar = ({ isMenuOpen, onClick }) => {
 
     const handleBackdropClick = () => {

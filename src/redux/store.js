@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage';
 import modalReducer from './modal/modalSlice';
 import { registrationReducer } from './user/userSlice';
 import boardsReducer from './board/boardSlice';
+import { columnsReducer } from './column/columnSlice';
 import {
   persistStore,
   persistReducer,
@@ -38,6 +39,7 @@ export const store = configureStore({
     auth,
     modal: modalReducer,
     boards: boardsReducer,
+    columns: columnsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
