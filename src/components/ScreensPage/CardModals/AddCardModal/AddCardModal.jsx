@@ -1,23 +1,53 @@
 import Radio from '@mui/material/Radio';
 import { Field, Form, Formik } from 'formik';
 import style from './AddCardModal.module.css';
-import sprite from '../../img/icons/sprite.svg';
+import sprite from '../../../../img/icons/sprite.svg';
 import { FormLabel } from '@mui/material';
 import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addCard } from '../../../../redux/card/CardSlice';
 
 registerLocale('en-GB', enGB);
 
 export default function AddCardModal() {
-  const [selectedValue, setSelectedValue] = useState('a');
-
+  const dispatch = useDispatch();
+  const [selectedValue, setSelectedValue] = useState('d');
+  // const { title, description, priority, deadline } = useSelector(selectCard);
   const [startDate, setStartDate] = useState(new Date());
+  // const initialState = {
+  //   title: title || '',
+  //   description: description || '',
+  //   priority: selectedValue,
+  //   deadline: deadline,
+  // };
 
-  const handleChange = event => {
-    setSelectedValue(event.target.value);
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const cardData = {
+      title,
+      description,
+      priority: selectedValue,
+      deadline: startDate.getTime(),
+    };
+    // console.log(cardData);
+    dispatch(addCard(cardData));
+    console.log(dispatch(addCard(cardData)));
+  };
+
+  const handleChange = e => {
+    setSelectedValue(e.target.value);
+    if (e.target.name === 'title') {
+      setTitle(e.target.value);
+    } else if (e.target.name === 'description') {
+      setDescription(e.target.value);
+    }
   };
 
   const controlProps = item => ({
@@ -43,7 +73,7 @@ export default function AddCardModal() {
       </svg>
 
       <Formik>
-        <Form className={style.form} autoComplete="off">
+        <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
           <div className={style['input-box']}>
             <div className={style.wrap}>
               <Field
@@ -51,6 +81,8 @@ export default function AddCardModal() {
                 type="text"
                 name="title"
                 placeholder="Title"
+                value={title}
+                onChange={handleChange}
               />
             </div>
             <div className={style.wrap}></div>
@@ -59,6 +91,8 @@ export default function AddCardModal() {
                 className={style.text_area}
                 name="description"
                 placeholder="Description"
+                value={description}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -165,7 +199,7 @@ export default function AddCardModal() {
             </div>
           </div>
 
-          <button className={style.button} type="submit">
+          <button className={style.button} type="button" onClick={handleSubmit}>
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />

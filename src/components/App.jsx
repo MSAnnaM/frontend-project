@@ -1,9 +1,11 @@
 import { lazy, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import AddCardModal from './AddModal/AddCardModal';
+import AddCardModal from './ScreensPage/CardModals/AddCardModal/AddCardModal';
+import EditCardModal from './ScreensPage/CardModals/EditCardModal/EditCardModal';
 import EditUserModal from './staticComponents/EditUserModal';
 import { PrivateRoute } from './PrivateRoutes';
 import { PublicRoute } from './PublicRoute';
+// import EditCardModal from './EditCardModal/EditCardModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { isRefreshing } from '../redux/user/selectors';
 import { refreshUser } from '../redux/user/userApi';
@@ -57,6 +59,7 @@ export const App = () => {
             </Route>
             <Route path="edit" element={<EditUserModal />} />
             <Route path="add" element={<AddCardModal />} />
+            <Route path="editCard" element={<EditCardModal />} />
           </Route>
 
           {/* Private Route from HomePage */}
