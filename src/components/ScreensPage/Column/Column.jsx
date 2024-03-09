@@ -18,10 +18,10 @@ const Column = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
-  useEffect(() => {
-    dispatch(getColumns(shownBoard._id));
-    console.log(shownBoard._id);
-  }, [dispatch, shownBoard]);
+  // useEffect(() => {
+  //   dispatch(getColumns(shownBoard._id));
+  //   let vdc = shownBoard.columns.length;
+  // }, [dispatch, shownBoard._id]);
 
   const columns = shownBoard.columns;
 

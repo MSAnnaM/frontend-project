@@ -10,9 +10,7 @@ import css from './EditColumn.module.css';
 const EditColumn = ({ id, closeModal }) => {
   const dispatch = useDispatch();
 
-  const { title, boardId } = useShownBoard().columns.find(
-    ({ _id }) => _id === id
-  );
+  const { title } = useShownBoard().columns.find(({ _id }) => _id === id);
 
   const [newColumnTitle, setNewColumnTitle] = useState(title);
 

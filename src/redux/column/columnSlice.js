@@ -3,7 +3,6 @@ import {
   getColumns,
   addColumn,
   deleteColumn,
-  // getBoardById,
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
@@ -22,13 +21,15 @@ const handleFulfilledGetColumns = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   state.shownBoard.columns = payload;
+  console.log(state.shownBoard.columns);
 };
 
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   payload.cards = [];
-  state.shownBoard.push({ payload });
+  console.log(state.shownBoard.columns);
+  state.shownBoard.columns.push(payload);
   Notify.success(`Column added`);
 };
 
@@ -51,17 +52,6 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   );
   Notify.success(`Column deleted`);
 };
-
-// const handleFulfilledGetBoardById = (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = null;
-//   if (payload.columns.length && payload.columns[0]._id) {
-//     state.shownBoard = payload;
-//   } else {
-//     state.shownBoard = payload;
-//     state.shownBoard.columns = [];
-//   }
-// };
 
 const initialState = {
   shownBoard: {
@@ -97,7 +87,6 @@ const columnsSlice = createSlice({
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumnById)
-      // .addCase(getBoardById.fulfilled, handleFulfilledGetBoardById)
       .addMatcher(action => action.type.endsWith('/pending'), handlePending)
       .addMatcher(action => action.type.endsWith('/rejected'), handleRejected),
 });
