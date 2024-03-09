@@ -1,14 +1,29 @@
 import { deleteBoard } from '../../../redux/board/boardApi';
 import sprite from '../../../img/icons/sprite.svg';
 import css from "./BoardListItem.module.css"
-import { useDispatch } from 'react-redux';
-import { openModal } from '../../../redux/modal/modalSlice';
+import { useDispatch, useSelector } from 'react-redux';
+// import { openModal } from '../../../redux/modal/modalSlice';
 import BoardEditModal from '../BoardEditModal/BoardEditModal';
-
+// import { selectModal3, selectModal4 } from '../../../redux/modal/modalSelectors';
+import Modal from 'components/UI/Modals/Modal/Modal';
+import { useState } from 'react';
 
 
 const BoardListItem = ({ props }) => {
+
+    const [openModal, setModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setModal(true);
+    };
     const dispatch = useDispatch();
+    const handleDeleteBoard = () => {
+        dispatch(deleteBoard(props._id));
+    };
+    // const handleEditBoardClick = () => {
+    //     dispatch(openModal('modal4'), < BoardEditModal />);
+    // };
+
 
     return (<div className={css.board_list_item}>
         <div className={css.board_box}>
@@ -20,14 +35,22 @@ const BoardListItem = ({ props }) => {
             </h4>
         </div>
         <div className={css.board_icons}>
-            <button type='button' className={css.button_edit_board} onClick={() => dispatch(openModal('modal3', <BoardEditModal />))}>
+            {openModal && (
+                <Modal
+                    children={<BoardEditModal openModal={setModal} />}
+                    openModal={setModal}
+                />
+            )}
+            <button type='button' className={css.button_edit_board} onClick={handleOpenModal}
+            >
                 <svg className={css.icon_pencil} width={16} height={16}>
                     <use href={`${sprite}#icon-pencil`} />
                 </svg>
             </button>
-            <button type='button' className={css.button_delete_board} onClick={dispatch(deleteBoard)}>
+            <button type='button' className={css.button_delete_board}
+                onClick={handleDeleteBoard}
+            >
                 <svg className={css.icon_trash} width={16} height={16}
-                    onClick={() => dispatch(deleteBoard())}
                 >
                     <use href={`${sprite}#icon-trash`} />
                 </svg></button>

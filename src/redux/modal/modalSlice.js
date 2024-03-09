@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -14,8 +13,9 @@ const modalSlice = createSlice({
     openModal(state, action) {
       state[action.payload] = true;
     },
-    closeModal(state) {
-      return initialState;
+    closeModal(state, action) {
+      const modalKey = action.payload;
+      state[modalKey] = false;
     },
   },
 });

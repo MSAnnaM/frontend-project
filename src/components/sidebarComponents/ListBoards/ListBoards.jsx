@@ -9,10 +9,10 @@ import { selectBoards } from "../../../redux/board/selectors";
 const ListBoards = () => {
     const dispatch = useDispatch();
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        dispatch(fetchBoards());
-    }, [dispatch]);
+    //     dispatch(fetchBoards());
+    // }, [dispatch]);
 
     const boards = useSelector(selectBoards);
     console.log(boards)
@@ -24,7 +24,7 @@ const ListBoards = () => {
             <ul>
 
                 {boards.map(({ name, _id, icon }) => (<li key={_id} className={css.board_list_item}>
-                    <BoardListItem props={{ name, icon }} /></li>))}
+                    <BoardListItem props={{ name, icon, _id }} /></li>))}
             </ul>
 
         </div>
