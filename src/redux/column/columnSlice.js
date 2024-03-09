@@ -21,14 +21,12 @@ const handleFulfilledGetColumns = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   state.shownBoard.columns = payload;
-  console.log(state.shownBoard.columns);
 };
 
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   payload.cards = [];
-  console.log(state.shownBoard.columns);
   state.shownBoard.columns.push(payload);
   Notify.success(`Column added`);
 };
@@ -37,6 +35,7 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   const array = state.shownBoard.columns;
+  console.log(payload);
   const columnIndex = array.findIndex(el => el._id === payload._id);
   if (columnIndex !== -1) {
     array[columnIndex].title = payload.title;
@@ -47,6 +46,7 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
 const handleFulfilledDeleteColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
+  console.log(payload);
   state.shownBoard.columns = state.shownBoard.columns.filter(
     ({ _id }) => _id !== payload
   );

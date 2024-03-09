@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
-const BASE_URL = 'http://localhost:3005/api';
+const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
+// const BASE_URL = 'http://localhost:3005/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -69,7 +69,7 @@ export const deleteColumn = createAsyncThunk(
   async (columnId, thunkAPI) => {
     try {
       const { data } = await api.delete(`/columns/${columnId}`);
-      return data.deletedId;
+      return data.id;
     } catch (e) {
       return thunkAPI.rejectWithValue(e.message);
     }

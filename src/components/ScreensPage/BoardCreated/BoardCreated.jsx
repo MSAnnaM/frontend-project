@@ -9,10 +9,10 @@ const BoardCreated = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
-  useEffect(() => {
-    dispatch(getColumns(shownBoard._id));
-    // let vdc = shownBoard.columns.length;
-  }, [dispatch, shownBoard._id]);
+  // useEffect(() => {
+  //   dispatch(getColumns(shownBoard._id));
+  //   // let vdc = shownBoard.columns.length;
+  // }, [dispatch, shownBoard._id]);
 
   return (
     <div className={css.dashboard}>

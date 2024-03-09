@@ -9,7 +9,6 @@ import { Field, Form, Formik } from 'formik';
 const AddColumn = ({ closeModal }) => {
   const dispatch = useDispatch();
   const { _id: shownBoardId } = useShownBoard();
-  console.log(useShownBoard());
 
   const handlerAddColumn = e => {
     e.preventDefault();
@@ -20,7 +19,6 @@ const AddColumn = ({ closeModal }) => {
         boardId: shownBoardId,
       };
       dispatch(addColumn(newColumn));
-      console.log(newColumn);
       closeModal();
       return;
     }
