@@ -8,6 +8,7 @@ import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Suspense } from 'react';
 import Loader from 'components/UI/Loader/Loader';
+import { ThemeProvider } from 'components/ThemeProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -15,7 +16,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <PersistGate persistor={persistor} loading={null}>
         <Provider store={store}>
           <Suspense fallback={<Loader />}>
-            <App />
+            <ThemeProvider>
+              <App />
+            </ThemeProvider>
           </Suspense>
         </Provider>
       </PersistGate>

@@ -1,29 +1,29 @@
-import { useState } from 'react';
-import sprite from '../../../img/icons/sprite.svg';
-import style from './Select.module.css';
-import { ThemeModal } from '../ThemeModal/ThemeModal';
+import React, { useContext } from 'react';
+import Select from 'react-select';
+import './Select.css';
+import { ThemeContext } from 'components/ThemeProvider';
 
-export const Select = () => {
-  const [isOpen, setisOpen] = useState(false);
+export const SelectTheme = () => {
+  const [theme, setTheme] = useContext(ThemeContext);
 
-  const toggleModal = () => {
-    setisOpen(prev => !prev);
+  const THEME_OPTIONS = [
+    { value: 'light', label: 'light' },
+    { value: 'dark', label: 'dark' },
+    { value: 'violet', label: 'violet' },
+  ];
+
+  const onChangeTheme = event => {
+    console.log(event.value);
+    setTheme(event.value);
   };
 
   return (
-    <>
-      <button
-        type="button"
-        onClick={toggleModal}
-        className={style.select_button}
-      >
-        Theme
-        <svg width={16} height={16} className={style.svg_icon}>
-          <use href={`${sprite}#icon-chevron_down`}></use>
-        </svg>
-      </button>
-
-      {isOpen && <ThemeModal />}
-    </>
+    <Select
+      classNamePrefix="custom-select"
+      onChange={onChangeTheme}
+      options={THEME_OPTIONS}
+      placeholder={theme}
+      isSearchable={false}
+    />
   );
 };
