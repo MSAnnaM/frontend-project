@@ -101,7 +101,8 @@ export default function AddCardModal() {
               className={style.label_div}
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',
@@ -174,7 +175,8 @@ export default function AddCardModal() {
             <FormLabel
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',

@@ -1,9 +1,9 @@
 .container {
-  background-color: #161616;
-  color: #ffffffcc;
+  background-color: var(--header-back);
+  color: var(--main-color);
   display: flex;
   width: 100%;
-  z-index: 2;
+  z-index: 1;
   padding-left: 16px;
   padding-right: 16px;
 
@@ -18,6 +18,7 @@
   /* @media screen and (min-width: 1440px) {
     position: fixed;
     top: 0;
+    right: 0;
     width: 100%;
     height: 68px;
   } */
@@ -39,7 +40,7 @@
 }
 
 .icon {
-  stroke: #ffffff;
+  stroke: var(--main-color);
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -61,7 +62,7 @@
 }
 
 .name {
-  color: #fff;
+  color: var(--main-color);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
@@ -70,7 +71,7 @@
 }
 
 .box_icon_user {
-  background-color: #1f1f1f;
+  background-color: var(--main-back-color);
   border-radius: 4px;
   height: 28px;
   width: 28px;

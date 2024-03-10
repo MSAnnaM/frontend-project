@@ -7,7 +7,7 @@
 .section {
   height: 100vh;
   width: 100%;
-  background-color: var(--dashboard-background-color);
+  background-color: var(--main-back-color);
 }
 
 .wrapper {
@@ -32,7 +32,7 @@
 .title {
   font-size: 14px;
   font-weight: 500;
-  color: var(--dashboard-title-color);
+  color: var(--main-color);
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -41,7 +41,8 @@
 
 .icon_filter {
   fill: transparent;
-  stroke: var(--dashboard-button-color);
+  stroke: var(--main-color);
+  opacity: 0.8;
   width: 16px;
   height: 16px;
   margin-right: 8px;
@@ -55,7 +56,8 @@
   align-items: center;
   font-size: 14px;
   font-weight: 500;
-  color: var(--dashboard-button-color);
+  color: var(--main-color);
+  opacity: 0.8;
   margin: 0;
   user-select: none;
 }
