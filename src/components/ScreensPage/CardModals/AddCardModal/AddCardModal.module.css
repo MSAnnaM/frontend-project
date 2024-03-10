@@ -13,27 +13,13 @@
   }
 }
 
-.calendar_color {
-  background-color: #151515;
-}
-/* .react-datepicker {
-  background-color: #151515;
-} */
-
-/* .react-datepicker__header {
-  background-color: transparent;
-} */
-.react-datepicker__month-container {
-  background-color: #151515;
-}
 .calendar {
   color: #bedbb0;
-  /* margin-bottom: 40px; */
   margin-top: 4px;
+
 }
 
 .title {
-  /* margin-left: 24px; */
   margin-bottom: 24px;
   color: #fff;
   font-family: Poppins;
@@ -53,11 +39,13 @@
   display: flex;
   flex-direction: column;
 }
+
 .calendar_wrap {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
 }
+
 .calendar_div {
   display: flex;
   flex-direction: row;
@@ -65,6 +53,7 @@
 
   gap: 4px;
 }
+
 .input {
   width: 100%;
   padding: 14px 18px;
@@ -80,6 +69,7 @@
   opacity: 0.4;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .text_area {
   height: 154px;
   width: 100%;
@@ -102,19 +92,23 @@
   display: flex;
   flex-direction: column;
 }
+
 .radio_list {
   display: flex;
   flex-direction: row;
   gap: 8px;
 }
+
 .input:focus {
   outline: none;
   opacity: 1;
 }
+
 .text_area:focus {
   outline: none;
   opacity: 1;
 }
+
 .input-box {
   display: flex;
   flex-direction: column;
@@ -157,6 +151,7 @@
   fill: none;
   cursor: pointer;
 }
+
 .icon_close {
   position: absolute;
   top: 14px;
@@ -178,6 +173,7 @@
   margin-top: 24px;
   margin-bottom: 25px;
 }
+
 .icon_plus_div {
   margin-right: 8px;
   border-radius: 8px;
@@ -188,6 +184,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .icon_plus {
   stroke: #fff;
   cursor: pointer;
