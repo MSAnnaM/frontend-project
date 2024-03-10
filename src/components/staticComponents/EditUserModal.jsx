@@ -2,7 +2,7 @@ import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState } from 'react';
-import { authSchema } from '../Auth/Schemas/authSchema.js';
+import { editSchema } from '../Auth/Schemas/authSchema.js';
 import FormButton from 'components/UI/Buttons/FormButton/FormButton';
 import Eye from 'components/UI/Forma/Eye/Eye';
 import Error from 'components/UI/Forma/Error/Error';
@@ -26,9 +26,8 @@ export default function EditUserModal() {
   // };
 
   const dispatch = useDispatch();
-  const user = useSelector(userSelect) || {};
-  const { name, email, password } = user;
-  // const { name, email, password } = useSelector(userSelect) || {};
+
+  const { name, email, password } = useSelector(userSelect) || {};
   //  const [name, setName] = useState('');
   //   const [email, setEmail] = useState('');
   //   const [password, setPassword] = useState('');
@@ -108,7 +107,7 @@ export default function EditUserModal() {
           className={style.input_hidden}
         />
       </div>
-      <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
+      <Forma initial={initialValues} schema={editSchema} handle={handleSubmit}>
         <div className={style.wrap}>
           <Error name="name" />
           <Input type="text" name="name" text={initialValues.name} />
