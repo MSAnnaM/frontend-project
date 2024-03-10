@@ -4,7 +4,7 @@ import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
 import { SelectTheme } from './Select/Select';
 
-import userImage from '../../img/user.png';
+// import userImage from '../../img/user.png';
 import {useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
 import EditUserModal from 'components/staticComponents/EditUserModal';
@@ -13,7 +13,7 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 
 export default function Header({ onClick }) {
   // const dispatch = useDispatch();
-  const { name, avatarURL } = useSelector(userSelect);
+  const { name, avatarUrl } = useSelector(userSelect);
   const [openModal, setModal] = useState(false);
 
   const handleOpenModal = () => {
