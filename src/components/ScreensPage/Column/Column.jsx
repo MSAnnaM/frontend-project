@@ -8,6 +8,8 @@ import AddColumn from '../AddColumn/AddColumn';
 import EditColumn from '../EditColumn/EditColumn';
 import css from './Column.module.css';
 import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCardModal';
+import { useDispatch } from 'react-redux';
+import { deleteColumn } from '../../../redux/column/columnApi';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
@@ -15,9 +17,57 @@ const Column = () => {
   const [openAddCardModal, setAddCardModal] = useState(false);
   const [getIdColumn, setIdColumn] = useState(null);
 
+  const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
   const columns = shownBoard.columns;
+
+  // const allcards = [
+  //   {
+  //     _id: '65ecf062a4a0935d0611e60f',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Low',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e601',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'High',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e602',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Medium',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e603',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Without',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  // ];
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
@@ -50,7 +100,10 @@ const Column = () => {
                     <Icon className={css.column_icon} id="icon-pencil" />
                   </Button>
 
-                  <Button className={css.column_edit_btn}>
+                  <Button
+                    className={css.column_edit_btn}
+                    onClick={() => dispatch(deleteColumn(_id))}
+                  >
                     <Icon className={css.column_icon} id="icon-trash" />
                   </Button>
                 </div>

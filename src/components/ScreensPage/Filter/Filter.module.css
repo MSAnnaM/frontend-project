@@ -55,7 +55,8 @@
   margin-bottom: 8px;
 }
 
-.radio_item:hover {
+.radio_item:hover,
+.radio_item:focus {
   color: var(--filter-showall-btn-hover);
 }
 
@@ -77,6 +78,19 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.visually_hidden:hover + .radio_item .radio_bg::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 7px;
+  height: 7px;
+  background-color: var(--filter-bg);
+  border-radius: 50%;
+  border: 2.5px solid var(--filter-bg);
 }
 
 .visually_hidden:checked + .radio_item .radio_bg::before {

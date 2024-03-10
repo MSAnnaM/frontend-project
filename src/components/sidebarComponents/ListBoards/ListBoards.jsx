@@ -1,10 +1,10 @@
-import css from "./ListBoards.module.css";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import BoardListItem from "../BoardListItem/BoardListItem";
-import { fetchBoards } from "../../../redux/board/boardApi";
-import { selectBoards } from "../../../redux/board/selectors";
-
+import css from './ListBoards.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import BoardListItem from '../BoardListItem/BoardListItem';
+import { fetchBoards } from '../../../redux/board/boardApi';
+import { selectBoards } from '../../../redux/board/selectors';
+import { showBoard } from '../../../redux/column/columnSlice';
 
 const ListBoards = () => {
     const dispatch = useDispatch();
@@ -14,22 +14,46 @@ const ListBoards = () => {
     //     dispatch(fetchBoards());
     // }, [dispatch]);
 
+    //     const boards = useSelector(selectBoards);
+    //     console.log(boards)
+    //     if (!boards || boards.length === 0) {
+    //         return <div className={css.sidebar_boards_list}></div>;
+    //     }
+    //     return (
+    //         <div className={css.sidebar_boards_list}>
+    //             <ul>
+
+    //                 {boards.map(({ name, _id, icon }) => (<li key={_id} className={css.board_list_item}>
+    //                     <BoardListItem props={{ name, icon, _id }} /></li>))}
+    //             </ul>
+
+    //         </div>
+    //     )
+    // }
+    useEffect(() => {
+        dispatch(fetchBoards());
+    }, [dispatch]);
+
     const boards = useSelector(selectBoards);
-    console.log(boards)
+    //   console.log(boards[0]);
+    dispatch(showBoard(boards[0]));
+
+    console.log(boards);
     if (!boards || boards.length === 0) {
         return <div className={css.sidebar_boards_list}></div>;
     }
     return (
         <div className={css.sidebar_boards_list}>
             <ul>
-
-                {boards.map(({ name, _id, icon }) => (<li key={_id} className={css.board_list_item}>
-                    <BoardListItem props={{ name, icon, _id }} /></li>))}
+                {boards.map(board => (
+                    <li key={board._id} className={css.board_list_item}>
+                        <BoardListItem props={board} />
+                    </li>
+                ))}
             </ul>
-
         </div>
-    )
-}
+    );
+};
 export default ListBoards;
 // import React from 'react';
 // import { animateScroll } from 'react-scroll';

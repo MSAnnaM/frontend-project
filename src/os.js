@@ -1,1 +1,1 @@
-resolve.fallback: { "os": false };
+// resolve.fallback: { "os": false };
