@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { registerUser, loginUser, logoutUser, refreshUser, updateUser } from './userApi';
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  refreshUser,
+  updateUser,
+} from './userApi';
 
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
@@ -42,7 +48,7 @@ const registrationSlice = createSlice({
   reducers: {
     updateUserField: (state, action) => {
       const { name, value } = action.payload;
-      state.user[name] = value;
+      state.user = { ...state.user, [name]: value };
     },
     updateUserImage: (state, action) => {
       state.user.avatarURL = action.payload;
