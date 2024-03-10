@@ -5,22 +5,29 @@ import { useEffect, useState } from 'react';
 import { SelectTheme } from './Select/Select';
 
 import userImage from '../../img/user.png';
-import { useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
 import EditUserModal from 'components/staticComponents/EditUserModal';
 import Modal from 'components/UI/Modals/Modal/Modal';
+// import { updateUser } from '../../redux/user/userApi';
 
 export default function Header({ onClick }) {
+  // const dispatch = useDispatch();
+  const { name, avatarURL } = useSelector(userSelect);
   const [openModal, setModal] = useState(false);
 
   const handleOpenModal = () => {
     setModal(true);
   };
-
+  // const handleModalClose = () => {
+  //   const userData = {
+  //     name: name,
+  //     avatarURL: avatarURL,
+  //   };
+  //   dispatch(updateUser(userData));
+  // };
   const [showEditProfile, setShowEditProfile] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  const { name, avatarUrl } = useSelector(userSelect);
 
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -64,6 +71,7 @@ export default function Header({ onClick }) {
             <Modal
               children={<EditUserModal openModal={setModal} />}
               openModal={setModal}
+              // onClose={handleModalClose}
             />
           )}
           <button

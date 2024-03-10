@@ -2,8 +2,6 @@ import { Field, Form, Formik } from 'formik';
 import css from './Filter.module.css';
 
 const Filter = ({ openModal }) => {
-  //?????????????????????
-
   const currentFilter = 'Low';
 
   const handleChangeFilter = e => {
