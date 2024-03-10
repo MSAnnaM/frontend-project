@@ -79,7 +79,7 @@ import { editCard } from '../../../../redux/card/CardSlice';
 
 registerLocale('en-GB', enGB);
 
-export default function EditCardModal({ cardId }) {
+export default function EditCardModal({ cardId, boardId }) {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
   //   const { title, description, priority, deadline } =
@@ -99,6 +99,7 @@ export default function EditCardModal({ cardId }) {
     e.preventDefault();
     const updateCardData = {
       cardId,
+      boardId,
       title,
       description,
       priority: selectedValue,

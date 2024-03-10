@@ -32,7 +32,7 @@ export const editCard = createAsyncThunk(
   'cards/editCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`cards/${cardData.id}`, cardData);
+      const response = await axios.patch(`cards/${cardData._id}`, cardData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
