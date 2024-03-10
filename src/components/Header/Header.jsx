@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react';
 import { Select } from './Select/Select';
 
 import userImage from '../../img/user.png';
-import { useDispatch, useSelector } from 'react-redux';
+import {useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
 import EditUserModal from 'components/staticComponents/EditUserModal';
 import Modal from 'components/UI/Modals/Modal/Modal';
-import { updateUser } from '../../redux/user/userApi';
+// import { updateUser } from '../../redux/user/userApi';
 
 export default function Header({ onClick }) {
   // const dispatch = useDispatch();
