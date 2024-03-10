@@ -39,3 +39,15 @@ export const editCard = createAsyncThunk(
     }
   }
 );
+
+export const deleteCard = createAsyncThunk(
+  'cards/deleteCard',
+  async (_id, { rejectWithValue }) => {
+    try {
+      await axiosInstance.delete(`/cards/${_id}`);
+      return _id;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);

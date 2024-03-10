@@ -52,9 +52,23 @@ const addCardSlice = createSlice({
       .addCase(addCard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(deleteCard.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+
+        state.cards = state.cards.filter(card => card.id !== action.payload);
+      })
+      .addCase(deleteCard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
-export const { addCard, editCard, fetchCards } = addCardSlice.actions;
+export const { addCard, editCard, fetchCards, deleteCard } =
+  addCardSlice.actions;
 export default addCardSlice.reducer;
