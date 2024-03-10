@@ -8,7 +8,7 @@ export const fetchCards = createAsyncThunk(
   'cards/fetchCards',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axiosInstance.get('/cards/');
+      const response = await axios.get('/cards/');
       console.log(response);
       return response.data;
     } catch (error) {
