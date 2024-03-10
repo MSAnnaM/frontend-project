@@ -12,9 +12,14 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--sidebar-text);
   text-transform: capitalize;
 }
+
+.board_icon {
+  stroke: var(--sidebar-text);
+}
+
 .icon_pencil,
 .icon_trash,
 .board_icon {

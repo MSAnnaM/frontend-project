@@ -2,7 +2,7 @@
   position: relative;
   padding: 24px;
   border-radius: 8px;
-  background: #151515;
+  background: var(--modal-back);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,14 +14,13 @@
 }
 
 .calendar {
-  color: #bedbb0;
+  color: var(--accent-color);
   margin-top: 4px;
-
 }
 
 .title {
   margin-bottom: 24px;
-  color: #fff;
+  color: var(--main-color);
   font-family: Poppins;
   font-size: 18px;
   font-style: normal;
@@ -32,7 +31,7 @@
 }
 
 .icon_down {
-  stroke: #bedbb0;
+  stroke: var(--accent-color);
 }
 
 .form {
@@ -60,10 +59,10 @@
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: -0.28px;
-  color: #fff;
+  color: var(--main-color);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
-  background-color: #1f1f1f;
+  border: 1px solid var(--accent-color);
+  background-color: var(--input-back);
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   box-sizing: border-box;
   opacity: 0.4;
@@ -77,10 +76,10 @@
   font-family: Poppins;
   font-size: 14px;
   letter-spacing: -0.28px;
-  color: #fff;
+  color: var(--main-color);
   border-radius: 8px;
-  border: 1px solid #bedbb0;
-  background-color: #1f1f1f;
+  border: 1px solid var(--accent-color);
+  background-color: var(--input-back);
   box-shadow: 0px 4px 16px 0px rgba(22, 22, 22, 0.08);
   box-sizing: border-box;
   opacity: 0.4;
@@ -156,7 +155,7 @@
   position: absolute;
   top: 14px;
   right: 14px;
-  stroke: white;
+  stroke: var(--main-color);
   fill: none;
   cursor: pointer;
 }
@@ -179,14 +178,14 @@
   border-radius: 8px;
   width: 28px;
   height: 28px;
-  background-color: #161616;
+  background-color: var(--modal-icon-plus-back);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .icon_plus {
-  stroke: #fff;
+  stroke: var(--modal-icon-plus);
   cursor: pointer;
 }
 
@@ -205,7 +204,7 @@
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 14px 0;
-  color: #161616;
-  background-color: #bedbb0;
+  color: var(--button-text);
+  background-color: var(--accent-color);
   margin: 0 auto;
 }
