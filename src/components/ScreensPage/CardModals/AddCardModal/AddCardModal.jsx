@@ -72,10 +72,6 @@ export default function AddCardModal() {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Add card</h3>
-
-      <svg width={18} height={18} className={style.icon_close}>
-        <use href={`${sprite}#icon-close`} />
-      </svg>
       <Formik>
         <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
           <div className={style['input-box']}>
