@@ -9,24 +9,24 @@ import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCard } from '../../../../redux/card/CardSlice';
+import { addCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
 export default function AddCardModal() {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
-  // const { title, description, priority, deadline } = useSelector(selectCard);
   const [startDate, setStartDate] = useState(new Date());
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  // const { title, description, priority, deadline } = useSelector(selectCard);
+
   // const initialState = {
   //   title: title || '',
   //   description: description || '',
   //   priority: selectedValue,
   //   deadline: deadline,
   // };
-
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -67,11 +67,6 @@ export default function AddCardModal() {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Add card</h3>
-
-      <svg width={18} height={18} className={style.icon_close}>
-        <use href={`${sprite}#icon-close`} />
-      </svg>
-
       <Formik>
         <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
           <div className={style['input-box']}>
@@ -109,7 +104,6 @@ export default function AddCardModal() {
             >
               Label color
             </FormLabel>
-
             <div className={style.radio_list}>
               <Radio
                 {...controlProps('a')}
