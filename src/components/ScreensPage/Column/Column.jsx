@@ -10,6 +10,7 @@ import css from './Column.module.css';
 import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCardModal';
 import { useDispatch } from 'react-redux';
 import { deleteColumn } from '../../../redux/column/columnApi';
+import { useFilter } from 'hooks/useFilter';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
@@ -20,54 +21,68 @@ const Column = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
-  const columns = shownBoard.columns;
+  const allColumns = shownBoard.columns;
+  const filter = useFilter();
 
-  // const allcards = [
-  //   {
-  //     _id: '65ecf062a4a0935d0611e60f',
-  //     title: 'New Card',
-  //     description: 'first try',
-  //     priority: 'Low',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e601',
-  //     title: 'New Card',
-  //     description: 'first try',
-  //     priority: 'High',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e602',
-  //     title: 'New Card',
-  //     description: 'first try',
-  //     priority: 'Medium',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e603',
-  //     title: 'New Card',
-  //     description: 'first try',
-  //     priority: 'Without',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  // ];
+  const allcards = [
+    {
+      _id: '65ecf062a4a0935d0611e60f',
+      title: 'New Card 1',
+      description: 'first try',
+      priority: 'Low',
+      deadline: '2024-03-31T00:00:00.000+00:00',
+      columnId: '65ecee57a4a0935d0611e604',
+      boardId: '65ece6907553c06c35d3cff8',
+      owner: '65ec8bd21373ed43484848be',
+      index: 1,
+    },
+    {
+      _id: '65ecf062a4a0935d0611e601',
+      title: 'New Card 2',
+      description: 'first try',
+      priority: 'High',
+      deadline: '2024-03-31T00:00:00.000+00:00',
+      columnId: '65ecee57a4a0935d0611e604',
+      boardId: '65ece6907553c06c35d3cff8',
+      owner: '65ec8bd21373ed43484848be',
+      index: 1,
+    },
+    {
+      _id: '65ecf062a4a0935d0611e602',
+      title: 'New Card 3',
+      description: 'first try',
+      priority: 'Medium',
+      deadline: '2024-03-31T00:00:00.000+00:00',
+      columnId: '65ecee57a4a0935d0611e604',
+      boardId: '65ece6907553c06c35d3cff8',
+      owner: '65ec8bd21373ed43484848be',
+      index: 1,
+    },
+    {
+      _id: '65ecf062a4a0935d0611e603',
+      title: 'New Card 4',
+      description: 'first try',
+      priority: 'Without',
+      deadline: '2024-03-31T00:00:00.000+00:00',
+      columnId: '65ecee57a4a0935d0611e604',
+      boardId: '65ece6907553c06c35d3cff8',
+      owner: '65ec8bd21373ed43484848be',
+      index: 1,
+    },
+  ];
+
+  const allColumns1 = [{ ...allColumns[0], cards: allcards }];
+
+  const filteredColumns = allColumns1.map(column => {
+    if (column.cards) {
+      const result = column.cards.filter(item => item.priority === filter);
+      return { ...column, cards: result };
+    } else {
+      return column;
+    }
+  });
+
+  const columns = filter === '' ? allColumns1 : filteredColumns;
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
