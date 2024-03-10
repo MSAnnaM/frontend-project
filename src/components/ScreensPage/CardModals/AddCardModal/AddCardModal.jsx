@@ -14,10 +14,14 @@ import { addCard } from '../../../../redux/card/CardSlice';
 registerLocale('en-GB', enGB);
 
 export default function AddCardModal() {
+  
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
-  // const { title, description, priority, deadline } = useSelector(selectCard);
   const [startDate, setStartDate] = useState(new Date());
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  // const { title, description, priority, deadline } = useSelector(selectCard);
+
   // const initialState = {
   //   title: title || '',
   //   description: description || '',
@@ -25,8 +29,7 @@ export default function AddCardModal() {
   //   deadline: deadline,
   // };
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -40,6 +43,7 @@ export default function AddCardModal() {
     dispatch(addCard(cardData));
     console.log(dispatch(addCard(cardData)));
   };
+
 
   const handleChange = e => {
     setSelectedValue(e.target.value);
@@ -64,6 +68,7 @@ export default function AddCardModal() {
     </button>
   ));
 
+
   return (
     <div className={style.box}>
       <h3 className={style.title}>Add card</h3>
@@ -71,7 +76,6 @@ export default function AddCardModal() {
       <svg width={18} height={18} className={style.icon_close}>
         <use href={`${sprite}#icon-close`} />
       </svg>
-
       <Formik>
         <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
           <div className={style['input-box']}>
@@ -109,7 +113,6 @@ export default function AddCardModal() {
             >
               Label color
             </FormLabel>
-
             <div className={style.radio_list}>
               <Radio
                 {...controlProps('a')}
