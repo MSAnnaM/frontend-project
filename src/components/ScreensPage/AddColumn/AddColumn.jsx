@@ -16,7 +16,7 @@ const AddColumn = ({ closeModal }) => {
     if (inputValue !== '') {
       const newColumn = {
         title: inputValue,
-        board: shownBoardId,
+        boardId: shownBoardId,
       };
       dispatch(addColumn(newColumn));
       closeModal();
@@ -29,7 +29,7 @@ const AddColumn = ({ closeModal }) => {
   return (
     <div className={css.container}>
       <p className={css.addColumn_title}>Add column</p>
-      <Formik>
+      <Formik initialValues={{}}>
         <Form onSubmit={handlerAddColumn}>
           <Field
             type="text"

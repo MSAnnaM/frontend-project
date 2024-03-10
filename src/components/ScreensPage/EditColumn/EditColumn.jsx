@@ -11,8 +11,6 @@ const EditColumn = ({ id, closeModal }) => {
   const dispatch = useDispatch();
 
   const { title } = useShownBoard().columns.find(({ _id }) => _id === id);
-  const { _id } = useShownBoard();
-  console.log(_id);
 
   const [newColumnTitle, setNewColumnTitle] = useState(title);
 
@@ -23,13 +21,12 @@ const EditColumn = ({ id, closeModal }) => {
       _id: id,
       newColumnData: {
         title: newColumnTitle,
-        board: _id,
+        // board: boardId,
       },
     };
 
     if (newColumnTitle.trim() !== '') {
       dispatch(updateColumnById(editColumn));
-      console.log(editColumn);
       closeModal();
       return;
     }
