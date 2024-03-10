@@ -66,16 +66,19 @@ import { NavLink } from 'react-router-dom';
 import { setShowBoard } from '../../../redux/column/columnSlice';
 import { useState } from 'react';
 
-const BoardListItem = ({ props }) => {
+const BoardListItem = ({ props, activeElement, setActiveElement }) => {
     const [openModal, setModal] = useState(false);
-
+    // const [activeElement, setActiveElement] = useState(null);
     const handleOpenModal = () => {
         setModal(true);
     };
     const dispatch = useDispatch();
-
+    const handleBoardClick = () => {
+        setActiveElement(props._id);
+        dispatch(setShowBoard(props));
+    };
     return (
-        <div className={css.board_list_item}>
+        <div className={`${css.board_list_item} ${activeElement === props._id ? css.active : ''}`} onClick={handleBoardClick}>
             <div className={css.board_box}>
                 <svg className={css.board_icon} width={18} height={18}>
                     <use href={`${sprite}#${props.icon}`} />
@@ -84,6 +87,7 @@ const BoardListItem = ({ props }) => {
                     to={`${props.name}`}
                     onClick={() => {
                         dispatch(setShowBoard(props));
+
                     }}
                 >
                     <h4 className={css.board_title}>{props.name}</h4>
@@ -114,7 +118,7 @@ const BoardListItem = ({ props }) => {
                     </svg>
                 </button>
             </div>
-            <div className={css.board_line}></div>
+            {activeElement === props._id && <div className={css.board_line}></div>}
         </div>
     );
 };
