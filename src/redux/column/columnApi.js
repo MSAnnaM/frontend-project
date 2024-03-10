@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
-const BASE_URL = 'http://localhost:3005/api';
+const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
+// const BASE_URL = 'http://localhost:3005/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
