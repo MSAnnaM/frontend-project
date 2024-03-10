@@ -22,19 +22,52 @@ const Column = () => {
 
   const columns = shownBoard.columns;
 
-  const allcards = [
-    {
-      _id: '65ecf062a4a0935d0611e60f',
-      title: 'New Card',
-      description: 'first try',
-      priority: 'Low',
-      deadline: '2024-03-31T00:00:00.000+00:00',
-      columnId: '65ecee57a4a0935d0611e604',
-      boardId: '65ece6907553c06c35d3cff8',
-      owner: '65ec8bd21373ed43484848be',
-      index: 1,
-    },
-  ];
+  // const allcards = [
+  //   {
+  //     _id: '65ecf062a4a0935d0611e60f',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Low',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e601',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'High',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e602',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Medium',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  //   {
+  //     _id: '65ecf062a4a0935d0611e603',
+  //     title: 'New Card',
+  //     description: 'first try',
+  //     priority: 'Without',
+  //     deadline: '2024-03-31T00:00:00.000+00:00',
+  //     columnId: '65ecee57a4a0935d0611e604',
+  //     boardId: '65ece6907553c06c35d3cff8',
+  //     owner: '65ec8bd21373ed43484848be',
+  //     index: 1,
+  //   },
+  // ];
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
@@ -78,8 +111,8 @@ const Column = () => {
 
               <div className={css.card_container}>
                 <ul className={css.scroll_container}>
-                  {allcards &&
-                    allcards.map(card => (
+                  {cards &&
+                    cards.map(card => (
                       <li key={card._id} className={css.card}>
                         <Card data={card} />
                       </li>
