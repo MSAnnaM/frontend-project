@@ -102,12 +102,6 @@
   flex-wrap: wrap;
 }
 
-/* .create_board_thumb_img_placeholder {
-  stroke: #ffffff1a;
-  background: #1f1f1f;
-  fill: none;
-}
-*/
 .create_board_thumb_img_placeholder {
   padding: 6px;
   border-radius: 8px;
@@ -130,4 +124,12 @@
 .create_board_wrap_icons {
   display: flex;
   gap: 8px;
+}
+
+.radio_semi_stroke {
+  stroke: white;
+}
+
+.radio_semi_transparent {
+  opacity: 0.65;
 }

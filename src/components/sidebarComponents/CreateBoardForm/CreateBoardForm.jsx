@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { createBoard } from '../../../redux/board/boardApi';
 import icons from './Icons';
 import backgrounds from './Backgrounds';
+import { useState } from 'react';
 
 const initialValues = {
   name: '',
@@ -19,6 +20,9 @@ const validationSchema = Yup.object({
 
 const CreateBoardForm = ({ onClose }) => {
   const dispatch = useDispatch();
+
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [selectedBackground, setSelectedBackground] = useState(null);
 
   const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
@@ -59,15 +63,19 @@ const CreateBoardForm = ({ onClose }) => {
           <h2 className={style.create_board_title_radio}>Icons</h2>
           <div className={style.create_board_wrap_icons}>
             {icons.map(icon => (
-              <label key={icon.id} className={style.create_board_label}>
+              <label key={icon.id} className={`${style.create_board_label}`}>
                 <Field
                   type="radio"
                   name="icon"
                   value={icon.id}
                   className={style.create_board_field}
+                  checked={selectedIcon === icon.id}
+                  onChange={() => setSelectedIcon(icon.id)}
                 />
                 <svg
-                  className={style.create_board_icons}
+                  className={`${style.create_board_icons} ${
+                    selectedIcon === icon.id ? style.radio_semi_stroke : ''
+                  }`}
                   width="18"
                   height="18"
                 >
@@ -82,13 +90,21 @@ const CreateBoardForm = ({ onClose }) => {
           <div className={style.create_board_wrap_backgrounds}>
             <label
               key={'default'}
-              className={`${style.create_board_thumb_img_placeholder} ${style.create_board_label}`}
+              className={`${style.create_board_thumb_img_placeholder} ${
+                style.create_board_label
+              } ${
+                selectedBackground === 'default'
+                  ? ''
+                  : style.radio_semi_transparent
+              }`}
             >
               <Field
                 type="radio"
                 name="background"
                 value={`${sprite}#icon-img_placeholder`}
                 className={style.create_board_field}
+                checked={selectedBackground === 'default'}
+                onChange={() => setSelectedBackground('default')}
               />
               <svg
                 className={style.create_board_img_placeholder}
@@ -99,12 +115,21 @@ const CreateBoardForm = ({ onClose }) => {
               </svg>
             </label>
             {backgrounds.map((img, idx) => (
-              <label key={idx} className={style.create_board_label}>
+              <label
+                key={idx}
+                className={`${style.create_board_label} ${
+                  selectedBackground === img.id
+                    ? ''
+                    : style.radio_semi_transparent
+                }`}
+              >
                 <Field
                   type="radio"
                   name="background"
                   value={`${img.standard}`}
                   className={style.create_board_field}
+                  checked={selectedBackground === img.id}
+                  onChange={() => setSelectedBackground(img.id)}
                 />
                 <img
                   key={idx}
