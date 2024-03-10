@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addCard, deleteCard, editCard, fetchCards } from './CardApi';
 
 const initialState = {
   cards: {
@@ -11,7 +12,7 @@ const initialState = {
   error: null,
 };
 
-const addCardSlice = createSlice({
+const cardSlice = createSlice({
   name: 'cards',
   initialState,
   reducers: {
@@ -69,6 +70,5 @@ const addCardSlice = createSlice({
   },
 });
 
-export const { addCard, editCard, fetchCards, deleteCard } =
-  addCardSlice.actions;
-export default addCardSlice.reducer;
+export const cardsReducer = cardSlice.actions;
+export default cardSlice.reducer;

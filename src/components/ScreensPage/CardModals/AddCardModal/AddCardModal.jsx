@@ -9,12 +9,11 @@ import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCard } from '../../../../redux/card/CardSlice';
+import { addCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
 export default function AddCardModal() {
-  
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
   const [startDate, setStartDate] = useState(new Date());
@@ -29,8 +28,6 @@ export default function AddCardModal() {
   //   deadline: deadline,
   // };
 
-
-
   const handleSubmit = e => {
     e.preventDefault();
     const cardData = {
@@ -43,7 +40,6 @@ export default function AddCardModal() {
     dispatch(addCard(cardData));
     console.log(dispatch(addCard(cardData)));
   };
-
 
   const handleChange = e => {
     setSelectedValue(e.target.value);
@@ -67,7 +63,6 @@ export default function AddCardModal() {
       {value}
     </button>
   ));
-
 
   return (
     <div className={style.box}>
