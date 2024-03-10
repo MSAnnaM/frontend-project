@@ -141,13 +141,13 @@ const CreateBoardForm = ({ onClose }) => {
             ))}
           </div>
         </div>
-        <button className={style.create_board_button} type="submit">
+        <button className={style.create_board_button} type="button">
           <div className={style.create_board_wrap_icon}>
             <svg
               className={style.create_board_plus_icon}
               width="18"
               height="18"
-              onClick={onClose}
+              onClick={handleSubmit}
             >
               <use href={`${sprite}#icon-plus`}></use>
             </svg>

@@ -2,7 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 import { deleteBoard, editBoard, fetchBoards, createBoard } from './boardApi';
 
 const initialState = {
-  boards: [{ _id: 1, name: 'cook dinner', icon: 'icon-puzzle' }],
+  boards: [
+    { _id: 1, name: 'cook dinner', icon: 'icon-puzzle' },
+    { _id: 2, name: 'cook dinner', icon: 'icon-puzzle' },
+    { _id: 3, name: 'cook dinner', icon: 'icon-puzzle' },
+    { _id: 4, name: 'cook dinner', icon: 'icon-puzzle' },
+    { _id: 5, name: 'cook dinner', icon: 'icon-puzzle' },
+    { _id: 6, name: 'cook dinner', icon: 'icon-puzzle' },
+  ],
   isLoading: false,
   error: null,
 };
