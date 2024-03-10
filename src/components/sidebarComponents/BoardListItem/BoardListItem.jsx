@@ -2,9 +2,9 @@ import { deleteBoard } from '../../../redux/board/boardApi';
 import sprite from '../../../img/icons/sprite.svg';
 import css from "./BoardListItem.module.css"
 import { useDispatch, useSelector } from 'react-redux';
-// import { openModal } from '../../../redux/modal/modalSlice';
+
 import BoardEditModal from '../BoardEditModal/BoardEditModal';
-// import { selectModal3, selectModal4 } from '../../../redux/modal/modalSelectors';
+
 import Modal from 'components/UI/Modals/Modal/Modal';
 import { useState } from 'react';
 
@@ -20,9 +20,6 @@ const BoardListItem = ({ props }) => {
     const handleDeleteBoard = () => {
         dispatch(deleteBoard(props._id));
     };
-    // const handleEditBoardClick = () => {
-    //     dispatch(openModal('modal4'), < BoardEditModal />);
-    // };
 
 
     return (<div className={css.board_list_item}>
