@@ -2,7 +2,7 @@ import sprite from '../../img/icons/sprite.svg';
 import style from './Header.module.css';
 import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
-import { Select } from './Select/Select';
+import { SelectTheme } from './Select/Select';
 
 import userImage from '../../img/user.png';
 import {useSelector } from 'react-redux';
@@ -52,7 +52,7 @@ export default function Header({ onClick }) {
         </button>
       ) : null}
       <div className={style.options}>
-        <Select />
+        <SelectTheme />
         <div className={style.info}>
           <p className={style.name}>{name}</p>
           {/* <button
@@ -79,13 +79,21 @@ export default function Header({ onClick }) {
             className={style.button}
             onClick={handleOpenModal}
           >
-            <img
-              src={avatarURL ? avatarURL : userImage}
-              alt="users avatar"
-              width={32}
-              height={32}
-              className={style.img}
-            />
+            {avatarUrl ? (
+              <img
+                src={avatarUrl}
+                alt="users avatar"
+                width={32}
+                height={32}
+                className={style.img}
+              />
+            ) : (
+              <div className={style.box_icon_user}>
+                <svg width={28} height={24} className={style.icon_user}>
+                  <use href={`${sprite}#icon-user`} />
+                </svg>
+              </div>
+            )}
           </button>
         </div>
       </div>
