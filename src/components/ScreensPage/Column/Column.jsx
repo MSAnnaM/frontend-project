@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
 import Icon from '../Icon/Icon';
@@ -9,7 +9,7 @@ import EditColumn from '../EditColumn/EditColumn';
 import css from './Column.module.css';
 import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCardModal';
 import { useDispatch } from 'react-redux';
-import { deleteColumn, getColumns } from '../../../redux/column/columnApi';
+import { deleteColumn } from '../../../redux/column/columnApi';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
@@ -20,11 +20,21 @@ const Column = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
-  useEffect(() => {
-    dispatch(getColumns(shownBoard._id));
-  }, [dispatch, shownBoard._id]);
-
   const columns = shownBoard.columns;
+
+  const allcards = [
+    {
+      _id: '65ecf062a4a0935d0611e60f',
+      title: 'New Card',
+      description: 'first try',
+      priority: 'Low',
+      deadline: '2024-03-31T00:00:00.000+00:00',
+      columnId: '65ecee57a4a0935d0611e604',
+      boardId: '65ece6907553c06c35d3cff8',
+      owner: '65ec8bd21373ed43484848be',
+      index: 1,
+    },
+  ];
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
@@ -68,8 +78,8 @@ const Column = () => {
 
               <div className={css.card_container}>
                 <ul className={css.scroll_container}>
-                  {cards &&
-                    cards.map(card => (
+                  {allcards &&
+                    allcards.map(card => (
                       <li key={card._id} className={css.card}>
                         <Card data={card} />
                       </li>
