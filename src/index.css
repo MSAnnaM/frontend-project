@@ -1,15 +1,19 @@
-@import-normalize; /* bring in normalize.css styles */
+@import-normalize;
+
+/* bring in normalize.css styles */
 @font-face {
   font-family: 'Poppins';
   src: url('./fonts/Poppins-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Poppins';
   src: url('./fonts/Poppins-Medium.ttf') format('truetype');
   font-weight: 500;
 }
+
 @font-face {
   font-family: 'Poppins';
   src: url('./fonts/Poppins-SemiBold.ttf') format('truetype');
@@ -45,6 +49,7 @@ button {
   background-color: transparent;
   padding: 0;
 }
+
 input {
   font-family: inherit;
 }
@@ -84,4 +89,84 @@ img {
 
 * {
   box-sizing: border-box;
+}
+
+
+.react-datepicker {
+  width: 230px;
+  height: 254px;
+  overflow: hidden;
+  border: 1px solid #bedbb0;
+  border-radius: 8px;
+  background-color: #151515;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.react-datepicker__header {
+  border: none;
+  background-color: #151515;
+  padding: 0px;
+}
+
+.react-datepicker__current-month {
+  padding: 18px 0px;
+  margin-left: 18px;
+  margin-right: 18px;
+  border-bottom: 1px solid #FFFFFF33;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.react-datepicker__navigation {
+  top: 13px;
+}
+
+.react-datepicker__day-names {
+  margin-top: 14px;
+}
+
+.react-datepicker__day,
+.react-datepicker__day-name {
+  width: 23px;
+  height: 23px;
+  color: #fff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.react-datepicker__day-name {
+  color: #FFFFFF80;
+}
+
+.react-datepicker__day:hover,
+[aria-current='date'],
+.react-datepicker__day--keyboard-selected {
+  background-color: #bedbb0;
+  border-radius: 50%;
+  color: #151515;
+}
+
+[aria-disabled='true'] {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+[aria-disabled='true']:hover {
+  background-color: inherit;
+}
+
+[aria-selected='true'] {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #bedbb0;
+  border-radius: 50%;
+  color: #151515;
 }

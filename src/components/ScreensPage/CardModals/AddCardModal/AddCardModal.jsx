@@ -190,7 +190,7 @@ export default function AddCardModal() {
                 minDate={new Date()}
                 customInput={<CustomInput />}
                 dateFormat="MMMM d"
-                calendarClassName={style.calendar_color}
+                className={style.calendar_color}
               />
 
               <svg width={18} height={18} className={style.icon_down}>
