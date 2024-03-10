@@ -24,9 +24,9 @@ const CreateBoardForm = ({ onClose }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [selectedBackground, setSelectedBackground] = useState(null);
 
-  const handleSubmit = async (values, { resetForm }) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    await dispatch(createBoard(values));
+    dispatch(createBoard(values));
     resetForm();
   };
 
@@ -141,7 +141,7 @@ const CreateBoardForm = ({ onClose }) => {
             ))}
           </div>
         </div>
-        <button className={style.create_board_button} type="button">
+        <button className={style.create_board_button} type="submit">
           <div className={style.create_board_wrap_icon}>
             <svg
               className={style.create_board_plus_icon}
