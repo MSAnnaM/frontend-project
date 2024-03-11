@@ -43,10 +43,10 @@ const ListBoards = () => {
     useEffect(() => {
         if (boards && boards.length > 0) {
             dispatch(showBoard(boards[0]));
-            // dispatch(fetchBoards());
+            
         }
     }, [boards, dispatch]);
-    // console.log(boards);
+   
 
     if (!boards || boards.length === 0) {
         return <div className={css.sidebar_boards_list}></div>;

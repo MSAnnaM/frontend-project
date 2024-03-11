@@ -37,7 +37,10 @@ const Filter = ({ openModal }) => {
               />
               <label htmlFor="without" className={css.radio_item}>
                 <div
-                  style={{ backgroundColor: '#ffffff4d' }}
+                  style={{
+                    backgroundColor: 'var(--main-color)',
+                    opacity: '0.5',
+                  }}
                   className={css.radio_bg}
                 ></div>
                 Without priority

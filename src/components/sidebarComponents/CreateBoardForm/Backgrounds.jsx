@@ -30,21 +30,21 @@ import background15 from './img/backgrounds/Vector-14.png';
 import background15Retina from './img/backgrounds/Vector-14_2x.png';
 
 const backgrounds = [
-  { id: 'backround1', standard: background1, retina: background1Retina },
-  { id: 'backround2', standard: background2, retina: background2Retina },
-  { id: 'backround3', standard: background3, retina: background3Retina },
-  { id: 'backround4', standard: background4, retina: background4Retina },
-  { id: 'background5', standard: background5, retina: background5Retina },
-  { id: 'background6', standard: background6, retina: background6Retina },
-  { id: 'background7', standard: background7, retina: background7Retina },
-  { id: 'background8', standard: background8, retina: background8Retina },
-  { id: 'background9', standard: background9, retina: background9Retina },
-  { id: 'background10', standard: background10, retina: background10Retina },
-  { id: 'background11', standard: background11, retina: background11Retina },
-  { id: 'background12', standard: background12, retina: background12Retina },
-  { id: 'background13', standard: background13, retina: background13Retina },
-  { id: 'background14', standard: background14, retina: background14Retina },
-  { id: 'background15', standard: background15, retina: background15Retina },
+  { id: 'bg1', standard: background1, retina: background1Retina },
+  { id: 'bg2', standard: background2, retina: background2Retina },
+  { id: 'bg3', standard: background3, retina: background3Retina },
+  { id: 'bg4', standard: background4, retina: background4Retina },
+  { id: 'bg5', standard: background5, retina: background5Retina },
+  { id: 'bg6', standard: background6, retina: background6Retina },
+  { id: 'bg7', standard: background7, retina: background7Retina },
+  { id: 'bg8', standard: background8, retina: background8Retina },
+  { id: 'bg9', standard: background9, retina: background9Retina },
+  { id: 'bg10', standard: background10, retina: background10Retina },
+  { id: 'bg11', standard: background11, retina: background11Retina },
+  { id: 'bg12', standard: background12, retina: background12Retina },
+  { id: 'bg13', standard: background13, retina: background13Retina },
+  { id: 'bg14', standard: background14, retina: background14Retina },
+  { id: 'bg15', standard: background15, retina: background15Retina },
 ];
 
 export default backgrounds;

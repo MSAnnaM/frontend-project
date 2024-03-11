@@ -4,7 +4,7 @@
 }
 
 .section {
-  background-color: #1f1f1f;
+  /* background-color: #1f1f1f; */
   /* display: flex;
   justify-content: center;
   align-items: center;
@@ -25,11 +25,10 @@
 .homepage_wrapper {
   /* display: flex; */
   flex-direction: column;
-  width: calc(100%-260px);
+  width: 100%;
   height: 100%;
   overflow: hidden;
+}
 
-  @media screen and (min-width: 1440px) {
-    width: calc(100% - 260px);
-  }
+@media screen and (min-width: 1440px) {
 }

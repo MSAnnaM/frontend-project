@@ -29,7 +29,7 @@ const AddColumn = ({ closeModal }) => {
   return (
     <div className={css.container}>
       <p className={css.addColumn_title}>Add column</p>
-      <Formik initialValues={{}}>
+      <Formik initialValues={{ title: "" }}>
         <Form onSubmit={handlerAddColumn}>
           <Field
             type="text"

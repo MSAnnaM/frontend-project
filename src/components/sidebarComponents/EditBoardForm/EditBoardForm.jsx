@@ -5,7 +5,6 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { editBoard } from '../../../redux/board/boardApi';
 import icons from '../CreateBoardForm/Icons';
-import { useState } from 'react';
 import backgrounds from '../CreateBoardForm/Backgrounds';
 
 const validationSchema = Yup.object({
@@ -15,13 +14,8 @@ const validationSchema = Yup.object({
 const EditBoardForm = ({ props, openModal }) => {
     const dispatch = useDispatch();
 
-
-    const [selectedIcon, setSelectedIcon] = useState(null);
-    const [selectedBackground, setSelectedBackground] = useState(null);
     const handleSubmit = async (values, { resetForm }) => {
         console.log(values);
-
-        // Dispatch action to edit board
         await dispatch(editBoard({ _id: props._id, ...values }));
         resetForm();
         openModal();
@@ -43,26 +37,21 @@ const EditBoardForm = ({ props, openModal }) => {
                             placeholder="Title"
                             className={style.edit_board_input}
                         />
-                        {/* Error message for name field */}
                         <ErrorMessage name="name" component="div" className={style.error_message} />
                     </div>
-                    {/* Other input fields, e.g., for icon and background */}
                     <div className={style.edit_board_wrap_input}>
                         <h2 className={style.edit_board_title_radio}>Icons</h2>
                         <div className={style.edit_board_wrap_icons}>
                             {icons.map(icon => (
-                                <label key={icon.id} className={`${style.create_board_label}`}>
+                                <label key={icon.id} className={style.create_board_label}>
                                     <Field
                                         type="radio"
                                         name="icon"
                                         value={icon.id}
                                         className={style.edit_board_field}
-                                        checked={selectedIcon === icon.id}
-                                        onChange={() => setSelectedIcon(icon.id)}
                                     />
                                     <svg
-                                        className={`${style.edit_board_icons} ${selectedIcon === icon.id ? style.radio_semi_stroke : ''
-                                            }`}
+                                        className={`${style.edit_board_icons} ${formikProps.values.icon === icon.id ? style.radio_semi_stroke : ''}`}
                                         width="18"
                                         height="18"
                                     >
@@ -75,45 +64,13 @@ const EditBoardForm = ({ props, openModal }) => {
                     <div className={style.edit_board_wrap_input}>
                         <h2 className={style.edit_board_title_radio}>Background</h2>
                         <div className={style.edit_board_wrap_backgrounds}>
-                            <label
-                                key={'default'}
-                                className={`${style.edit_board_thumb_img_placeholder} ${style.edit_board_label
-                                    } ${selectedBackground === 'default'
-                                        ? ''
-                                        : style.radio_semi_transparent
-                                    }`}
-                            >
-                                <Field
-                                    type="radio"
-                                    name="background"
-                                    value={`${sprite}#icon-img_placeholder`}
-                                    className={style.edit_board_field}
-                                    checked={selectedBackground === 'default'}
-                                    onChange={() => setSelectedBackground('default')}
-                                />
-                                <svg
-                                    className={style.edit_board_img_placeholder}
-                                    width="16"
-                                    height="16"
-                                >
-                                    <use href={`${sprite}#icon-img_placeholder`}></use>
-                                </svg>
-                            </label>
                             {backgrounds.map((img, idx) => (
-                                <label
-                                    key={idx}
-                                    className={`${style.edit_board_label} ${selectedBackground === img.id
-                                        ? ''
-                                        : style.radio_semi_transparent
-                                        }`}
-                                >
+                                <label key={idx} className={`${style.edit_board_label} ${formikProps.values.background === img.id ? '' : style.radio_semi_transparent}`}>
                                     <Field
                                         type="radio"
                                         name="background"
-                                        value={`${img.standard}`}
+                                        value={`${img.id}`}
                                         className={style.edit_board_field}
-                                        checked={selectedBackground === img.id}
-                                        onChange={() => setSelectedBackground(img.id)}
                                     />
                                     <img
                                         key={idx}
@@ -125,19 +82,17 @@ const EditBoardForm = ({ props, openModal }) => {
                             ))}
                         </div>
                     </div>
-                    {/* Submit button */}
                     <button className={style.edit_board_button} type="submit">
                         <div className={style.edit_board_wrap_icon}>
                             <svg
                                 className={style.edit_board_plus_icon}
                                 width="18"
                                 height="18"
-                                onClick={handleSubmit}
                             >
                                 <use href={`${sprite}#icon-plus`}></use>
                             </svg>
                         </div>
-                        Create
+                        Edit
                     </button>
                 </Form>
             )}
