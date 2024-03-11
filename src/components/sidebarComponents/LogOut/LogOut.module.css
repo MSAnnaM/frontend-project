@@ -19,7 +19,7 @@
 }
 .logout_button_icon:hover,
 .logout_button_icon:focus {
-  stroke: #9dc888;
+  stroke: var(--accent-color-focused);
   transform: scale(1.05);
 }
 

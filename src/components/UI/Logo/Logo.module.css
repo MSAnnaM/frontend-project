@@ -9,7 +9,7 @@
 .box {
   width: 32px;
   height: 32px;
-  background-color: #161616;
+  background-color: var(--logo-icon-back);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -27,18 +27,18 @@
   font-weight: 600;
   font-size: 16px;
   letter-spacing: -0.04em;
-  color: #fff;
+  color: var(--sidebar-text);
 }
 .title.big {
   font-size: 28px;
-  color: #161616;
+  color: var(--sidebar-text);
   @media screen and (min-width: 768px) {
     font-size: 40px;
     letter-spacing: -1.6px;
   }
 }
 .icon {
-  fill: #fff;
+  fill: var(--logo-icon);
   width: 12px;
   height: 16px;
 }

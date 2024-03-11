@@ -33,6 +33,7 @@ body.dark {
   --sidebar-back: #121212;
   --sidebar-icon-plus-back: #bedbb0;
   --sidebar-icon-plus-fill: #121212;
+  --sidebar-icon-plus-focused: #9dc888;
   --logo-icon-back: #1f1f1f;
   --logo-icon: #fff;
   --sidebar-text: #fff;
@@ -51,6 +52,7 @@ body.dark {
   --modal-back: #151515;
   --modal-icon-plus-back: #161616;
   --modal-icon-plus: #fff;
+  --modal-border-color: rgba(190, 219, 176, 0.5);
 
   --input-back: #1f1f1f;
 
@@ -64,7 +66,11 @@ body.dark {
 
   --main-color: #fff;
 
+  --scroll-back: #161616;
+  --scroll-color: rgba(255, 255, 255, 0.1);
+
   --accent-color: #bedbb0;
+  --accent-color-focused: #9dc888;
   --accent-light: #bedbb0;
 }
 
@@ -74,11 +80,12 @@ body.light {
   --sidebar-back: #fff;
   --sidebar-icon-plus-back: #bedbb0;
   --sidebar-icon-plus-fill: #121212;
+  --sidebar-icon-plus-focused: #9dc888;
   --logo-icon-back: #1f1f1f;
   --logo-icon: #fff;
   --sidebar-text: #161616;
   --sidebar-grey-color: rgba(22, 22, 22, 0.5);
-  --logout-icon: #bedbb0;
+  --logout-icon: #7da768;
   --help-back-color: #f6f6f7;
 
   --header-back: #fcfcfc;
@@ -87,11 +94,13 @@ body.light {
   --main-back-color: #f6f6f7;
   --column-card-back: #fff;
   --add-column-icon-back: #161616;
+
   --add-card-icon-back: #161616;
 
   --modal-back: #fcfcfc;
   --modal-icon-plus-back: #161616;
   --modal-icon-plus: #ffff;
+  --modal-border-color: none;
 
   --input-back: transparent;
 
@@ -105,7 +114,11 @@ body.light {
 
   --main-color: #161616;
 
+  --scroll-back: #fff;
+  --scroll-color: #e8e8e8;
+
   --accent-color: #bedbb0;
+  --accent-color-focused: #9dc888;
   --accent-light: #bedbb0;
 }
 
@@ -115,6 +128,7 @@ body.violet {
   --sidebar-back: #5255bc;
   --sidebar-icon-plus-back: #b8bcfd;
   --sidebar-icon-plus-fill: #fff;
+  --sidebar-icon-plus-focused: #979cea;
   --logo-icon-back: #ecedfd;
   --logo-icon: #5255bc;
   --sidebar-text: #fff;
@@ -133,6 +147,7 @@ body.violet {
   --modal-back: #fcfcfc;
   --modal-icon-plus-back: #fff;
   --modal-icon-plus: #161616;
+  --modal-border-color: none;
 
   --input-back: transparent;
 
@@ -146,7 +161,11 @@ body.violet {
 
   --main-color: #161616;
 
+  --scroll-back: #fff;
+  --scroll-color: #b8bcfd;
+
   --accent-color: #5255bc;
+  --accent-color-focused: #7b7ede;
   --accent-light: #ecedfd;
 }
 

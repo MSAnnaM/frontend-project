@@ -60,7 +60,7 @@
 }
 .create_board_button:hover,
 .create_board_button:focus {
-  background: #9dc888;
+  background: var(--sidebar-icon-plus-focused);
   transform: scale(1.05);
 }
 .sidebar_button_icon {
