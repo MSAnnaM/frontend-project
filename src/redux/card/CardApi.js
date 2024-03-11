@@ -16,7 +16,6 @@ api.interceptors.request.use(
     const localStorageData = localStorage.getItem('persist:token');
     if (localStorageData) {
       const token = JSON.parse(localStorageData).token.replace(/"/g, '');
-      console.log(token);
 
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
