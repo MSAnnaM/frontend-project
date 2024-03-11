@@ -52,9 +52,9 @@ const sendEmail = async user => {
   return data;
 };
 
-const updateThema = async thema => {
-  console.log(thema);
-  const { data } = await api.patch(`/users/current/thema`, thema);
+const updateTheme = async theme => {
+  console.log(theme);
+  const { data } = await api.patch(`/users/current/theme`, { theme });
   return data;
 };
 
@@ -151,7 +151,7 @@ export const sendHelpEmail = createAsyncThunk(
 
 export const updateUserTheme = createAsyncThunk(
   'authorization/theme',
-  async (thema, thunkAPI) => {
+  async (theme, thunkAPI) => {
     try {
       const state = thunkAPI.getState();
       const savedToken = state.registration.token;
@@ -161,7 +161,7 @@ export const updateUserTheme = createAsyncThunk(
       }
       setToken(savedToken);
 
-      const response = await updateThema(thema);
+      const response = await updateTheme(theme);
       return response;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');
