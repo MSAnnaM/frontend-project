@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
 import Icon from '../Icon/Icon';
@@ -10,6 +10,7 @@ import css from './Column.module.css';
 import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCardModal';
 import { useDispatch } from 'react-redux';
 import { deleteColumn } from '../../../redux/column/columnApi';
+import { fetchCards } from '../../../redux/card/CardApi';
 // import { useFilter } from 'hooks/useFilter';
 
 const Column = () => {
@@ -22,6 +23,14 @@ const Column = () => {
   const shownBoard = useShownBoard();
 
   const columns = shownBoard.columns;
+
+  useEffect(() => {
+    columns.forEach((col) => {
+      dispatch(fetchCards(col._id))
+    console.log(col._id);})
+    
+    console.log(columns);
+  })
   // const filter = useFilter();
 
   // const allcards = [

@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
-// const BASE_URL = 'http://localhost:3005/api';
+// const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
+const BASE_URL = 'http://localhost:3005/api';
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -16,6 +16,7 @@ api.interceptors.request.use(
     const localStorageData = localStorage.getItem('persist:token');
     if (localStorageData) {
       const token = JSON.parse(localStorageData).token.replace(/"/g, '');
+      console.log(token);
 
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
@@ -30,10 +31,9 @@ api.interceptors.request.use(
 
 export const fetchCards = createAsyncThunk(
   'cards/fetchCards',
-  async (boardId, { rejectWithValue }) => {
+  async (columnId, { rejectWithValue }) => {
     try {
-      const response = await api.get(`/cards/${boardId}`);
-      // console.log(response);
+      const response = await api.get(`/cards/${columnId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
