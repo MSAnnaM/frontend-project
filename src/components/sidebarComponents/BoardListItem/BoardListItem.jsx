@@ -55,7 +55,7 @@ import sprite from '../../../img/icons/sprite.svg';
 // }
 // export default BoardListItem;
 
-import BoardEditModal from '../BoardEditModal/BoardEditModal';
+// import BoardEditModal from '../BoardEditModal/BoardEditModal';
 import Modal from 'components/UI/Modals/Modal/Modal';
 import css from './BoardListItem.module.css';
 import { useDispatch } from 'react-redux';
