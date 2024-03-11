@@ -27,7 +27,7 @@ const HelpForm = ({ onClose }) => {
 
   const handleSubmit = async (values, { resetForm }) => {
     // await dispatch(userComment(values));
-    await dispatch(sendHelpEmail(values));
+    dispatch(sendHelpEmail(values));
     console.log(values);
     resetForm();
   };
