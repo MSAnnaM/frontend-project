@@ -65,6 +65,7 @@ import { NavLink } from 'react-router-dom';
 // import { getBoardById } from '../../../redux/column/columnApi';
 import { setShowBoard } from '../../../redux/column/columnSlice';
 import { useState } from 'react';
+import EditBoardForm from '../EditBoardForm/EditBoardForm';
 
 const BoardListItem = ({ props, activeElement, setActiveElement }) => {
     const [openModal, setModal] = useState(false);
@@ -77,6 +78,7 @@ const BoardListItem = ({ props, activeElement, setActiveElement }) => {
         setActiveElement(props._id);
         dispatch(setShowBoard(props));
     };
+
     return (
         <div className={`${css.board_list_item} ${activeElement === props._id ? css.active : ''}`} onClick={handleBoardClick}>
             <div className={css.board_box}>
@@ -96,7 +98,7 @@ const BoardListItem = ({ props, activeElement, setActiveElement }) => {
             <div className={css.board_icons}>
                 {openModal && (
                     <Modal
-                        children={<BoardEditModal openModal={setModal} />}
+                        children={<EditBoardForm openModal={setModal} props={props} />}
                         openModal={setModal}
                     />)}
                 <button type='button' className={css.button_edit_board} onClick={handleOpenModal}
