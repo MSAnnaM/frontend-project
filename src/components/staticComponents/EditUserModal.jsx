@@ -88,9 +88,11 @@ export default function EditUserModal() {
             alt="avatar"
           />
         ) : (
-          <svg width={68} height={68} className={style.icon_user}>
-            <use href={`${sprite}#icon-user`} />
-          </svg>
+          <div className={style.icon_user_box}>
+            <svg width={68} height={62} className={style.icon_user}>
+              <use href={`${sprite}#icon-user`} />
+            </svg>
+          </div>
         )}
 
         <label htmlFor="file-upload" className={style.icon_plus_div}>

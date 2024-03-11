@@ -1,6 +1,6 @@
 :root {
   --bd-bg-color: #15151580;
-  --modal-border-color: #bedbb080;
+  /* --modal-border-color: rgba(190, 219, 176, 0.502); */
   --modal-bg-color: #151515;
   --modal-icon-color: #fff;
   --modal-icon-hover-color: #9dc888;
@@ -13,7 +13,7 @@
   left: 0;
   top: 0;
   pointer-events: auto;
-  background-color: var(--bd-bg-color);
+  background-color: var(--backdrop);
   z-index: 999;
 }
 
@@ -26,12 +26,12 @@
   max-width: 400px;
   /* height: 234px; */
   border-radius: 8px;
-  background-color: var(--modal-bg-color);
+  background-color: var(--modal-back);
   padding: 24px;
 }
 
 .close_btn {
-  color: var(--modal-icon-color);
+  color: var(--main-color);
   position: absolute;
   top: 14px;
   right: 14px;
@@ -39,7 +39,7 @@
 }
 
 .close_btn:hover {
-  color: var(--modal-icon-hover-color);
+  color: var(--accent-color-focused);
 }
 
 .icon {
