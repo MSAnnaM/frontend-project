@@ -39,7 +39,7 @@
   }
 }
 
-.icon {
+.icon_user {
   stroke: var(--main-color);
 
   @media screen and (min-width: 768px) {
@@ -85,6 +85,13 @@
 
   background-color: transparent;
   border: none;
+}
+
+.img_avatar {
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
 }
 
 /*

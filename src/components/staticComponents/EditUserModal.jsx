@@ -95,7 +95,13 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
           </svg>
         )} */}
         {avatarUrl ? (
-          <img src={avatarUrl} alt="avatar" width={68} height={68} />
+          <img
+            src={avatarUrl}
+            className={style.img_avatar}
+            alt="avatar"
+            width={68}
+            height={68}
+          />
         ) : (
           <div className={style.icon_user_box}>
             <svg width={68} height={62} className={style.icon_user}>
