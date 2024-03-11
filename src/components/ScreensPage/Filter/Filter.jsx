@@ -1,11 +1,17 @@
 import { Field, Form, Formik } from 'formik';
 import css from './Filter.module.css';
+import { useDispatch } from 'react-redux';
+import { addFilter } from '../../../redux/column/filterSlice';
+import { useFilter } from 'hooks/useFilter';
 
 const Filter = ({ openModal }) => {
-  const currentFilter = 'Low';
+  const dispatch = useDispatch();
+
+  const currentFilter = useFilter();
 
   const handleChangeFilter = e => {
-    openModal();
+    dispatch(addFilter(e.target.value));
+    // openModal();
   };
 
   return (
