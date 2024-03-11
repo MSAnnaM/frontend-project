@@ -17,6 +17,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import { filterReducer } from './column/filterSlice';
 
 const auth = persistReducer(
   {
@@ -41,6 +42,7 @@ export const store = configureStore({
     modal: modalReducer,
     boards: boardsReducer,
     columns: columnsReducer,
+    filter: filterReducer,
     cards: cardsReducer,
   },
   middleware: getDefaultMiddleware =>
