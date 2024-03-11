@@ -94,24 +94,14 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
             <use href={`${sprite}#icon-user`} />
           </svg>
         )} */}
-{avatarURL ? (
-          <img
-            src={URL.createObjectURL(avatarURL)}
-            alt="avatar"
-            width={68}
-            height={68}
-          />
-        ) : avatarUrl ? (
-          <img
-            src={avatarUrl}
-            alt="avatar"
-            width={68}
-            height={68}
-          />
+        {avatarUrl ? (
+          <img src={avatarUrl} alt="avatar" width={68} height={68} />
         ) : (
-          <svg width={68} height={68} className={style.icon_user}>
-            <use href={`${sprite}#icon-user`} />
-          </svg>
+          <div className={style.icon_user_box}>
+            <svg width={68} height={62} className={style.icon_user}>
+              <use href={`${sprite}#icon-user`} />
+            </svg>
+          </div>
         )}
         <label htmlFor="file-upload" className={style.icon_plus_div}>
           <svg width={10} height={10} className={style.icon_plus}>

@@ -12,7 +12,7 @@
 }
 
 .title {
-  color: var(--filter-title-color);
+  color: var(--main-color);
   font-size: 18px;
   font-weight: 500;
   line-height: 1.5;
@@ -21,7 +21,7 @@
 }
 
 .filter_wrapper {
-  border-top: 1px solid var(--filter-underline-color);
+  border-top: 1px solid var(--light-grey);
   padding-top: 14px;
 }
 
@@ -32,7 +32,7 @@
 }
 
 .filter_title {
-  color: var(--filter-title-color);
+  color: var(--main-color);
   font-size: 14px;
   font-weight: 500;
   line-height: 1.5;
@@ -41,7 +41,8 @@
 }
 
 .radio_item {
-  color: var(--filter-showall-btn-color);
+  color: var(--main-color);
+  opacity: 0.5;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -57,7 +58,7 @@
 
 .radio_item:hover,
 .radio_item:focus {
-  color: var(--filter-showall-btn-hover);
+  color: var(--accent-color-focused);
 }
 
 .radio_bg {
@@ -88,9 +89,9 @@
   transform: translate(-50%, -50%);
   width: 7px;
   height: 7px;
-  background-color: var(--filter-bg);
+  background-color: var(--modal-back);
   border-radius: 50%;
-  border: 2.5px solid var(--filter-bg);
+  border: 2.5px solid var(--modal-back);
 }
 
 .visually_hidden:checked + .radio_item .radio_bg::before {
@@ -103,16 +104,17 @@
   height: 7px;
   background-color: transparent;
   border-radius: 50%;
-  border: 2.5px solid var(--filter-bg);
+  border: 2.5px solid var(--modal-back);
 }
 
 .visually_hidden:checked + .radio_item {
-  color: var(--filter-title-color);
+  color: var(--main-color);
 }
 
 .btn {
   height: 18px;
-  color: var(--filter-showall-btn-color);
+  color: var(--main-color);
+  opacity: 0.5;
   font-size: 12px;
   line-height: 1.5;
   letter-spacing: -0.02em;
@@ -121,5 +123,5 @@
 }
 
 .btn:hover {
-  color: var(--filter-showall-btn-hover);
+  color: var(--accent-color-focused);
 }

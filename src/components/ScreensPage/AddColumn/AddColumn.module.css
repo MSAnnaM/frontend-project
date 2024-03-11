@@ -37,7 +37,7 @@
   border-radius: 8px;
   border: 1px solid var(--accent-color);
   background-color: transparent;
-  color: var(--accent-color);
+  color: var(--main-color);
 }
 
 .addColumn_input:focus {

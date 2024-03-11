@@ -1,6 +1,6 @@
 :root {
-  --scrollbar-color: #ffffff1a;
-  --scrollbar-hover-color: #ffffff33;
+  --scrollbar-color: rgba(255, 255, 255, 0.102);
+  --scrollbar-hover-color: rgba(255, 255, 255, 0.2);
   --scrollbar-bg-color: #161616;
 }
 
@@ -28,15 +28,16 @@
 }
 
 .dashboard::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-bg-color);
+  background-color: var(--scroll-back);
   border-radius: 6px;
 }
 
 .dashboard::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
+  background-color: var(--scroll-color);
   border-radius: 6px;
 }
 
 .dashboard::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-hover-color);
+  background-color: var(--scroll-color);
+  opacity: 1;
 }
