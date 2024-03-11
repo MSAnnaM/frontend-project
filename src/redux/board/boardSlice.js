@@ -31,12 +31,13 @@ const boardsSlice = createSlice({
       })
       .addCase(editBoard.fulfilled, (state, action) => {
         state.isLoading = false;
-
+        // console.log(action.payload);
         state.boards = state.boards.map(board =>
-          board.id === action.payload.id ? action.payload : board
+          board._id === action.payload._id ? action.payload : board
         );
       })
       .addCase(editBoard.rejected, (state, action) => {
+        // console.log(action);
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -48,7 +49,7 @@ const boardsSlice = createSlice({
         state.isLoading = false;
 
         state.boards = state.boards.filter(
-          board => board.id !== action.payload
+          board => board._id !== action.payload
         );
       })
       .addCase(deleteBoard.rejected, (state, action) => {
