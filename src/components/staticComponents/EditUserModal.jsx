@@ -12,7 +12,7 @@ import { updateUser } from '../../redux/user/userApi';
 // import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
-export default function EditUserModal({ openModal }) {
+export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
   // const { name, email, password } = useSelector(userSelect);
 
   // const dispatch = useDispatch();
@@ -57,6 +57,7 @@ export default function EditUserModal({ openModal }) {
     console.log('FormData:', Object.fromEntries(formData.entries()));
 
     dispatch(updateUser(formData));
+    handleUpdateAvatarURL(URL.createObjectURL(avatarURL));
     openModal();
   };
 
