@@ -4,8 +4,9 @@ import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
 import { SelectTheme } from './Select/Select';
 
-// import userImage from '../../img/user.png';
-import {useSelector } from 'react-redux';
+
+import userImage from '../../img/user.png';
+import { useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
 import EditUserModal from 'components/staticComponents/EditUserModal';
 import Modal from 'components/UI/Modals/Modal/Modal';
@@ -15,6 +16,10 @@ export default function Header({ onClick }) {
   // const dispatch = useDispatch();
   const { name, avatarUrl } = useSelector(userSelect);
   const [openModal, setModal] = useState(false);
+  const [newAvatarURL, setNewAvatarURL] = useState(null);
+  const handleUpdateAvatarURL = newURL => {
+    setNewAvatarURL(newURL);
+  };
 
   const handleOpenModal = () => {
     setModal(true);
@@ -69,7 +74,12 @@ export default function Header({ onClick }) {
           </button> */}
           {openModal && (
             <Modal
-              children={<EditUserModal openModal={setModal} />}
+              children={
+                <EditUserModal
+                  openModal={setModal}
+                  handleUpdateAvatarURL={handleUpdateAvatarURL}
+                />
+              }
               openModal={setModal}
               // onClose={handleModalClose}
             />
@@ -79,21 +89,14 @@ export default function Header({ onClick }) {
             className={style.button}
             onClick={handleOpenModal}
           >
-            {avatarUrl ? (
-              <img
-                src={avatarUrl}
-                alt="users avatar"
-                width={32}
-                height={32}
-                className={style.img}
-              />
-            ) : (
-              <div className={style.box_icon_user}>
-                <svg width={28} height={24} className={style.icon_user}>
-                  <use href={`${sprite}#icon-user`} />
-                </svg>
-              </div>
-            )}
+            <img
+              // src={avatarURL ? avatarURL : userImage}
+              src={newAvatarURL || avatarURL || userImage}
+              alt="users avatar"
+              width={32}
+              height={32}
+              className={style.img}
+            />
           </button>
         </div>
       </div>
