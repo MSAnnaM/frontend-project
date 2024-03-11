@@ -57,8 +57,8 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
     console.log('FormData:', Object.fromEntries(formData.entries()));
 
     dispatch(updateUser(formData));
-    handleUpdateAvatarURL(URL.createObjectURL(avatarURL));
     openModal();
+    handleUpdateAvatarURL(URL.createObjectURL(avatarURL));
   };
 
   const handleFileChange = e => {
