@@ -9,11 +9,11 @@ import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addCard } from '../../../../redux/card/CardSlice';
+import { addCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
-export default function AddCardModal() {
+export default function AddCardModal({ columnId, boardId, closeModal }) {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
   // const { title, description, priority, deadline } = useSelector(selectCard);
@@ -35,10 +35,14 @@ export default function AddCardModal() {
       description,
       priority: selectedValue,
       deadline: startDate.getTime(),
+      columnId,
+      boardId,
+      index: 1,
     };
     // console.log(cardData);
     dispatch(addCard(cardData));
     console.log(dispatch(addCard(cardData)));
+    closeModal();
   };
 
   const handleChange = e => {
@@ -112,7 +116,7 @@ export default function AddCardModal() {
 
             <div className={style.radio_list}>
               <Radio
-                {...controlProps('a')}
+                {...controlProps('Low')}
                 sx={{
                   backgroundColor: '#8FA1D0',
                   color: '#8FA1D0',
@@ -126,7 +130,7 @@ export default function AddCardModal() {
                 }}
               />
               <Radio
-                {...controlProps('b')}
+                {...controlProps('Medium')}
                 sx={{
                   backgroundColor: '#E09CB5',
                   color: '#E09CB5',
@@ -140,7 +144,7 @@ export default function AddCardModal() {
                 }}
               />
               <Radio
-                {...controlProps('c')}
+                {...controlProps('High')}
                 sx={{
                   backgroundColor: '#BEDBB0',
                   color: '#BEDBB0',
@@ -155,7 +159,7 @@ export default function AddCardModal() {
               />
 
               <Radio
-                {...controlProps('d')}
+                {...controlProps('Without')}
                 sx={{
                   backgroundColor: ' rgba(255, 255, 255, 0.30)',
                   color: ' rgba(255, 255, 255, 0.30)',

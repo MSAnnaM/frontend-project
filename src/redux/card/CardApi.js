@@ -1,8 +1,32 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-export const api = axios.create({
-  baseURL: 'http://localhost:3005/api',
+
+const BASE_URL = 'https://api-server-c4rg.onrender.com/api';
+// const BASE_URL = 'http://localhost:3005/api';
+
+const api = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
+
+api.interceptors.request.use(
+  config => {
+    const localStorageData = localStorage.getItem('persist:token');
+    if (localStorageData) {
+      const token = JSON.parse(localStorageData).token.replace(/"/g, '');
+
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    }
+    return config;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
 
 export const fetchCards = createAsyncThunk(
   'cards/fetchCards',
@@ -20,7 +44,7 @@ export const addCard = createAsyncThunk(
   'cards/addCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.post('/cards:columnId', cardData);
+      const response = await api.post(`/cards/${cardData.columnId}`, cardData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -32,7 +56,7 @@ export const editCard = createAsyncThunk(
   'cards/editCard',
   async (cardData, { rejectWithValue }) => {
     try {
-      const response = await axios.put(`cards/${cardData.id}`, cardData);
+      const response = await axios.put(`/cards/${cardData.id}`, cardData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
