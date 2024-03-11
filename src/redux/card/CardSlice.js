@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { addCard, deleteCard, editCard, fetchCards } from './CardApi';
 
 const initialState = {
   cards: {
@@ -11,7 +12,7 @@ const initialState = {
   error: null,
 };
 
-const addCardSlice = createSlice({
+const cardSlice = createSlice({
   name: 'cards',
   initialState,
   reducers: {
@@ -52,9 +53,22 @@ const addCardSlice = createSlice({
       .addCase(addCard.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(deleteCard.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(deleteCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+
+        state.cards = state.cards.filter(card => card.id !== action.payload);
+      })
+      .addCase(deleteCard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
-export const { addCard, editCard, fetchCards } = addCardSlice.actions;
-export default addCardSlice.reducer;
+export const cardsReducer = cardSlice.actions;
+export default cardSlice.reducer;

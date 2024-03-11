@@ -16,17 +16,17 @@ registerLocale('en-GB', enGB);
 export default function AddCardModal({ columnId, boardId, closeModal }) {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
-  // const { title, description, priority, deadline } = useSelector(selectCard);
   const [startDate, setStartDate] = useState(new Date());
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  // const { title, description, priority, deadline } = useSelector(selectCard);
+
   // const initialState = {
   //   title: title || '',
   //   description: description || '',
   //   priority: selectedValue,
   //   deadline: deadline,
   // };
-
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -71,11 +71,6 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Add card</h3>
-
-      <svg width={18} height={18} className={style.icon_close}>
-        <use href={`${sprite}#icon-close`} />
-      </svg>
-
       <Formik>
         <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
           <div className={style['input-box']}>
@@ -105,7 +100,8 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
               className={style.label_div}
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',
@@ -113,7 +109,6 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             >
               Label color
             </FormLabel>
-
             <div className={style.radio_list}>
               <Radio
                 {...controlProps('Low')}
@@ -178,7 +173,8 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             <FormLabel
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',
@@ -194,7 +190,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
                 minDate={new Date()}
                 customInput={<CustomInput />}
                 dateFormat="MMMM d"
-                calendarClassName={style.calendar_color}
+                className={style.calendar_color}
               />
 
               <svg width={18} height={18} className={style.icon_down}>

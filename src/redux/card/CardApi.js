@@ -32,7 +32,7 @@ export const fetchCards = createAsyncThunk(
   'cards/fetchCards',
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/cards/');
+      const response = await axios.get('/cards');
       console.log(response);
       return response.data;
     } catch (error) {
@@ -60,6 +60,18 @@ export const editCard = createAsyncThunk(
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteCard = createAsyncThunk(
+  'cards/deleteCard',
+  async (cardId, thunkAPI) => {
+    try {
+      const { data } = await api.delete(`/cards/${cardId}`);
+      return data.id;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );

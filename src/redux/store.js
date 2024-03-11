@@ -6,6 +6,7 @@ import modalReducer from './modal/modalSlice';
 import { registrationReducer } from './user/userSlice';
 import boardsReducer from './board/boardSlice';
 import { columnsReducer } from './column/columnSlice';
+import cardsReducer from './card/CardSlice';
 import {
   persistStore,
   persistReducer,
@@ -42,6 +43,7 @@ export const store = configureStore({
     boards: boardsReducer,
     columns: columnsReducer,
     filter: filterReducer,
+    cards: cardsReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

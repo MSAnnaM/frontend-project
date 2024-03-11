@@ -29,13 +29,13 @@ const HelpModal = () => {
 
   return modal2
     ? createPortal(
-        <div className={css.modal_backdrop} onClick={handleBackdropClick}>
-          <div div className={css.modal_content}>
-            <HelpForm onClose={() => dispatch(closeModal('modal2'))} />
-          </div>
-        </div>,
-        document.querySelector('#modal-root2')
-      )
+      <div className={css.modal_backdrop} onClick={handleBackdropClick}>
+        <div className={css.modal_content}>
+          <HelpForm onClose={() => dispatch(closeModal('modal2'))} />
+        </div>
+      </div>,
+      document.querySelector('#modal-root2')
+    )
     : null;
 };
 export default HelpModal;

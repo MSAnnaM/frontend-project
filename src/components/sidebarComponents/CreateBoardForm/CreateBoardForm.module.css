@@ -71,6 +71,11 @@
   background: #161616;
 }
 
+.create_board_icons {
+  stroke: #ffffff80;
+  stroke-width: 1.5px;
+}
+
 .create_board_wrap_icon {
   display: flex;
   justify-content: center;
@@ -87,4 +92,44 @@
   letter-spacing: -0.02em;
   text-align: left;
   color: #ffffff;
+  margin-bottom: 14px;
+}
+
+.create_board_wrap_backgrounds {
+  display: flex;
+  gap: 4px;
+  width: 252px;
+  flex-wrap: wrap;
+}
+
+.create_board_thumb_img_placeholder {
+  padding: 6px;
+  border-radius: 8px;
+  background: #1f1f1f;
+}
+
+.create_board_img_placeholder {
+  stroke: #ffffff1a;
+  fill: none;
+}
+
+.create_board_label {
+  cursor: pointer;
+}
+
+.create_board_field {
+  appearance: none;
+}
+
+.create_board_wrap_icons {
+  display: flex;
+  gap: 8px;
+}
+
+.radio_semi_stroke {
+  stroke: white;
+}
+
+.radio_semi_transparent {
+  opacity: 0.65;
 }

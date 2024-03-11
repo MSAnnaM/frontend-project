@@ -1,3 +1,8 @@
+:root {
+  --scrollbar-color: #ffffff1a;
+  --scrollbar-hover-color: #ffffff33;
+  --scrollbar-bg-color: #161616;
+}
 .sidebar_boards_list {
   margin-top: 25px;
   height: 180px;
@@ -9,6 +14,36 @@
   height: 61px;
   width: 100%;
   text-align: center;
-
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  direction: ltr;
+  padding-left: 10px;
+}
+
+.scroll_container {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  direction: rtl;
+  width: 100%;
+  padding: 0;
+}
+
+.scroll_container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll_container::-webkit-scrollbar-track {
+  background-color: var(--scrollbar-bg-color);
+  border-radius: 4px;
+}
+
+.scroll_container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 4px;
+}
+
+.scroll_container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-hover-color);
 }

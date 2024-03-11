@@ -25,7 +25,7 @@
   line-height: normal;
   letter-spacing: -0.36px;
   margin-bottom: 24px;
-  color: var(--dashboard-title-color);
+  color: var(--main-color);
 }
 
 .addColumn_input {
@@ -35,14 +35,14 @@
   margin-bottom: 24px;
   opacity: 0.4;
   border-radius: 8px;
-  border: 1px solid var(--card-create-button-color);
+  border: 1px solid var(--accent-color);
   background-color: transparent;
-  color: var(--dashboard-title-color);
+  color: var(--accent-color);
 }
 
 .addColumn_input:focus {
   opacity: 1;
-  outline: 1px solid var(--card-create-button-color);
+  outline: 1px solid var(--accent-color);
 }
 
 .addColumn_btn {
@@ -52,8 +52,8 @@
   gap: 8px;
   width: 100%;
   padding: 10px 0;
-  background-color: var(--card-create-button-color);
-  color: var(--card-create-button-text-color);
+  background-color: var(--accent-color);
+  color: var(--button-text);
 
   border-radius: 8px;
 }
@@ -64,12 +64,12 @@
   justify-content: center;
   width: 28px;
   height: 28px;
-  background-color: var(--card-create-button-bg-color);
+  background-color: var(--modal-icon-plus-back);
   border-radius: 8px;
 }
 
 .icon {
   width: 14px;
   height: 14px;
-  stroke: var(--card-icon-color);
+  stroke: var(--modal-icon-plus);
 }
