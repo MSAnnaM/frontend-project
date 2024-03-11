@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 
 export const api = axios.create({
   baseURL: 'https://api-server-c4rg.onrender.com/api',
+  // baseURL: 'https://localhost:3005/api',
 });
 
 const setToken = token => {
@@ -46,6 +47,10 @@ const update = async user => {
   return data;
 };
 
+const sendEmail = async user => {
+  const { data } = await api.post(`/users/help`, user);
+  return data;
+};
 export const registerUser = createAsyncThunk(
   'authorization/register',
   async (user, thunkAPI) => {
@@ -116,6 +121,19 @@ export const updateUser = createAsyncThunk(
       setToken(savedToken);
 
       const response = await update(user);
+      return response;
+    } catch (error) {
+      Notiflix.Notify.warning('Oooops, something goes wrong');
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const sendHelpEmail = createAsyncThunk(
+  'authorization/help',
+  async (user, thunkAPI) => {
+    try {
+      const response = await sendEmail(user);
       return response;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');
