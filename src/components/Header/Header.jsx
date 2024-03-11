@@ -2,7 +2,8 @@ import sprite from '../../img/icons/sprite.svg';
 import style from './Header.module.css';
 import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
-import { Select } from './Select/Select';
+import { SelectTheme } from './Select/Select';
+
 
 import userImage from '../../img/user.png';
 import { useSelector } from 'react-redux';
@@ -13,7 +14,7 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 
 export default function Header({ onClick }) {
   // const dispatch = useDispatch();
-  const { name, avatarURL } = useSelector(userSelect);
+  const { name, avatarUrl } = useSelector(userSelect);
   const [openModal, setModal] = useState(false);
   const [newAvatarURL, setNewAvatarURL] = useState(null);
   const handleUpdateAvatarURL = newURL => {
@@ -56,7 +57,7 @@ export default function Header({ onClick }) {
         </button>
       ) : null}
       <div className={style.options}>
-        <Select />
+        <SelectTheme />
         <div className={style.info}>
           <p className={style.name}>{name}</p>
           {/* <button

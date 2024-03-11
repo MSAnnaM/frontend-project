@@ -19,7 +19,7 @@
   background-image: url('../../../img/icons/sprite.svg#icon-vector');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: var(--sidebar-text);
   opacity: 0.1;
 }
 
@@ -29,7 +29,7 @@
   background-image: url('../../../img/icons/sprite.svg#icon-vector');
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: white;
+  background-color: var(--sidebar-text);
   width: 212px;
   height: 2px;
   content: '';
@@ -40,7 +40,7 @@
   font-weight: 500;
   font-size: 14px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--sidebar-text);
   width: 74px;
   height: 42px;
   margin: 0;
@@ -51,7 +51,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #bedbb0;
+  background: var(--sidebar-icon-plus-back);
   border-radius: 6px;
   width: 40px;
   height: 36px;
@@ -64,7 +64,7 @@
   transform: scale(1.05);
 }
 .sidebar_button_icon {
-  stroke: #121212;
+  stroke: var(--sidebar-icon-plus-fill);
 
   /* padding: 8px 10px 8px 10px; */
 }

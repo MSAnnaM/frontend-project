@@ -6,6 +6,7 @@
   justify-content: space-between;
   margin-bottom: 0;
   margin-top: 20px;
+  color: var(--sidebar-text);
 }
 .sidebar_help_button:hover,
 .sidebar_help_button:focus {
@@ -15,8 +16,13 @@
   font-weight: 500;
   font-size: 12px;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--sidebar-text);
   margin: 0;
-  background: #1f1f1f;
+  background: transparent;
   border: none;
+}
+
+.sidebar_help_logo {
+  stroke: var(--sidebar-text);
+  fill: var(--sidebar-text);
 }

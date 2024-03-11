@@ -10,11 +10,11 @@
 }
 .logout_button {
   display: flex;
-  background: #121212;
+  background: transparent;
   border: none;
   font-weight: 500;
   font-size: 16px;
-  color: #fff;
+
   padding: 0;
 }
 .logout_button_icon:hover,
@@ -24,11 +24,11 @@
 }
 
 .logout_button_icon {
-  stroke: #bedbb0;
-  background: #121212;
+  stroke: var(--logout-icon);
+  fill: transparent;
 }
 .logout_button_text {
   text-align: left;
   margin: 0;
-  color: #fff;
+  color: var(--sidebar-text);
 }

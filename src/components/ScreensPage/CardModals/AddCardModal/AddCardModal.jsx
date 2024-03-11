@@ -13,7 +13,7 @@ import { addCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
-export default function AddCardModal() {
+export default function AddCardModal({ columnId, boardId, closeModal }) {
   const dispatch = useDispatch();
   const [selectedValue, setSelectedValue] = useState('d');
   const [startDate, setStartDate] = useState(new Date());
@@ -35,10 +35,14 @@ export default function AddCardModal() {
       description,
       priority: selectedValue,
       deadline: startDate.getTime(),
+      columnId,
+      boardId,
+      index: 1,
     };
     // console.log(cardData);
     dispatch(addCard(cardData));
     console.log(dispatch(addCard(cardData)));
+    closeModal();
   };
 
   const handleChange = e => {
@@ -96,7 +100,8 @@ export default function AddCardModal() {
               className={style.label_div}
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',
@@ -106,7 +111,7 @@ export default function AddCardModal() {
             </FormLabel>
             <div className={style.radio_list}>
               <Radio
-                {...controlProps('a')}
+                {...controlProps('Low')}
                 sx={{
                   backgroundColor: '#8FA1D0',
                   color: '#8FA1D0',
@@ -120,7 +125,7 @@ export default function AddCardModal() {
                 }}
               />
               <Radio
-                {...controlProps('b')}
+                {...controlProps('Medium')}
                 sx={{
                   backgroundColor: '#E09CB5',
                   color: '#E09CB5',
@@ -134,7 +139,7 @@ export default function AddCardModal() {
                 }}
               />
               <Radio
-                {...controlProps('c')}
+                {...controlProps('High')}
                 sx={{
                   backgroundColor: '#BEDBB0',
                   color: '#BEDBB0',
@@ -149,7 +154,7 @@ export default function AddCardModal() {
               />
 
               <Radio
-                {...controlProps('d')}
+                {...controlProps('Without')}
                 sx={{
                   backgroundColor: ' rgba(255, 255, 255, 0.30)',
                   color: ' rgba(255, 255, 255, 0.30)',
@@ -168,7 +173,8 @@ export default function AddCardModal() {
             <FormLabel
               id="demo-row-radio-buttons-group-label"
               sx={{
-                color: 'rgba(255, 255, 255, 0.50)',
+                color: 'var(--main-color)',
+                opacity: '0.5',
                 fontFamily: 'Poppins',
                 fontSize: '12px',
                 letterSpacing: '-0.24px',
@@ -184,7 +190,7 @@ export default function AddCardModal() {
                 minDate={new Date()}
                 customInput={<CustomInput />}
                 dateFormat="MMMM d"
-                calendarClassName={style.calendar_color}
+                className={style.calendar_color}
               />
 
               <svg width={18} height={18} className={style.icon_down}>

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { deleteBoard, editBoard, fetchBoards, createBoard } from './boardApi';
 
 const initialState = {
-  boards: [{ _id: 1, name: 'cook dinner', icon: 'icon-puzzle' }],
+  boards: [],
   isLoading: false,
   error: null,
 };
@@ -31,12 +31,13 @@ const boardsSlice = createSlice({
       })
       .addCase(editBoard.fulfilled, (state, action) => {
         state.isLoading = false;
-
+        // console.log(action.payload);
         state.boards = state.boards.map(board =>
-          board.id === action.payload.id ? action.payload : board
+          board._id === action.payload._id ? action.payload : board
         );
       })
       .addCase(editBoard.rejected, (state, action) => {
+        // console.log(action);
         state.isLoading = false;
         state.error = action.payload;
       })
@@ -48,7 +49,7 @@ const boardsSlice = createSlice({
         state.isLoading = false;
 
         state.boards = state.boards.filter(
-          board => board.id !== action.payload
+          board => board._id !== action.payload
         );
       })
       .addCase(deleteBoard.rejected, (state, action) => {
@@ -62,6 +63,7 @@ const boardsSlice = createSlice({
       .addCase(createBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.boards.push(action.payload);
+        console.log('new board', action.payload);
       })
       .addCase(createBoard.rejected, (state, action) => {
         state.isLoading = false;

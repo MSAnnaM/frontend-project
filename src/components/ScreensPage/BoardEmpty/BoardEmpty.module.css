@@ -11,7 +11,7 @@
   text-align: center;
   margin: 0 auto;
   padding-top: 258px;
-  color: var(--dashboard-text-color);
+  color: var(--grey-color);
 
   @media screen and (min-width: 768px) {
     min-width: 486px;
@@ -26,7 +26,7 @@
 
 .button {
   font-size: inherit;
-  color: var(--dashboard-text-button-color);
+  color: var(--accent-color);
   margin: 0;
   user-select: none;
 }

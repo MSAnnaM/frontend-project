@@ -3,7 +3,7 @@
   font-size: 14px;
   line-height: 1.42857;
   letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--sidebar-text);
   margin-top: 10px;
   width: 172px;
   height: 102px;
@@ -12,12 +12,12 @@
   border-radius: 8px;
   width: 212px;
   height: 272px;
-  background: #1f1f1f;
+  background: var(--help-back-color);
 }
 
 .cactus_container {
   padding: 20px;
 }
 .sidebar_span {
-  color: #bedbb0;
+  color: var(--accent-color);
 }

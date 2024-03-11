@@ -1,11 +1,11 @@
 .sidebar {
   width: 260px;
   height: 100%;
-  background: #121212;
+  background: var(--sidebar-back);
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2;
+  z-index: 999;
   transform: translateX(-260px);
   transition: transform 1s ease;
 }
@@ -15,7 +15,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--backdrop);
   display: none;
 }
 .sidebar.active {

@@ -1,7 +1,5 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-// import { useSelector } from 'react-redux';
-// import { tokenSelect } from '../../redux/user/selectors';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api-server-c4rg.onrender.com/api',
@@ -66,6 +64,7 @@ export const deleteBoard = createAsyncThunk(
   async (_id, { rejectWithValue }) => {
     try {
       await axiosInstance.delete(`/boards/${_id}`);
+      console.log(_id);
       return _id;
     } catch (error) {
       return rejectWithValue(error.message);

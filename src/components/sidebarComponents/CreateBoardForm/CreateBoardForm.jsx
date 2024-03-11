@@ -4,22 +4,42 @@ import sprite from '../../../img/icons/sprite.svg';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { createBoard } from '../../../redux/board/boardApi';
+import icons from './Icons';
+import backgrounds from './Backgrounds';
+import { useState } from 'react';
 
 const initialValues = {
-  title: '',
+  name: '',
+  icon: icons[0].id,
+  background: backgrounds[0].id,
 };
 
 const validationSchema = Yup.object({
-  title: Yup.string().required('Title is required'),
+  name: Yup.string().required('Title is required'),
 });
 
 const CreateBoardForm = ({ onClose }) => {
   const dispatch = useDispatch();
 
+  const [selectedIcon, setSelectedIcon] = useState(null);
+  const [selectedBackground, setSelectedBackground] = useState(null);
+
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values)
-    await dispatch(createBoard(values));
-    resetForm();
+    // Добавляем выбранные значения иконки и фона в объект values
+    const updatedValues = {
+      ...values,
+      icon: selectedIcon,
+      background: selectedBackground
+    };
+
+    console.log(updatedValues);
+
+    await dispatch(createBoard(updatedValues));
+    if (resetForm) {
+      await resetForm({}); // Проверяем, что resetForm существует перед его вызовом
+    }
+    // resetForm();
+    onClose();
   };
 
   return (
@@ -41,7 +61,7 @@ const CreateBoardForm = ({ onClose }) => {
         <div className={style.create_board_wrap_input}>
           <ErrorMessage
             className={style.error_message}
-            name="title"
+            name="name"
             component="div"
           />
           <Field
@@ -53,31 +73,81 @@ const CreateBoardForm = ({ onClose }) => {
         </div>
         <div className={style.create_board_wrap_input}>
           <h2 className={style.create_board_title_radio}>Icons</h2>
-          <ErrorMessage
-            className={style.error_message}
-            name="comment"
-            component="div"
-          />
-          <Field
-            className={`${style.help_form_input} ${style.help_form_comment_input}`}
-            type="radio"
-            name="comment"
-            placeholder="Comment"
-          />
+          <div className={style.create_board_wrap_icons}>
+            {icons.map(icon => (
+              <label key={icon.id} className={`${style.create_board_label}`}>
+                <Field
+                  type="radio"
+                  name="icon"
+                  value={icon.id}
+                  className={style.create_board_field}
+                  checked={selectedIcon === icon.id}
+                  onChange={() => setSelectedIcon(icon.id)}
+                />
+                <svg
+                  className={`${style.create_board_icons} ${selectedIcon === icon.id ? style.radio_semi_stroke : ''
+                    }`}
+                  width="18"
+                  height="18"
+                >
+                  <use href={`${icon.image}`}></use>
+                </svg>
+              </label>
+            ))}
+          </div>
         </div>
         <div className={style.create_board_wrap_input}>
           <h2 className={style.create_board_title_radio}>Background</h2>
-          <ErrorMessage
-            className={style.error_message}
-            name="comment"
-            component="div"
-          />
-          <Field
-            className={`${style.help_form_input} ${style.help_form_comment_input}`}
-            type="radio"
-            name="comment"
-            placeholder="Comment"
-          />
+          <div className={style.create_board_wrap_backgrounds}>
+            <label
+              key={'default'}
+              className={`${style.create_board_thumb_img_placeholder} ${style.create_board_label
+                } ${selectedBackground === 'default'
+                  ? ''
+                  : style.radio_semi_transparent
+                }`}
+            >
+              <Field
+                type="radio"
+                name="background"
+                value={`${sprite}#icon-img_placeholder`}
+                className={style.create_board_field}
+                checked={selectedBackground === 'default'}
+                onChange={() => setSelectedBackground('default')}
+              />
+              <svg
+                className={style.create_board_img_placeholder}
+                width="16"
+                height="16"
+              >
+                <use href={`${sprite}#icon-img_placeholder`}></use>
+              </svg>
+            </label>
+            {backgrounds.map((img, idx) => (
+              <label
+                key={idx}
+                className={`${style.create_board_label} ${selectedBackground === img.id
+                  ? ''
+                  : style.radio_semi_transparent
+                  }`}
+              >
+                <Field
+                  type="radio"
+                  name="background"
+                  value={`${img.id}`}
+                  className={style.create_board_field}
+                  checked={selectedBackground === img.id}
+                  onChange={() => setSelectedBackground(img.id)}
+                />
+                <img
+                  key={idx}
+                  src={img.standard}
+                  srcSet={`${img.standard} 1x, ${img.retina} 2x`}
+                  alt="Background"
+                ></img>
+              </label>
+            ))}
+          </div>
         </div>
         <button className={style.create_board_button} type="submit">
           <div className={style.create_board_wrap_icon}>
@@ -85,7 +155,7 @@ const CreateBoardForm = ({ onClose }) => {
               className={style.create_board_plus_icon}
               width="18"
               height="18"
-              onClick={onClose}
+              onClick={handleSubmit}
             >
               <use href={`${sprite}#icon-plus`}></use>
             </svg>
