@@ -1,9 +1,15 @@
 import React, { createContext, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { getTheme } from '../redux/user/selectors';
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('dark');
+  // const [theme, setTheme] = useState('dark');
+
+  const theme = useSelector(getTheme);
+
+  console.log(theme);
 
   useEffect(() => {
     switch (theme) {
@@ -29,8 +35,6 @@ export const ThemeProvider = ({ children }) => {
   });
 
   return (
-    <ThemeContext.Provider value={[theme, setTheme]}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };
