@@ -1,6 +1,9 @@
 .help_form_wrap {
   position: relative;
   padding: 24px;
+  width: 400px;
+  height: 355px;
+  left: 25%;
 }
 
 .help_form_title {
