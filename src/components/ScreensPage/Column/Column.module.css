@@ -38,9 +38,9 @@
   justify-content: center;
   font-size: 14px;
   font-weight: 500;
-  background-color: var(--column-background-color);
+  background-color: var(--column-card-back);
   border-radius: 8px;
-  color: var(--dashboard-title-color);
+  color: var(--main-color);
 
   @media screen and (min-width: 768px) {
     width: 334px;
@@ -55,19 +55,19 @@
   height: 28px;
   margin-right: 8px;
   border-radius: 6px;
-  background-color: var(--column-create-button-bg-color);
+  background-color: var(--add-column-icon-back);
 }
 
 .column_btn_icon {
   width: 14px;
   height: 14px;
-  stroke: var(--column-button-icon-color);
+  stroke: var(--column-card-back);
 }
 
 .column_section {
   display: flex;
   width: 335px;
-  background-color: var(--column-background-color);
+  background-color: var(--column-card-back);
   margin-bottom: 10px;
   height: 56px;
   justify-content: space-between;
@@ -84,7 +84,7 @@
   font-weight: 500;
   margin-left: 20px;
   padding: 10px;
-  color: var(--dashboard-title-color);
+  color: var(--main-color);
 }
 
 .column_edit_btn {
@@ -103,7 +103,7 @@
 .column_icon {
   width: 16px;
   height: 16px;
-  stroke: var(--column-icon-color);
+  stroke: var(--grey-color);
   fill: transparent;
 }
 
@@ -117,8 +117,8 @@
   justify-content: center;
   margin-top: 14px;
   border-radius: 8px;
-  background-color: var(--card-create-button-color);
-  color: var(--card-create-button-text-color);
+  background-color: var(--accent-color);
+  color: var(--button-text);
 
   @media screen and (min-width: 768px) {
     width: 334px;
@@ -133,13 +133,13 @@
   height: 28px;
   margin-right: 8px;
   border-radius: 6px;
-  background-color: var(--card-create-button-bg-color);
+  background-color: var(--add-card-icon-back);
 }
 
 .card_btn_icon {
   width: 14px;
   height: 14px;
-  stroke: var(--card-icon-color);
+  stroke: var(--modal-icon-plus);
 }
 
 .card_container {
@@ -180,15 +180,16 @@
 }
 
 .scroll_container::-webkit-scrollbar-track {
-  background-color: var(--scrollbar-bg-color);
+  background-color: var(--scroll-back);
   border-radius: 4px;
 }
 
 .scroll_container::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-color);
+  background-color: var(--scroll-color);
   border-radius: 4px;
 }
 
 .scroll_container::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-hover-color);
+  background-color: var(--scroll-color);
+  opacity: 1;
 }

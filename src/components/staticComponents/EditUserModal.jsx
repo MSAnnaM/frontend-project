@@ -12,7 +12,7 @@ import { updateUser } from '../../redux/user/userApi';
 // import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
-export default function EditUserModal() {
+export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
   // const { name, email, password } = useSelector(userSelect);
 
   // const dispatch = useDispatch();
@@ -57,6 +57,8 @@ export default function EditUserModal() {
     console.log('FormData:', Object.fromEntries(formData.entries()));
 
     dispatch(updateUser(formData));
+    handleUpdateAvatarURL(URL.createObjectURL(avatarURL));
+    openModal();
   };
 
   const handleFileChange = e => {
@@ -92,24 +94,14 @@ export default function EditUserModal() {
             <use href={`${sprite}#icon-user`} />
           </svg>
         )} */}
-{avatarURL ? (
-          <img
-            src={URL.createObjectURL(avatarURL)}
-            alt="avatar"
-            width={68}
-            height={68}
-          />
-        ) : avatarUrl ? (
-          <img
-            src={avatarUrl}
-            alt="avatar"
-            width={68}
-            height={68}
-          />
+        {avatarUrl ? (
+          <img src={avatarUrl} alt="avatar" width={68} height={68} />
         ) : (
-          <svg width={68} height={68} className={style.icon_user}>
-            <use href={`${sprite}#icon-user`} />
-          </svg>
+          <div className={style.icon_user_box}>
+            <svg width={68} height={62} className={style.icon_user}>
+              <use href={`${sprite}#icon-user`} />
+            </svg>
+          </div>
         )}
         <label htmlFor="file-upload" className={style.icon_plus_div}>
           <svg width={10} height={10} className={style.icon_plus}>
@@ -143,9 +135,7 @@ export default function EditUserModal() {
           />
           <Eye toggle={handleTogglePassword} />
         </div>
-        <FormButton type="submit" onClick={handleSubmit}>
-          Send
-        </FormButton>
+        <FormButton type="submit">Send</FormButton>
       </Forma>
     </div>
   );

@@ -9,7 +9,7 @@
 }
 
 .create_board_title {
-  color: white;
+  color: var(--main-color);
   margin-bottom: 24px;
 
   font-size: 18px;
@@ -29,13 +29,13 @@
   font-weight: 400;
   line-height: 21px;
   letter-spacing: -0.02em;
-  color: #ffffff;
-  background: #151515;
+  color: var(--main-color);
+  background: var(--input-back);
 
   width: 100%;
   padding: 14px 18px;
   border-radius: 8px;
-  border: 1px solid #bedbb0;
+  border: 1px solid var(--accent-color);
   opacity: 0.4;
   box-sizing: border-box;
 }
@@ -45,7 +45,7 @@
   top: 14px;
   right: 14px;
   cursor: pointer;
-  stroke: #ffffff;
+  stroke: var(--main-color);
 }
 
 .error_message {
@@ -59,12 +59,12 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
-  color: #161616;
+  color: var(--button-text);
   font-weight: 500;
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.02em;
-  background: #bedbb0;
+  background: var(--accent-color);
   padding: 14px 28px;
   width: 100%;
   height: 49px;
@@ -72,12 +72,14 @@
 }
 
 .create_board_plus_icon {
-  stroke: white;
-  background: #161616;
+  stroke: var(--modal-icon-plus);
+  background: var(--modal-icon-plus-back);
 }
 
 .create_board_icons {
-  stroke: #ffffff80;
+  stroke: var(--main-color);
+  opacity: 0.5;
+  fill: transparent;
   stroke-width: 1.5px;
 }
 
@@ -85,7 +87,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: black;
+  background: var(--modal-icon-plus-back);
   border-radius: 8px;
   padding: 7px;
 }
@@ -96,7 +98,7 @@
   line-height: 21px;
   letter-spacing: -0.02em;
   text-align: left;
-  color: #ffffff;
+  color: var(--main-color);
   margin-bottom: 14px;
 }
 

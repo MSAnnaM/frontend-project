@@ -13,6 +13,6 @@
   cursor: pointer;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
   padding: 14px 0;
-  color: #161616;
-  background-color: #bedbb0;
+  color: var(--button-text);
+  background-color: var(--accent-color);
 }

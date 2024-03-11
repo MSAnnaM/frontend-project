@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: var(--backdrop);
 }
 
 .modal {
@@ -15,7 +15,7 @@
   max-width: 400px;
   padding: 24px;
   border-radius: 8px;
-  border: 1px solid rgba(190, 219, 176, 0.5);
+  border: 1px solid var(--modal-border-color);
   background: #fcfcfc;
 
   @media screen and (max-width: 767px) {

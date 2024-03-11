@@ -7,6 +7,7 @@
 }
 .board_box {
   display: flex;
+  align-items: center;
 }
 .board_title {
   font-weight: 500;
@@ -21,16 +22,19 @@
   text-align: left;
 }
 
-.board_icon {
+.board_icon.active {
   stroke: var(--sidebar-text);
 }
 
 .icon_pencil,
 .icon_trash,
 .board_icon {
-  stroke: rgba(255, 255, 255, 0.5);
+  stroke: var(--sidebar-grey-color);
+  fill: transparent;
 }
 .board_icons {
+  display: flex;
+  align-items: center;
   margin-right: 25px;
   margin-left: auto;
 }
@@ -42,7 +46,7 @@
   border-radius: 4px 0 0 4px;
   width: 4px;
   height: 61px;
-  background: #bedbb0;
+  background: var(--logout-icon);
 }
 
 .icon_pencil:hover,

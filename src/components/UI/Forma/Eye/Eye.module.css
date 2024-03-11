@@ -14,5 +14,5 @@
 
 .icon:hover,
 .icon:active {
-  stroke: #ffffff;
+  stroke: var(--main-color);
 }

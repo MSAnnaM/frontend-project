@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #bedbb0;
+  background: var(--sidebar-icon-plus-back);
   border-radius: 6px;
   width: 40px;
   height: 36px;
@@ -11,9 +11,9 @@
 }
 .add-button:hover,
 .add-button:focus {
-  background: #9dc888;
+  background: var(--sidebar-icon-plus-focused);
   transform: scale(1.05);
 }
 .icon {
-  stroke: #121212;
+  stroke: var(--sidebar-icon-plus-fill);
 }
