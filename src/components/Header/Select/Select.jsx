@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import Select from 'react-select';
 import './Select.css';
 import { ThemeContext } from 'components/ThemeProvider';
+import { useDispatch } from 'react-redux';
+import { updateUserTheme } from '../../../redux/user/userApi';
 
 export const SelectTheme = () => {
   const [theme, setTheme] = useContext(ThemeContext);
@@ -12,8 +14,11 @@ export const SelectTheme = () => {
     { value: 'violet', label: 'violet' },
   ];
 
+  const dispatch = useDispatch();
+
   const onChangeTheme = event => {
     console.log(event.value);
+    dispatch(updateUserTheme(event.value));
     setTheme(event.value);
   };
 

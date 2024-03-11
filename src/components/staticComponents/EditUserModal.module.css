@@ -163,3 +163,10 @@
   color: var(--button-text);
   background-color: var(--accent-color);
 }
+
+.img_avatar {
+  border-radius: 8px;
+  width: 68px;
+  height: 68px;
+  object-fit: cover;
+}
