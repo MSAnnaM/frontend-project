@@ -12,7 +12,7 @@ const BoardCreated = () => {
   const { _id: boardId } = useShownBoard();
 
   useEffect(() => {
-    if (boardId) dispatch(getColumns(boardId));
+    if (boardId) dispatch(getColumns(boardId)) ;
     else navigate('/home');
   }, [dispatch, boardId, navigate]);
 

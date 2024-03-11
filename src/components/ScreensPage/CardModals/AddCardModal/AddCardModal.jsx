@@ -39,7 +39,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
       boardId,
       index: 1,
     };
-    // console.log(cardData);
+    console.log(cardData);
     dispatch(addCard(cardData));
     // console.log(dispatch(addCard(cardData)));
     closeModal();
@@ -199,7 +199,9 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             </div>
           </div>
 
-          <button className={style.button} type="submit" onClick={handleSubmit}>
+
+          <button className={style.button} type="button"  onClick={handleSubmit}>
+
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />
