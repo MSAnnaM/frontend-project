@@ -1,6 +1,11 @@
 .create_bord_wrap {
   position: relative;
   padding: 11px;
+  min-height: 433px;
+  width: 350px;
+  top: 50%;
+  left: 0;
+  background-color: inherit;
 }
 
 .create_board_title {
