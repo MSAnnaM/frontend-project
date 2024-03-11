@@ -25,10 +25,20 @@ const CreateBoardForm = ({ onClose }) => {
   const [selectedBackground, setSelectedBackground] = useState(null);
 
   const handleSubmit = async (values, { resetForm }) => {
-    console.log(values);
+    // Добавляем выбранные значения иконки и фона в объект values
+    const updatedValues = {
+      ...values,
+      icon: selectedIcon,
+      background: selectedBackground
+    };
 
-    await dispatch(createBoard(values));
-    resetForm();
+    console.log(updatedValues);
+
+    await dispatch(createBoard(updatedValues));
+    if (resetForm) {
+      await resetForm({}); // Проверяем, что resetForm существует перед его вызовом
+    }
+    // resetForm();
     onClose();
   };
 
@@ -124,7 +134,7 @@ const CreateBoardForm = ({ onClose }) => {
                 <Field
                   type="radio"
                   name="background"
-                  value={`${img.standard}`}
+                  value={`${img.id}`}
                   className={style.create_board_field}
                   checked={selectedBackground === img.id}
                   onChange={() => setSelectedBackground(img.id)}
