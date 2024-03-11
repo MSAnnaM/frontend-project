@@ -24,10 +24,12 @@ const CreateBoardForm = ({ onClose }) => {
   const [selectedIcon, setSelectedIcon] = useState(null);
   const [selectedBackground, setSelectedBackground] = useState(null);
 
-  const handleSubmit = (values, { resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     console.log(values);
-    dispatch(createBoard(values));
+
+    await dispatch(createBoard(values));
     resetForm();
+    onClose();
   };
 
   return (
@@ -73,9 +75,8 @@ const CreateBoardForm = ({ onClose }) => {
                   onChange={() => setSelectedIcon(icon.id)}
                 />
                 <svg
-                  className={`${style.create_board_icons} ${
-                    selectedIcon === icon.id ? style.radio_semi_stroke : ''
-                  }`}
+                  className={`${style.create_board_icons} ${selectedIcon === icon.id ? style.radio_semi_stroke : ''
+                    }`}
                   width="18"
                   height="18"
                 >
@@ -90,13 +91,11 @@ const CreateBoardForm = ({ onClose }) => {
           <div className={style.create_board_wrap_backgrounds}>
             <label
               key={'default'}
-              className={`${style.create_board_thumb_img_placeholder} ${
-                style.create_board_label
-              } ${
-                selectedBackground === 'default'
+              className={`${style.create_board_thumb_img_placeholder} ${style.create_board_label
+                } ${selectedBackground === 'default'
                   ? ''
                   : style.radio_semi_transparent
-              }`}
+                }`}
             >
               <Field
                 type="radio"
@@ -117,11 +116,10 @@ const CreateBoardForm = ({ onClose }) => {
             {backgrounds.map((img, idx) => (
               <label
                 key={idx}
-                className={`${style.create_board_label} ${
-                  selectedBackground === img.id
-                    ? ''
-                    : style.radio_semi_transparent
-                }`}
+                className={`${style.create_board_label} ${selectedBackground === img.id
+                  ? ''
+                  : style.radio_semi_transparent
+                  }`}
               >
                 <Field
                   type="radio"
