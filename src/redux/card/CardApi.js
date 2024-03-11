@@ -30,10 +30,10 @@ api.interceptors.request.use(
 
 export const fetchCards = createAsyncThunk(
   'cards/fetchCards',
-  async (_, { rejectWithValue }) => {
+  async (boardId, { rejectWithValue }) => {
     try {
-      const response = await axios.get('/cards');
-      console.log(response);
+      const response = await api.get(`/cards/${boardId}`);
+      // console.log(response);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.message);

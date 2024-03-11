@@ -107,7 +107,7 @@ const Column = () => {
                 <div className={css.column_edit_btn}>
                   <Button
                     className={css.column_edit_btn}
-                    onClick={e => {
+                    onClick={() => {
                       editColumn();
                       setIdColumn(_id);
                     }}
@@ -145,7 +145,7 @@ const Column = () => {
               )}
               <Button
                 className={css.card_create_btn}
-                onClick={e => {
+                onClick={() => {
                   addCard();
                   setIdColumn(_id);
                 }}
