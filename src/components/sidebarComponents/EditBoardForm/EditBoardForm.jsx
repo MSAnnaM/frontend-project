@@ -69,7 +69,7 @@ const EditBoardForm = ({ props, openModal }) => {
                                     <Field
                                         type="radio"
                                         name="background"
-                                        value={`${img.standard}`}
+                                        value={`${img.id}`}
                                         className={style.edit_board_field}
                                     />
                                     <img

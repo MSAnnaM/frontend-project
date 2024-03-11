@@ -25,7 +25,7 @@ const CreateBoardForm = ({ onClose }) => {
   const [selectedBackground, setSelectedBackground] = useState(null);
 
   const handleSubmit = async (values, { resetForm }) => {
-    // Добавляем выбранные значения иконки и фона в объект values
+
     const updatedValues = {
       ...values,
       icon: selectedIcon,
@@ -36,7 +36,7 @@ const CreateBoardForm = ({ onClose }) => {
 
     await dispatch(createBoard(updatedValues));
     if (resetForm) {
-      await resetForm({}); // Проверяем, что resetForm существует перед его вызовом
+      await resetForm();
     }
     // resetForm();
     onClose();
