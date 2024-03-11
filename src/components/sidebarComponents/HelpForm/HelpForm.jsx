@@ -2,7 +2,8 @@ import { Field, Form, Formik, ErrorMessage } from 'formik';
 import style from './HelpForm.module.css';
 import sprite from '../../../img/icons/sprite.svg';
 import * as Yup from 'yup';
-// import { useDispatch } from 'react-redux';
+import { sendHelpEmail } from '../../../redux/user/userApi';
+import { useDispatch } from 'react-redux';
 
 const initialValues = {
   email: '',
@@ -22,10 +23,12 @@ const validationSchema = Yup.object({
 });
 
 const HelpForm = ({ onClose }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleSubmit = async (values, { resetForm }) => {
     // await dispatch(userComment(values));
+    await dispatch(sendHelpEmail(values));
+    console.log(values);
     resetForm();
   };
 

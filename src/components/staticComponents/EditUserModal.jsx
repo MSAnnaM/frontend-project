@@ -27,7 +27,7 @@ export default function EditUserModal() {
 
   const dispatch = useDispatch();
 
-  const { name, email, password } = useSelector(userSelect) || {};
+  const { name, email, password, avatarUrl } = useSelector(userSelect) || {};
   //  const [name, setName] = useState('');
   //   const [email, setEmail] = useState('');
   //   const [password, setPassword] = useState('');
@@ -36,7 +36,7 @@ export default function EditUserModal() {
     name: name || '',
     email: email || '',
     password: password || '',
-    avatarURL: avatarURL,
+    avatarUrl: avatarUrl,
   };
 
   // const handleChange = e => {
@@ -80,7 +80,7 @@ export default function EditUserModal() {
       </svg> */}
 
       <div className={style.icon_div}>
-        {avatarURL ? (
+        {/* {avatarURL ? (
           <img
             src={URL.createObjectURL(avatarURL)}
             width={68}
@@ -91,8 +91,26 @@ export default function EditUserModal() {
           <svg width={68} height={68} className={style.icon_user}>
             <use href={`${sprite}#icon-user`} />
           </svg>
+        )} */}
+{avatarURL ? (
+          <img
+            src={URL.createObjectURL(avatarURL)}
+            alt="avatar"
+            width={68}
+            height={68}
+          />
+        ) : avatarUrl ? (
+          <img
+            src={avatarUrl}
+            alt="avatar"
+            width={68}
+            height={68}
+          />
+        ) : (
+          <svg width={68} height={68} className={style.icon_user}>
+            <use href={`${sprite}#icon-user`} />
+          </svg>
         )}
-
         <label htmlFor="file-upload" className={style.icon_plus_div}>
           <svg width={10} height={10} className={style.icon_plus}>
             <use href={`${sprite}#icon-plus`} />
