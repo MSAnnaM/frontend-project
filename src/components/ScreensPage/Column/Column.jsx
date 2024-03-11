@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useShownBoard } from 'hooks/useShownBoard';
 import Button from 'components/ScreensPage/Button/Button';
 import Icon from '../Icon/Icon';
@@ -27,9 +27,8 @@ const Column = () => {
   useEffect(() => {
     columns.forEach((col) => {
       dispatch(fetchCards(col._id))
-    console.log(col._id);})
+    console.log(col._id)})
     
-    console.log(columns);
   })
   // const filter = useFilter();
 

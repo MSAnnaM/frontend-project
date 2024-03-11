@@ -188,7 +188,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                CustomInput
+                CustomInput={CustomInput}
                 dateFormat="MMMM d"
                 className={style.calendar_color}
               />
