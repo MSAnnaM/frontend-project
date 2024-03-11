@@ -2,14 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { deleteBoard, editBoard, fetchBoards, createBoard } from './boardApi';
 
 const initialState = {
-  boards: [
-    { _id: 1, name: 'cook dinner', icon: 'icon-puzzle' },
-    { _id: 2, name: 'cook dinner', icon: 'icon-puzzle' },
-    { _id: 3, name: 'cook dinner', icon: 'icon-puzzle' },
-    { _id: 4, name: 'cook dinner', icon: 'icon-puzzle' },
-    { _id: 5, name: 'cook dinner', icon: 'icon-puzzle' },
-    { _id: 6, name: 'cook dinner', icon: 'icon-puzzle' },
-  ],
+  boards: [],
   isLoading: false,
   error: null,
 };
@@ -69,6 +62,7 @@ const boardsSlice = createSlice({
       .addCase(createBoard.fulfilled, (state, action) => {
         state.isLoading = false;
         state.boards.push(action.payload);
+        console.log('new board', action.payload);
       })
       .addCase(createBoard.rejected, (state, action) => {
         state.isLoading = false;
