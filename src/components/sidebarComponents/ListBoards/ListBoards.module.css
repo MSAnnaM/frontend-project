@@ -4,11 +4,12 @@
   --scrollbar-bg-color: #161616;
 }
 .sidebar_boards_list {
-  margin-top: 25px;
+  margin-top: 20px;
   height: 180px;
   position: absolute;
   right: 0;
   left: 24px;
+  min-height: 150px;
 }
 .board_list_item {
   height: 61px;
