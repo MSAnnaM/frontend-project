@@ -22,14 +22,28 @@ const Column = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
+  const boards = shownBoard;
   const columns = shownBoard.columns;
-
+  // const card = shownBoard.cards;
+  // const cards = [...card];
+  // let columns = [...colu];
+  // colu.cards = [];
+  // let cards = [...car];
+  // console.log('caaaards', cards);
   useEffect(() => {
-    columns.forEach((col) => {
-      dispatch(fetchCards(col._id))
-    console.log(col._id)})
-    
-  })
+    columns.forEach(col => {
+      dispatch(fetchCards(col._id));
+    });
+  }, [columns, dispatch]);
+
+  // cards.forEach(card => {
+  //   const column = columns.find(col => col._id === card.columnId);
+
+  //   if (column) column.cards.push(card);
+  // });
+
+  // console.log('ccc ', columns);
+
   // const filter = useFilter();
 
   // const allcards = [
@@ -106,8 +120,8 @@ const Column = () => {
   return (
     <div>
       <ul className={css.column}>
-        {columns.length !== 0 &&
-          columns.map(({ _id, title, cards }) => (
+        {boards.columns.length !== 0 &&
+          boards.columns.map(({ _id, title }, cards) => (
             <li key={_id} className={css.column_item}>
               <div className={css.column_section}>
                 <p className={css.column_title}>{title}</p>
@@ -134,12 +148,12 @@ const Column = () => {
 
               <div className={css.card_container}>
                 <ul className={css.scroll_container}>
-                  {cards &&
+                  {/*{cards &&
                     cards.map(card => (
                       <li key={card._id} className={css.card}>
                         <Card data={card} columnId={_id} />
                       </li>
-                    ))}
+                    ))}*/}
                 </ul>
               </div>
               {openAddCardModal && (

@@ -15,7 +15,7 @@ import { bgURL } from 'const';
 const ScreensPage = () => {
   const [openFilterModal, setOpenFilterModal] = useState(false);
   const [innerWidth, setInnerWidth] = useState(null);
-  const [bgImage, setBgImage] = useState('');
+  const [bgImage, setBgImage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -30,43 +30,47 @@ const ScreensPage = () => {
     const handleResizePage = () => setInnerWidth(window.innerWidth);
     window.addEventListener('resize', handleResizePage);
 
-    if (bg === 'default') setBgImage(null);
+    if (boardName) {
+      if (bg === 'default') setBgImage(null);
+      else {
+        const isRetina = window.matchMedia('(min-resolution: 2dppx)').matches;
+        setBgImage(() => {
+          return isRetina
+            ? `${bgURL}/mobile/retina/${bg}.jpg`
+            : `${bgURL}/mobile/original/${bg}.jpg`;
+        });
 
-    const isRetina = window.matchMedia('(min-resolution: 2dppx)').matches;
-    setBgImage(() => {
-      return isRetina
-        ? `${bgURL}/mobile/retina/${bg}.jpg`
-        : `${bgURL}/mobile/original/${bg}.jpg`;
-    });
+        if (
+          window.matchMedia('(min-width: 375px) and (max-width: 767px)').matches
+        ) {
+          setBgImage(() => {
+            return isRetina
+              ? `${bgURL}/tablet/retina/${bg}.jpg`
+              : `${bgURL}/tablet/original/${bg}.jpg`;
+          });
+          return;
+        }
 
-    if (
-      window.matchMedia('(min-width: 375px) and (max-width: 767px)').matches
-    ) {
-      setBgImage(() => {
-        return isRetina
-          ? `${bgURL}/tablet/retina/${bg}.jpg`
-          : `${bgURL}/tablet/original/${bg}.jpg`;
-      });
-      return;
-    }
+        if (
+          window.matchMedia('(min-width: 768px) and (max-width: 1439px)')
+            .matches
+        ) {
+          setBgImage(() => {
+            return isRetina
+              ? `${bgURL}/desktop/retina/${bg}.jpg`
+              : `${bgURL}/desktop/original/${bg}.jpg`;
+          });
 
-    if (
-      window.matchMedia('(min-width: 768px) and (max-width: 1439px)').matches
-    ) {
-      setBgImage(() => {
-        return isRetina
-          ? `${bgURL}/desktop/retina/${bg}.jpg`
-          : `${bgURL}/desktop/original/${bg}.jpg`;
-      });
+          return;
+        }
 
-      return;
-    }
-
-    if (window.matchMedia('(min-width: 1440px)').matches) {
-      setBgImage(() => {
-        return `${bgURL}/desktop/retina/${bg}.jpg`;
-      });
-      return;
+        if (window.matchMedia('(min-width: 1440px)').matches) {
+          setBgImage(() => {
+            return `${bgURL}/desktop/retina/${bg}.jpg`;
+          });
+          return;
+        }
+      }
     }
 
     return () => {
@@ -82,7 +86,7 @@ const ScreensPage = () => {
     <div
       className={css.section}
       style={{
-        backgroundImage: `url(${bgImage})`,
+        backgroundImage: bgImage && `url(${bgImage})`,
       }}
     >
       {openFilterModal && (
