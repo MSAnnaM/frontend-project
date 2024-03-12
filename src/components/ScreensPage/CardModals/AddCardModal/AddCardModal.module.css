@@ -15,7 +15,15 @@
 
 .calendar {
   color: var(--accent-color);
+  background-color: transparent;
   margin-top: 4px;
+}
+
+.calendar_color {
+  color: var(--accent-color);
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 .title {
@@ -207,4 +215,12 @@
   color: var(--button-text);
   background-color: var(--accent-color);
   margin: 0 auto;
+}
+.button:hover {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
+}
+.button:focus {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
 }

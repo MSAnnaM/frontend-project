@@ -3,7 +3,7 @@
   padding: 24px;
   width: 400px;
   /* height: 355px; */
-  left: 25%;
+  /* left: 25%; */
 }
 
 .help_form_title {
@@ -72,4 +72,12 @@
   color: rgba(234, 84, 84, 0.859);
   margin-bottom: 5px;
   text-align-last: left;
+}
+.help_form_button:hover {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
+}
+.help_form_button:focus {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
 }

@@ -134,7 +134,7 @@
 }
 
 .radio_semi_stroke {
-  stroke: white;
+  stroke: var(--accent-color-focused);
 }
 
 .radio_semi_transparent {

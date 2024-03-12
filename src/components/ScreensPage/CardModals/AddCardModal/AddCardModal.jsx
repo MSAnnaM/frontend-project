@@ -62,8 +62,8 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
     inputProps: { 'aria-label': item },
   });
 
-  const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={style.calendar} onClick={onClick} ref={ref}>
+  const CustomInput = forwardRef(({ value, onClick, className }, ref) => (
+    <button className={className} type="button" onClick={onClick} ref={ref}>
       {value}
     </button>
   ));
@@ -188,7 +188,10 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                CustomInput={CustomInput}
+                customInput={
+                  <CustomInput value={startDate} className={style.calendar} />
+                }
+                // customInput={CustomInput}
                 dateFormat="MMMM d"
                 className={style.calendar_color}
               />
@@ -199,9 +202,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             </div>
           </div>
 
-
-          <button className={style.button} type="button"  onClick={handleSubmit}>
-
+          <button className={style.button} type="button" onClick={handleSubmit}>
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />

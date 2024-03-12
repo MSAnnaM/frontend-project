@@ -47,6 +47,10 @@
   }
 }
 
+.icon {
+  stroke: var(--sidebar-icon-plus-fill);
+}
+
 .column_btn_icon_bg {
   display: flex;
   justify-content: center;
@@ -192,4 +196,12 @@
 .scroll_container::-webkit-scrollbar-thumb:hover {
   background-color: var(--scroll-color);
   opacity: 1;
+}
+.card_create_btn:hover {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
+}
+.card_create_btn:focus {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
 }

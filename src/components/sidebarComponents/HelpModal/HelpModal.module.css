@@ -18,9 +18,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   min-height: 300px;
-  max-width: 800px;
-  width: 100%;
+  /* max-width: 800px; */
+  /* width: 100%; */
   border-radius: 10px;
   padding: 15px;
-  background-color: inherit;
+  background-color: var(--modal-back);
 }
