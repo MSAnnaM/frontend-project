@@ -31,11 +31,18 @@ const Card = ({ data, cardId }) => {
     [css.priority_without]: priority === cardPriority.WO,
   };
 
-  const isDeadline = date => {
-    if (date === '04/03/2024') {
-      return true;
-    }
+  const isDeadline = deadline => {
+    const dateDeadline = deadline.split('T')[0].split('-').join('');
+    const dateNow = new Date().toISOString().split('T')[0].split('-').join('');
+
+    if (dateDeadline - dateNow <= 1) return true;
+
     return false;
+  };
+
+  const formatDate = date => {
+    const dateParts = date.split('T')[0].split('-');
+    return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
   };
 
   return (
@@ -57,7 +64,7 @@ const Card = ({ data, cardId }) => {
             </div>
             <div className={css.addition}>
               <span className={css.addition_title}>Deadline</span>
-              <span className={css.addition_value}>{deadline}</span>
+              <span className={css.addition_value}>{formatDate(deadline)}</span>
             </div>
             <div className={css.actions_wrap}>
               {isDeadline(deadline) && (

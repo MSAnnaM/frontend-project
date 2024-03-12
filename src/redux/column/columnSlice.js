@@ -26,10 +26,7 @@ const handleFulfilledGetColumns = (state, { payload }) => {
 const handleFulfilledGetCards = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
-  if (
-    payload.length
-    // && payload[0]._id
-  ) {
+  if (payload.length && payload[0]._id) {
     const columnIdx = state.shownBoard.columns.findIndex(
       col => col._id === payload[0].columnId
     );
