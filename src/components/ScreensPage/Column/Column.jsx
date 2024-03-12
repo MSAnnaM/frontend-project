@@ -11,7 +11,7 @@ import AddCardModal from 'components/ScreensPage/CardModals/AddCardModal/AddCard
 import { useDispatch } from 'react-redux';
 import { deleteColumn } from '../../../redux/column/columnApi';
 import { fetchCards } from '../../../redux/card/CardApi';
-// import { useFilter } from 'hooks/useFilter';
+import { useFilter } from 'hooks/useFilter';
 
 const Column = () => {
   const [openAddColumnModal, setOpenAddColumnModal] = useState(false);
@@ -22,89 +22,26 @@ const Column = () => {
   const dispatch = useDispatch();
   const shownBoard = useShownBoard();
 
-  const boards = shownBoard;
-  const columns = shownBoard.columns;
-  // const card = shownBoard.cards;
-  // const cards = [...card];
-  // let columns = [...colu];
-  // colu.cards = [];
-  // let cards = [...car];
-  // console.log('caaaards', cards);
+  const allColumns = shownBoard.columns;
+
   useEffect(() => {
-    columns.forEach(col => {
+    allColumns.forEach(col => {
       dispatch(fetchCards(col._id));
     });
-  }, [columns, dispatch]);
+  }, [allColumns, dispatch]);
 
-  // cards.forEach(card => {
-  //   const column = columns.find(col => col._id === card.columnId);
+  const filter = useFilter();
 
-  //   if (column) column.cards.push(card);
-  // });
+  const filteredColumns = allColumns.map(column => {
+    if (column.cards) {
+      const result = column.cards.filter(card => card.priority === filter);
+      return { ...column, cards: result };
+    } else {
+      return column;
+    }
+  });
 
-  // console.log('ccc ', columns);
-
-  // const filter = useFilter();
-
-  // const allcards = [
-  //   {
-  //     _id: '65ecf062a4a0935d0611e60f',
-  //     title: 'New Card 1',
-  //     description: 'first try',
-  //     priority: 'Low',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e601',
-  //     title: 'New Card 2',
-  //     description: 'first try',
-  //     priority: 'High',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e602',
-  //     title: 'New Card 3',
-  //     description: 'first try',
-  //     priority: 'Medium',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  //   {
-  //     _id: '65ecf062a4a0935d0611e603',
-  //     title: 'New Card 4',
-  //     description: 'first try',
-  //     priority: 'Without',
-  //     deadline: '2024-03-31T00:00:00.000+00:00',
-  //     columnId: '65ecee57a4a0935d0611e604',
-  //     boardId: '65ece6907553c06c35d3cff8',
-  //     owner: '65ec8bd21373ed43484848be',
-  //     index: 1,
-  //   },
-  // ];
-
-  // const allColumns1 = [{ ...allColumns[0], cards: allcards }];
-
-  // const filteredColumns = allColumns1.map(column => {
-  //   if (column.cards) {
-  //     const result = column.cards.filter(item => item.priority === filter);
-  //     return { ...column, cards: result };
-  //   } else {
-  //     return column;
-  //   }
-  // });
-
-  // const columns = filter === '' ? allColumns1 : filteredColumns;
+  const columns = filter === '' ? allColumns : filteredColumns;
 
   const addColumn = () => {
     setOpenAddColumnModal(!openAddColumnModal);
@@ -120,8 +57,8 @@ const Column = () => {
   return (
     <div>
       <ul className={css.column}>
-        {boards.columns.length !== 0 &&
-          boards.columns.map(({ _id, title }, cards) => (
+        {columns.length !== 0 &&
+          columns.map(({ _id, title, cards }) => (
             <li key={_id} className={css.column_item}>
               <div className={css.column_section}>
                 <p className={css.column_title}>{title}</p>
@@ -148,12 +85,12 @@ const Column = () => {
 
               <div className={css.card_container}>
                 <ul className={css.scroll_container}>
-                  {/*{cards &&
+                  {cards &&
                     cards.map(card => (
                       <li key={card._id} className={css.card}>
                         <Card data={card} columnId={_id} />
                       </li>
-                    ))}*/}
+                    ))}
                 </ul>
               </div>
               {openAddCardModal && (
