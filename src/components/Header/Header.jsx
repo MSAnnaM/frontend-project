@@ -4,7 +4,6 @@ import BasicModal from '../UI/Modals/BasicModal/BasicModal';
 import { useEffect, useState } from 'react';
 import { SelectTheme } from './Select/Select';
 
-
 // import userImage from '../../img/user.png';
 import { useSelector } from 'react-redux';
 import { userSelect } from '../../redux/user/selectors';
@@ -103,7 +102,7 @@ export default function Header({ onClick }) {
                 alt="users avatar"
                 width={32}
                 height={32}
-                className={style.img}
+                className={style.img_avatar}
               />
             ) : (
               <div className={style.box_icon_user}>

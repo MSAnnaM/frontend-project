@@ -51,6 +51,13 @@ const sendEmail = async user => {
   const { data } = await api.post(`/users/help`, user);
   return data;
 };
+
+const updateTheme = async theme => {
+  console.log(theme);
+  const { data } = await api.patch(`/users/current/theme`, { theme });
+  return data;
+};
+
 export const registerUser = createAsyncThunk(
   'authorization/register',
   async (user, thunkAPI) => {
@@ -134,6 +141,27 @@ export const sendHelpEmail = createAsyncThunk(
   async (user, thunkAPI) => {
     try {
       const response = await sendEmail(user);
+      return response;
+    } catch (error) {
+      Notiflix.Notify.warning('Oooops, something goes wrong');
+      thunkAPI.rejectWithValue(error);
+    }
+  }
+);
+
+export const updateUserTheme = createAsyncThunk(
+  'authorization/theme',
+  async (theme, thunkAPI) => {
+    try {
+      const state = thunkAPI.getState();
+      const savedToken = state.registration.token;
+
+      if (!savedToken) {
+        return thunkAPI.rejectWithValue('Unable to fetch user');
+      }
+      setToken(savedToken);
+
+      const response = await updateTheme(theme);
       return response;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');

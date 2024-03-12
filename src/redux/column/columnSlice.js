@@ -6,6 +6,7 @@ import {
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
+// import { fetchCards } from '../card/CardApi';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -23,6 +24,19 @@ const handleFulfilledGetColumns = (state, { payload }) => {
   state.shownBoard.columns = payload;
 };
 
+// const handleFulfilledGetCards = (state, { payload }) => {
+//   state.isLoading = false;
+//   state.error = null;
+// const array = state.shownBoard.columns;
+// if (payload.length) {
+//   array.map(item => {
+//     if (item._id === payload.columnId) console.log(5);
+//   });
+// }
+
+// state.shownBoard.columns = payload;
+// };
+
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
@@ -35,6 +49,7 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   const array = state.shownBoard.columns;
+  console.log(array);
   const columnIndex = array.findIndex(el => el._id === payload._id);
   if (columnIndex !== -1) {
     array[columnIndex].title = payload.title;
@@ -74,7 +89,6 @@ const columnsSlice = createSlice({
       state.shownBoard = {
         ...action.payload,
         columns: [],
-        backgroundURL: '',
       };
     },
   },
@@ -82,6 +96,7 @@ const columnsSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
+      // .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumnById)

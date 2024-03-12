@@ -15,7 +15,7 @@ registerLocale('en-GB', enGB);
 
 export default function AddCardModal({ columnId, boardId, closeModal }) {
   const dispatch = useDispatch();
-  const [selectedValue, setSelectedValue] = useState('d');
+  const [selectedValue, setSelectedValue] = useState('Without');
   const [startDate, setStartDate] = useState(new Date());
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -39,7 +39,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
       boardId,
       index: 1,
     };
-    // console.log(cardData);
+    console.log(cardData);
     dispatch(addCard(cardData));
     // console.log(dispatch(addCard(cardData)));
     closeModal();
@@ -71,8 +71,8 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Add card</h3>
-      <Formik>
-        <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
+      <Formik onSubmit={handleSubmit}>
+        <Form className={style.form} autoComplete="off">
           <div className={style['input-box']}>
             <div className={style.wrap}>
               <Field
@@ -188,7 +188,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                customInput={<CustomInput />}
+                CustomInput={CustomInput}
                 dateFormat="MMMM d"
                 className={style.calendar_color}
               />
@@ -199,7 +199,9 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             </div>
           </div>
 
-          <button className={style.button} type="button" onClick={handleSubmit}>
+
+          <button className={style.button} type="button"  onClick={handleSubmit}>
+
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />
