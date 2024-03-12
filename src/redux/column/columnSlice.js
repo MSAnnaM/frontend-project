@@ -6,7 +6,7 @@ import {
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
-import { fetchCards } from '../card/CardApi';
+import { addCard, fetchCards } from '../card/CardApi';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -67,6 +67,16 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   Notify.success(`Column deleted`);
 };
 
+const handleFulfilledAddCard = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  const columns = state.shownBoard.columns;
+  const columnIndex = columns.findIndex(col => col._id === payload.columnId);
+  if (columnIndex !== -1) {
+    columns[columnIndex].cards.push(payload);
+  }
+};
+
 const initialState = {
   shownBoard: {
     columns: [],
@@ -95,6 +105,7 @@ const columnsSlice = createSlice({
 
   extraReducers: builder =>
     builder
+      .addCase(addCard.fulfilled, handleFulfilledAddCard)
       .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
       .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
