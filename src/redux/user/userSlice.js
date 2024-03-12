@@ -27,7 +27,7 @@ const refreshFulfilled = (state, action, payload) => {
 };
 
 const updateFulfilled = (state, action, payload) => {
-  state.user = action.payload;
+  state.user = action.payload.user;
   // state.user.avatarURL = action.payload;
 };
 
