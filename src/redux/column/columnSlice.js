@@ -6,7 +6,7 @@ import {
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
-import { addCard, editCard, fetchCards } from '../card/CardApi';
+import { addCard, deleteCard, editCard, fetchCards } from '../card/CardApi';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -79,6 +79,7 @@ const handleFulfilledAddCard = (state, { payload }) => {
 };
 
 const handleFulfilledEditCard = (state, { payload }) => {
+  console.log(payload);
   state.isLoading = false;
   state.error = null;
   const columns = state.shownBoard.columns;
@@ -89,6 +90,19 @@ const handleFulfilledEditCard = (state, { payload }) => {
     );
   }
   Notify.success(`Card updated`);
+};
+
+const handleFulfilledDeleteCard = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  const columns = state.shownBoard.columns;
+  const columnIdx = columns.findIndex(col => col._id === payload.columnId);
+  if (columnIdx !== -1) {
+    columns[columnIdx].cards = columns[columnIdx].cards.filter(
+      ({ _id }) => _id !== payload._id
+    );
+  }
+  Notify.success(`Card deleted`);
 };
 
 const initialState = {
@@ -121,6 +135,7 @@ const columnsSlice = createSlice({
     builder
       .addCase(addCard.fulfilled, handleFulfilledAddCard)
       .addCase(editCard.fulfilled, handleFulfilledEditCard)
+      .addCase(deleteCard.fulfilled, handleFulfilledDeleteCard)
       .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
       .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)

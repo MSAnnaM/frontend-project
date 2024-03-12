@@ -6,14 +6,23 @@ import Icon from '../Icon/Icon';
 import css from './Card.module.css';
 import Modal from 'components/UI/Modals/Modal/Modal';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteCard } from '../../../redux/card/CardApi';
 
 const Card = ({ data, cardId }) => {
   const [openEditCardModal, setOpenEditCardModal] = useState(false);
 
+  const dispatch = useDispatch();
+
   const editCard = () => {
     setOpenEditCardModal(!openEditCardModal);
   };
-  const { title, description, priority, deadline } = data;
+
+  const onDelete = _id => {
+    dispatch(deleteCard(_id));
+  };
+
+  const { _id, title, description, priority, deadline } = data;
 
   const priorityCard = {
     [css.priority_low]: priority === cardPriority.LOW,
@@ -71,7 +80,10 @@ const Card = ({ data, cardId }) => {
                   </Button>
                 </li>
                 <li className={css.action_item}>
-                  <Button className={css.action_btn}>
+                  <Button
+                    className={css.action_btn}
+                    onClick={() => onDelete(_id)}
+                  >
                     <Icon className={css.action_btn_icon} id="icon-trash" />
                   </Button>
                 </li>
