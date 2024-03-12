@@ -15,7 +15,15 @@
 
 .calendar {
   color: var(--accent-color);
+  background-color: transparent;
   margin-top: 4px;
+}
+
+.calendar_color {
+  color: var(--accent-color);
+  background-color: transparent;
+  outline: none;
+  border: none;
 }
 
 .title {
