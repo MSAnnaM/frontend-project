@@ -12,13 +12,13 @@
   /* height: calc(100vh - 60px); */
   height: 100%;
 
+  @media screen and (max-width: 374px) {
+    width: 100%;
+  }
+
   @media screen and (min-width: 1440px) {
     height: 100vh;
     display: flex;
-  }
-
-  @media screen and (max-width: 374px) {
-    width: 100%;
   }
 }
 

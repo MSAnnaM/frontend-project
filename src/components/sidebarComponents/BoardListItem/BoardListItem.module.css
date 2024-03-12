@@ -15,6 +15,11 @@
   letter-spacing: -0.02em;
   color: var(--sidebar-text);
   text-transform: capitalize;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 120px;
+  text-align: left;
 }
 
 .board_icon.active {

@@ -44,7 +44,7 @@
 }
 
 .icon_user {
-  stroke: var(--modal-back);
+  fill: var(--icon-user);
 
   @media screen and (min-width: 768px) {
     width: 32px;

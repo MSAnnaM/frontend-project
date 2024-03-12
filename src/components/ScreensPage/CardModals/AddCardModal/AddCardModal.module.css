@@ -128,17 +128,17 @@
 
 .wrap {
   width: 100%;
-  color: rgba(255, 255, 255, 0.3);
+  color: (rgba(255, 255, 255, 0.3));
   transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .icon:hover,
 .icon:active {
-  stroke: #ffffff;
+  stroke: var(--main-color);
 }
 
 .active {
-  color: #fff;
+  color: var(--main-color);
 }
 
 .input_hidden {
