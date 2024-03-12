@@ -6,7 +6,7 @@ import {
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
-// import { fetchCards } from '../card/CardApi';
+import { addCard, fetchCards } from '../card/CardApi';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -15,7 +15,6 @@ const handlePending = state => {
 const handleRejected = (state, { payload }) => {
   state.isLoading = false;
   state.error = payload;
-  Notify.warning(`Something went wrong`);
 };
 
 const handleFulfilledGetColumns = (state, { payload }) => {
@@ -24,18 +23,20 @@ const handleFulfilledGetColumns = (state, { payload }) => {
   state.shownBoard.columns = payload;
 };
 
-// const handleFulfilledGetCards = (state, { payload }) => {
-//   state.isLoading = false;
-//   state.error = null;
-// const array = state.shownBoard.columns;
-// if (payload.length) {
-//   array.map(item => {
-//     if (item._id === payload.columnId) console.log(5);
-//   });
-// }
-
-// state.shownBoard.columns = payload;
-// };
+const handleFulfilledGetCards = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  if (
+    payload.length
+    // && payload[0]._id
+  ) {
+    const columnIdx = state.shownBoard.columns.findIndex(
+      col => col._id === payload[0].columnId
+    );
+    if (!state.shownBoard.columns[columnIdx].cards.length)
+      state.shownBoard.columns[columnIdx].cards.push(...payload);
+  }
+};
 
 const handleFulfilledAddColumn = (state, { payload }) => {
   state.isLoading = false;
@@ -66,6 +67,16 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   Notify.success(`Column deleted`);
 };
 
+const handleFulfilledAddCard = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  const columns = state.shownBoard.columns;
+  const columnIndex = columns.findIndex(col => col._id === payload.columnId);
+  if (columnIndex !== -1) {
+    columns[columnIndex].cards.push(payload);
+  }
+};
+
 const initialState = {
   shownBoard: {
     columns: [],
@@ -82,7 +93,6 @@ const columnsSlice = createSlice({
     showBoard(state) {
       state.shownBoard = {
         columns: [],
-        backgroundURL: '',
       };
     },
     setShowBoard(state, action) {
@@ -95,8 +105,9 @@ const columnsSlice = createSlice({
 
   extraReducers: builder =>
     builder
+      .addCase(addCard.fulfilled, handleFulfilledAddCard)
       .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
-      // .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
+      .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)
       .addCase(deleteColumn.fulfilled, handleFulfilledDeleteColumn)
       .addCase(updateColumnById.fulfilled, handleFulfilledUpdateColumnById)

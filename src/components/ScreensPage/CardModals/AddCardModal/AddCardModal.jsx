@@ -39,7 +39,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
       boardId,
       index: 1,
     };
-    console.log(cardData);
+    // console.log(cardData);
     dispatch(addCard(cardData));
     // console.log(dispatch(addCard(cardData)));
     closeModal();
