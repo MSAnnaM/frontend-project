@@ -7,7 +7,7 @@ import css from './Card.module.css';
 import Modal from 'components/UI/Modals/Modal/Modal';
 import { useState } from 'react';
 
-const Card = ({ data }) => {
+const Card = ({ data, cardId }) => {
   const [openEditCardModal, setOpenEditCardModal] = useState(false);
 
   const editCard = () => {
@@ -63,7 +63,7 @@ const Card = ({ data }) => {
                 <li className={css.action_item}>
                   {openEditCardModal && (
                     <Modal openModal={editCard}>
-                      <EditCardModal closeModal={editCard} />
+                      <EditCardModal closeModal={editCard} cardId={cardId} />
                     </Modal>
                   )}
                   <Button className={css.action_btn} onClick={editCard}>

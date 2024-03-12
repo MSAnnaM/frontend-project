@@ -6,7 +6,7 @@ import {
   updateColumnById,
 } from './columnApi';
 import { Notify } from 'notiflix';
-import { addCard, fetchCards } from '../card/CardApi';
+import { addCard, editCard, fetchCards } from '../card/CardApi';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -71,10 +71,24 @@ const handleFulfilledAddCard = (state, { payload }) => {
   state.isLoading = false;
   state.error = null;
   const columns = state.shownBoard.columns;
-  const columnIndex = columns.findIndex(col => col._id === payload.columnId);
-  if (columnIndex !== -1) {
-    columns[columnIndex].cards.push(payload);
+  const columnIdx = columns.findIndex(col => col._id === payload.columnId);
+  if (columnIdx !== -1) {
+    columns[columnIdx].cards.push(payload);
   }
+  Notify.success(`Card added`);
+};
+
+const handleFulfilledEditCard = (state, { payload }) => {
+  state.isLoading = false;
+  state.error = null;
+  const columns = state.shownBoard.columns;
+  const columnIdx = columns.findIndex(col => col._id === payload.columnId);
+  if (columnIdx !== -1) {
+    columns[columnIdx].cards = columns[columnIdx].cards.map(card =>
+      card._id === payload._id ? (card = payload) : card
+    );
+  }
+  Notify.success(`Card updated`);
 };
 
 const initialState = {
@@ -106,6 +120,7 @@ const columnsSlice = createSlice({
   extraReducers: builder =>
     builder
       .addCase(addCard.fulfilled, handleFulfilledAddCard)
+      .addCase(editCard.fulfilled, handleFulfilledEditCard)
       .addCase(getColumns.fulfilled, handleFulfilledGetColumns)
       .addCase(fetchCards.fulfilled, handleFulfilledGetCards)
       .addCase(addColumn.fulfilled, handleFulfilledAddColumn)

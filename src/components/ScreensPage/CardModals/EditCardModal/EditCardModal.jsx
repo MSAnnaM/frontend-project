@@ -14,7 +14,7 @@ import { editCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
-export default function EditCardModal({ cardId, boardId }) {
+export default function EditCardModal({ cardId, closeModal }) {
   const dispatch = useDispatch();
 
   const [selectedValue, setSelectedValue] = useState('d');
@@ -35,15 +35,17 @@ export default function EditCardModal({ cardId, boardId }) {
     e.preventDefault();
     const updateCardData = {
       cardId,
-      boardId,
-      title,
-      description,
-      priority: selectedValue,
-      deadline: startDate.getTime(),
+      newCardData: {
+        title,
+        description,
+        priority: selectedValue,
+        deadline: startDate.getTime(),
+      },
     };
     // console.log(cardData);
     dispatch(editCard(updateCardData));
-    console.log(dispatch(editCard(updateCardData)));
+    // console.log(dispatch(editCard(updateCardData)));
+    closeModal();
   };
 
   const handleChange = e => {
@@ -112,7 +114,7 @@ export default function EditCardModal({ cardId, boardId }) {
 
             <div className={style.radio_list}>
               <Radio
-                {...controlProps('a')}
+                {...controlProps('Low')}
                 sx={{
                   backgroundColor: '#8FA1D0',
                   color: '#8FA1D0',
@@ -126,7 +128,7 @@ export default function EditCardModal({ cardId, boardId }) {
                 }}
               />
               <Radio
-                {...controlProps('b')}
+                {...controlProps('Medium')}
                 sx={{
                   backgroundColor: '#E09CB5',
                   color: '#E09CB5',
@@ -140,7 +142,7 @@ export default function EditCardModal({ cardId, boardId }) {
                 }}
               />
               <Radio
-                {...controlProps('c')}
+                {...controlProps('High')}
                 sx={{
                   backgroundColor: '#BEDBB0',
                   color: '#BEDBB0',
@@ -155,7 +157,7 @@ export default function EditCardModal({ cardId, boardId }) {
               />
 
               <Radio
-                {...controlProps('d')}
+                {...controlProps('Without')}
                 sx={{
                   backgroundColor: ' rgba(255, 255, 255, 0.30)',
                   color: ' rgba(255, 255, 255, 0.30)',
