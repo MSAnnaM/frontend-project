@@ -216,3 +216,11 @@
   background-color: var(--accent-color);
   margin: 0 auto;
 }
+.button:hover {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
+}
+.button:focus {
+  background-color: #9dc888;
+  transition: background-color 0.5s ease-in-out;
+}
