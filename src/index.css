@@ -273,6 +273,14 @@ img {
   top: 13px;
 }
 
+.react-datepicker__navigation:hover *::before {
+  border-color: var(--accent-color);
+}
+
+.react-datepicker__navigation:focus *::before {
+  border-color: var(--accent-color);
+}
+
 .react-datepicker__day-names {
   margin-top: 14px;
 }

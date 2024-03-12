@@ -156,10 +156,11 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
               <Radio
                 {...controlProps('Without')}
                 sx={{
-                  backgroundColor: ' rgba(255, 255, 255, 0.30)',
-                  color: ' rgba(255, 255, 255, 0.30)',
+                  backgroundColor: ' var(--main-color)',
+                  opacity: 0.3,
+                  color: ' var(--main-color)',
                   '&.Mui-checked': {
-                    color: ' rgba(255, 255, 255, 0.30)',
+                    color: ' var(--main-color)',
                     backgroundColor: 'transparent',
                   },
 
