@@ -40,7 +40,6 @@ const refresh = async () => {
 
 const update = async user => {
   const { data } = await api.patch(`/users/update`, user);
-  console.log(data);
   return data;
 };
 
