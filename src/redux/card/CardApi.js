@@ -65,12 +65,12 @@ export const editCard = createAsyncThunk(
 
 export const deleteCard = createAsyncThunk(
   'cards/deleteCard',
-  async (cardId, thunkAPI) => {
+  async (cardId, { rejectWithValue }) => {
     try {
       const { data } = await api.delete(`/cards/${cardId}`);
-      return data.id;
+      return data;
     } catch (e) {
-      return thunkAPI.rejectWithValue(e.message);
+      return rejectWithValue(e.message);
     }
   }
 );

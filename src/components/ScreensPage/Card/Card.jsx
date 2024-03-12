@@ -18,10 +18,6 @@ const Card = ({ data, cardId }) => {
     setOpenEditCardModal(!openEditCardModal);
   };
 
-  const onDelete = _id => {
-    dispatch(deleteCard(_id));
-  };
-
   const { _id, title, description, priority, deadline } = data;
 
   const priorityCard = {
@@ -89,7 +85,7 @@ const Card = ({ data, cardId }) => {
                 <li className={css.action_item}>
                   <Button
                     className={css.action_btn}
-                    onClick={() => onDelete(_id)}
+                    onClick={() => dispatch(deleteCard(_id))}
                   >
                     <Icon className={css.action_btn_icon} id="icon-trash" />
                   </Button>
