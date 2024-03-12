@@ -16,9 +16,7 @@ const offToken = () => {
 };
 
 const registration = async user => {
-  console.log(user);
   const { data } = await api.post(`/users/register`, user);
-  console.log(data);
   setToken(data.token);
   return data;
 };
@@ -41,7 +39,6 @@ const refresh = async () => {
 };
 
 const update = async user => {
-  console.log(user);
   const { data } = await api.patch(`/users/update`, user);
   console.log(data);
   return data;
