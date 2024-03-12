@@ -46,15 +46,12 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
 
   const handleSubmit = data => {
     const formData = new FormData();
-    console.log(avatarURL);
-    console.log(data.name);
     if (avatarURL) {
       formData.append('file', avatarURL);
     }
     formData.append('name', data.name);
     formData.append('email', data.email);
     formData.append('password', data.password);
-    console.log('FormData:', Object.fromEntries(formData.entries()));
 
     dispatch(updateUser(formData));
     openModal();
