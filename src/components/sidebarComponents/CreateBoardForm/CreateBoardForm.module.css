@@ -40,6 +40,11 @@
   box-sizing: border-box;
 }
 
+.create_board_input:focus {
+  outline: none;
+  opacity: 1;
+}
+
 .create_board_close_btn {
   position: absolute;
   top: 14px;
@@ -134,6 +139,10 @@
 }
 
 .radio_semi_stroke {
+  stroke: var(--accent-color-focused);
+}
+
+.radio_semi_stroke:hover {
   stroke: var(--accent-color-focused);
 }
 

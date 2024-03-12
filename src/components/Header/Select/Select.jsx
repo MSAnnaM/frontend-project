@@ -8,7 +8,7 @@ import { updateUserTheme } from '../../../redux/user/userApi';
 
 export const SelectTheme = () => {
   const theme = useContext(ThemeContext);
-  console.log(theme);
+  // console.log(theme);
 
   // const { isLoggedIn } = useSelector(selectUser);
 

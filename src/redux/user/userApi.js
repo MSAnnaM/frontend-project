@@ -53,8 +53,8 @@ const sendEmail = async user => {
 };
 
 const updateTheme = async theme => {
-  console.log(theme);
   const { data } = await api.patch(`/users/current/theme`, { theme });
+
   return data;
 };
 
@@ -162,7 +162,8 @@ export const updateUserTheme = createAsyncThunk(
       setToken(savedToken);
 
       const response = await updateTheme(theme);
-      return response;
+
+      return response.theme;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');
       thunkAPI.rejectWithValue(error);
