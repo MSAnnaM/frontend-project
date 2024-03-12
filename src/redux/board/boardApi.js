@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 
 const axiosInstance = axios.create({
   baseURL: 'https://api-server-c4rg.onrender.com/api',
+  // baseURL: 'http://localhost:3005/api',
 });
 
 axiosInstance.interceptors.request.use(
