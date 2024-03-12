@@ -7,7 +7,7 @@ export const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   // const [theme, setTheme] = useState('dark');
 
-  const theme = useSelector(getTheme);
+  const { theme } = useSelector(getTheme);
 
   console.log(theme);
 

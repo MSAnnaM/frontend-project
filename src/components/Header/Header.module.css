@@ -94,6 +94,10 @@
   object-fit: cover;
 }
 
+.icon {
+  stroke: var(--main-color);
+}
+
 /*
 .themeBtn {
   padding: 0;

@@ -6,6 +6,7 @@ import {
   logoutUser,
   refreshUser,
   updateUser,
+  updateUserTheme,
 } from './userApi';
 
 const handleFulfilled = (state, { payload }) => {
@@ -28,6 +29,10 @@ const refreshFulfilled = (state, action, payload) => {
 const updateFulfilled = (state, action, payload) => {
   state.user = action.payload;
   // state.user.avatarURL = action.payload;
+};
+
+const updateTheme = (state, action, payload) => {
+  state.user.theme = action.payload;
 };
 
 const registrationSlice = createSlice({
@@ -66,7 +71,8 @@ const registrationSlice = createSlice({
       .addCase(refreshUser.fulfilled, refreshFulfilled)
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
-      });
+      })
+      .addCase(updateUserTheme.fulfilled, updateTheme);
     // .addCase(updateUser.fulfilled, (state, action) => {
     //   handleFulfilled(state, action.payload);
     // });
