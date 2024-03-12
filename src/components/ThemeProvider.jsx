@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getTheme } from '../redux/user/selectors';
 

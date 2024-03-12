@@ -247,8 +247,15 @@ img {
 
 .react-datepicker__header {
   border: none;
+  outline: var(--accent-color);
   background-color: var(--calendar-back);
   padding: 0px;
+}
+
+.react-datepicker_input {
+  outline: none;
+  border: none;
+  background: transparent;
 }
 
 .react-datepicker__current-month {

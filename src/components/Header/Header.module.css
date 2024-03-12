@@ -37,10 +37,14 @@
     width: 32px;
     height: 32px;
   }
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 }
 
 .icon_user {
-  stroke: var(--main-color);
+  stroke: var(--modal-back);
 
   @media screen and (min-width: 768px) {
     width: 32px;
@@ -77,7 +81,7 @@
   width: 28px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  /* align-items: flex-end; */
 }
 
 .button {

@@ -45,7 +45,7 @@
 .title_wrapper {
   padding: 4px 8px;
   border-radius: 6px;
-  background-color: var(--main-back-color);
+  background-color: transparent;
 }
 
 .icon_filter {

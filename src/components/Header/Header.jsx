@@ -1,7 +1,7 @@
 import sprite from '../../img/icons/sprite.svg';
 import style from './Header.module.css';
 import BasicModal from '../UI/Modals/BasicModal/BasicModal';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { SelectTheme } from './Select/Select';
 
 // import userImage from '../../img/user.png';
@@ -31,30 +31,29 @@ export default function Header({ onClick }) {
   //   dispatch(updateUser(userData));
   // };
   const [showEditProfile, setShowEditProfile] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  useEffect(() => {
-    const updateWindowWidth = () => {
-      setWindowWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', updateWindowWidth);
-    return () => {
-      window.removeEventListener('resize', updateWindowWidth);
-    };
-  }, []);
+  // useEffect(() => {
+  //   const updateWindowWidth = () => {
+  //     setWindowWidth(window.innerWidth);
+  //   };
+  //   window.addEventListener('resize', updateWindowWidth);
+  //   return () => {
+  //     window.removeEventListener('resize', updateWindowWidth);
+  //   };
+  // }, []);
 
   const toggleEditProfile = () => {
     setShowEditProfile(!showEditProfile);
   };
   return (
     <div className={style.container}>
-      {windowWidth < 1440 ? (
-        <button onClick={() => onClick()} className={style.menu} type="button">
-          <svg className={style.icon} width="24" height="24">
-            <use xlinkHref={`${sprite}#icon-menu`} />
-          </svg>
-        </button>
-      ) : null}
+      <button onClick={() => onClick()} className={style.menu} type="button">
+        <svg className={style.icon} width="24" height="24">
+          <use xlinkHref={`${sprite}#icon-menu`} />
+        </svg>
+      </button>
+
       <div className={style.options}>
         <SelectTheme />
         <div className={style.info}>

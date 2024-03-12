@@ -199,9 +199,7 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
             </div>
           </div>
 
-
-          <button className={style.button} type="button"  onClick={handleSubmit}>
-
+          <button className={style.button} type="button" onClick={handleSubmit}>
             <label htmlFor="file-upload" className={style.icon_plus_div}>
               <svg width={14} height={14} className={style.icon_plus}>
                 <use href={`${sprite}#icon-plus`} />
