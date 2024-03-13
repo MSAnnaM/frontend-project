@@ -1,9 +1,12 @@
 .help_form_wrap {
   position: relative;
   padding: 24px;
-  width: 400px;
+  width: 270px;
   /* height: 355px; */
   /* left: 25%; */
+  @media screen and (min-width: 375px) {
+    width: 400px;
+  }
 }
 
 .help_form_title {

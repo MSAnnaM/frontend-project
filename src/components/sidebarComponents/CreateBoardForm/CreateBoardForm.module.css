@@ -2,10 +2,13 @@
   position: relative;
   padding: 11px;
   min-height: 433px;
-  width: 350px;
+  width: 270 px;
   top: 50%;
   left: 0;
   background-color: inherit;
+  @media screen and (min-width: 375px) {
+    width: 350px;
+  }
 }
 
 .create_board_title {
@@ -114,15 +117,14 @@
   flex-wrap: wrap;
 }
 
-.create_board_thumb_img_placeholder {
-  padding: 6px;
-  border-radius: 8px;
-  background: #1f1f1f;
-}
-
 .create_board_img_placeholder {
   stroke: #ffffff1a;
   fill: none;
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: #1f1f1f;
 }
 
 .create_board_label {
