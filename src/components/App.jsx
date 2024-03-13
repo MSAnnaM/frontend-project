@@ -30,7 +30,8 @@ export const App = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-  }, [dispatch]);
+    document.title = "TaskBoard";
+  }, [dispatch], 0);
   return (
     !isRefreshed && (
       <>

@@ -10,11 +10,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editCard } from '../../../../redux/card/CardApi';
-import { selectCard } from '../../../../redux/card/CardSelectors';
+// import { selectCard } from '../../../../redux/card/CardSelectors';
 
 registerLocale('en-GB', enGB);
 
-export default function EditCardModal({ cardId, boardId, initialValues }) {
+export default function EditCardModal({ cardId, boardId, initialValues, closeModal }) {
   // const { title, description, priority, deadline } = useSelector(selectCard);
   // const initialValues = {
   //   title: title,
@@ -57,7 +57,8 @@ export default function EditCardModal({ cardId, boardId, initialValues }) {
     };
     // console.log(cardData);
     dispatch(editCard(updateCardData));
-    console.log(dispatch(editCard(updateCardData)));
+    // console.log(dispatch(editCard(updateCardData)));
+    closeModal();
   };
 
   const handleChange = e => {
