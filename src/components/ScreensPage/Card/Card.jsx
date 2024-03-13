@@ -83,6 +83,7 @@ const Card = ({ data, cardId }) => {
                           priority,
                           deadline,
                         }}
+                        cardId={cardId}
                       />
                     </Modal>
                   )}

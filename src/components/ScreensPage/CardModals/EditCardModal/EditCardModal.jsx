@@ -14,7 +14,12 @@ import { editCard } from '../../../../redux/card/CardApi';
 
 registerLocale('en-GB', enGB);
 
-export default function EditCardModal({ cardId, boardId, initialValues, closeModal }) {
+export default function EditCardModal({
+  cardId,
+  // boardId,
+  initialValues,
+  closeModal,
+}) {
   // const { title, description, priority, deadline } = useSelector(selectCard);
   // const initialValues = {
   //   title: title,
@@ -49,15 +54,14 @@ export default function EditCardModal({ cardId, boardId, initialValues, closeMod
     e.preventDefault();
     const updateCardData = {
       cardId,
-      boardId,
-      title,
-      description,
-      priority: selectedValue,
-      deadline: startDate instanceof Date ? startDate.getTime() : null,
+      newCardData: {
+        title,
+        description,
+        priority: selectedValue,
+        deadline: startDate.getTime(),
+      },
     };
-    // console.log(cardData);
     dispatch(editCard(updateCardData));
-    // console.log(dispatch(editCard(updateCardData)));
     closeModal();
   };
 
