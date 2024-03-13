@@ -46,11 +46,12 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
   };
 
   const handleChange = e => {
-    setSelectedValue(e.target.value);
     if (e.target.name === 'title') {
       setTitle(e.target.value);
     } else if (e.target.name === 'description') {
       setDescription(e.target.value);
+    } else {
+      setSelectedValue(e.target.value);
     }
   };
 

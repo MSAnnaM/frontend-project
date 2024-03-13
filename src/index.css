@@ -304,7 +304,7 @@ img {
 }
 
 .react-datepicker__day:hover,
-[aria-current='date'],
+/* [aria-current='date'], */.react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: var(--accent-color);
   border-radius: 50%;

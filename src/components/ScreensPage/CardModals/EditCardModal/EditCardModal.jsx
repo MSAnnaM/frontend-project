@@ -7,20 +7,29 @@ import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
 import enGB from 'date-fns/locale/en-GB';
 import 'react-datepicker/dist/react-datepicker.css';
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editCard } from '../../../../redux/card/CardApi';
-// import { selectCard } from '../../redux/card/CardSelectors';
+// import { selectCard } from '../../../../redux/card/CardSelectors';
 
 registerLocale('en-GB', enGB);
 
-export default function EditCardModal({ cardId, closeModal }) {
+export default function EditCardModal({ cardId, boardId, initialValues, closeModal }) {
+  // const { title, description, priority, deadline } = useSelector(selectCard);
+  // const initialValues = {
+  //   title: title,
+  //   description: description,
+  //   priority: priority,
+  //   deadline: deadline,
+  // };
+
   const dispatch = useDispatch();
 
-  const [selectedValue, setSelectedValue] = useState('d');
-  const [startDate, setStartDate] = useState(new Date());
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
+  const [selectedValue, setSelectedValue] = useState(initialValues.priority);
+
+  const [startDate, setStartDate] = useState(initialValues.deadline);
+  const [title, setTitle] = useState(initialValues.title);
+  const [description, setDescription] = useState(initialValues.description);
 
   //   const { title, description, priority, deadline } =
   //     useSelector(selectCard) || {};
@@ -31,16 +40,20 @@ export default function EditCardModal({ cardId, closeModal }) {
   //     deadline: startDate.getTime(),
   //   };
 
+  useEffect(() => {
+    setSelectedValue(initialValues.priority);
+    setStartDate(initialValues.deadline);
+  }, [initialValues]);
+
   const handleSubmit = e => {
     e.preventDefault();
     const updateCardData = {
       cardId,
-      newCardData: {
-        title,
-        description,
-        priority: selectedValue,
-        deadline: startDate.getTime(),
-      },
+      boardId,
+      title,
+      description,
+      priority: selectedValue,
+      deadline: startDate instanceof Date ? startDate.getTime() : null,
     };
     // console.log(cardData);
     dispatch(editCard(updateCardData));
@@ -49,11 +62,12 @@ export default function EditCardModal({ cardId, closeModal }) {
   };
 
   const handleChange = e => {
-    setSelectedValue(e.target.value);
     if (e.target.name === 'title') {
       setTitle(e.target.value);
     } else if (e.target.name === 'description') {
       setDescription(e.target.value);
+    } else {
+      setSelectedValue(e.target.value);
     }
   };
 
@@ -75,7 +89,12 @@ export default function EditCardModal({ cardId, closeModal }) {
     <div className={style.box}>
       <h3 className={style.title}>Edit card</h3>
       <Formik>
-        <Form className={style.form} autoComplete="off" onSubmit={handleSubmit}>
+        <Form
+          initial={initialValues}
+          className={style.form}
+          autoComplete="off"
+          onSubmit={handleSubmit}
+        >
           <div className={style['input-box']}>
             <div className={style.wrap}>
               <Field
@@ -190,7 +209,12 @@ export default function EditCardModal({ cardId, closeModal }) {
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                customInput={<CustomInput />}
+                customInput={
+                  <CustomInput
+                    value={startDate}
+                    onClick={() => setStartDate(startDate)}
+                  />
+                }
                 dateFormat="MMMM d"
                 calendarClassName={style.calendar_color}
               />
