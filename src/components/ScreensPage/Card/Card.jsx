@@ -63,7 +63,15 @@ const Card = ({ data }) => {
                 <li className={css.action_item}>
                   {openEditCardModal && (
                     <Modal openModal={editCard}>
-                      <EditCardModal closeModal={editCard} />
+                      <EditCardModal
+                        closeModal={editCard}
+                        initialValues={{
+                          title,
+                          description,
+                          priority,
+                          deadline,
+                        }}
+                      />
                     </Modal>
                   )}
                   <Button className={css.action_btn} onClick={editCard}>
