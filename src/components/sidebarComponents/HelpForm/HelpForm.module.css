@@ -81,10 +81,10 @@
   text-align-last: left;
 }
 .help_form_button:hover {
-  background-color: #9dc888;
+  background-color: var(--accent-color-focused);
   transition: background-color 0.5s ease-in-out;
 }
 .help_form_button:focus {
-  background-color: #9dc888;
+  background-color: var(--accent-color-focused);
   transition: background-color 0.5s ease-in-out;
 }

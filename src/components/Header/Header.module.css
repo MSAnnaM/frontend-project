@@ -81,7 +81,7 @@
   width: 28px;
   display: flex;
   justify-content: center;
-  /* align-items: flex-end; */
+  align-items: flex-end;
 }
 
 .button {
