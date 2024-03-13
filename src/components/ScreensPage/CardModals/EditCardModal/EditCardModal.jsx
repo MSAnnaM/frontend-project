@@ -208,7 +208,12 @@ export default function EditCardModal({ cardId, boardId, initialValues }) {
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                customInput={<CustomInput />}
+                customInput={
+                  <CustomInput
+                    value={startDate}
+                    onClick={() => setStartDate(startDate)}
+                  />
+                }
                 dateFormat="MMMM d"
                 calendarClassName={style.calendar_color}
               />
