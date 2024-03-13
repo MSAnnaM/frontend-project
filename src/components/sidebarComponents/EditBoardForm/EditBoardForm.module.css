@@ -1,16 +1,15 @@
 .edit_board_wrap {
   position: relative;
   padding: 11px;
-  /* position: absolute; */
   top: 50%;
   left: 0;
-  /* transform: translate(-50%, %); */
   min-height: 433px;
-  width: 350px;
-
+  width: 270px;
   border-radius: 10px;
-  /* padding: 15px; */
   background-color: inherit;
+  @media screen and (min-width: 375px) {
+    width: 350px;
+  }
 }
 
 .edit_board_title {
@@ -114,15 +113,14 @@
   flex-wrap: wrap;
 }
 
-.edit_board_thumb_img_placeholder {
-  padding: 6px;
-  border-radius: 8px;
-  background: #1f1f1f;
-}
-
 .edit_board_img_placeholder {
   stroke: #ffffff1a;
   fill: none;
+  border-radius: 8px;
+  background: #1f1f1f;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .edit_board_label {

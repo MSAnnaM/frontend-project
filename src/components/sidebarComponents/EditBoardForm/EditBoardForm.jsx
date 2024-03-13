@@ -64,6 +64,27 @@ const EditBoardForm = ({ props, openModal }) => {
                     <div className={style.edit_board_wrap_input}>
                         <h2 className={style.edit_board_title_radio}>Background</h2>
                         <div className={style.edit_board_wrap_backgrounds}>
+                            <label
+                                key={'default'}
+                                className={`${style.edit_board_thumb_img_placeholder} ${style.edit_board_label
+                                    } ${style.radio_semi_transparent
+                                    }`}
+                            >
+                                <Field
+                                    type="radio"
+                                    name="background"
+                                    value={`${sprite}#icon-img_placeholder`}
+                                    className={style.edit_board_field}
+
+                                />
+                                <svg
+                                    className={style.edit_board_img_placeholder}
+                                    width="28"
+                                    height="28"
+                                >
+                                    <use href={`${sprite}#icon-img_placeholder`}></use>
+                                </svg>
+                            </label>
                             {backgrounds.map((img, idx) => (
                                 <label key={idx} className={`${style.edit_board_label} ${formikProps.values.background === img.id ? '' : style.radio_semi_transparent}`}>
                                     <Field

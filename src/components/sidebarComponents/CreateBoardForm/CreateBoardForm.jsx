@@ -116,8 +116,8 @@ const CreateBoardForm = ({ onClose }) => {
               />
               <svg
                 className={style.create_board_img_placeholder}
-                width="16"
-                height="16"
+                width="28"
+                height="28"
               >
                 <use href={`${sprite}#icon-img_placeholder`}></use>
               </svg>
