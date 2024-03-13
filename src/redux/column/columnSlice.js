@@ -108,22 +108,23 @@ const handleFulfilledDeleteCard = (state, { payload }) => {
 };
 
 const handleFulfilledTransportCard = (state, { payload }) => {
+  console.log(payload);
   state.isLoading = false;
   state.error = null;
   const columns = state.shownBoard.columns;
-  const newColumnIdx = columns.findIndex(col => col._id === payload.column);
+  const newColumnIdx = columns.findIndex(col => col._id === payload.columnId);
   if (newColumnIdx !== -1) {
     columns[newColumnIdx].cards.push(payload);
   }
 
-  // const oldColumnIndex = columns.findIndex(
-  //   col => col._id === payload.oldColumnId
-  // );
-  // if (oldColumnIndex !== -1) {
-  //   columns[oldColumnIndex].cards = columns[oldColumnIndex].cards.filter(
-  //     ({ _id }) => _id !== payload._id
-  //   );
-  // }
+  const oldColumnIndex = columns.findIndex(
+    col => col._id === payload.oldColumnId
+  );
+  if (oldColumnIndex !== -1) {
+    columns[oldColumnIndex].cards = columns[oldColumnIndex].cards.filter(
+      ({ _id }) => _id !== payload._id
+    );
+  }
   Notify.success(`Card moved`);
 };
 

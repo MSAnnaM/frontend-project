@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import css from './ChangeColumn.module.css';
-import { editCard } from '../../../redux/card/CardApi';
+import { transportCard } from '../../../redux/card/CardApi';
 
 const ChangeColumn = ({ columnId, cardId, modalClose }) => {
   const columns = useShownBoard().columns.filter(({ _id }) => _id !== columnId);
@@ -13,10 +13,11 @@ const ChangeColumn = ({ columnId, cardId, modalClose }) => {
     const newCardColumnId = {
       cardId,
       newCardData: {
-        columnId,
+        columnId: newColumnId,
+        oldColumnId: columnId,
       },
     };
-    dispatch(editCard(newCardColumnId));
+    dispatch(transportCard(newCardColumnId));
     modalClose();
   };
   return (
