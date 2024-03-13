@@ -1,20 +1,22 @@
-import { useState } from 'react';
+
 import css from './BoardEmpty.module.css';
-import Modal from 'components/UI/Modals/Modal/Modal';
 import Button from '../Button/Button';
+import { useDispatch } from 'react-redux';
+import { openModal } from '../../../redux/modal/modalSlice';
+
 
 const BoardEmpty = () => {
-  const [openAddBoardModal, setOpenAddBoardModal] = useState(false);
 
-  const openModal = () => {
-    setOpenAddBoardModal(!openAddBoardModal);
-  };
+  const dispatch = useDispatch()
+
 
   return (
     <div className={css.container}>
       <p>
         Before starting your project, it is essential{' '}
-        <Button className={css.button} onClick={openModal}>
+        <Button className={css.button}
+
+          onClick={() => dispatch(openModal('modal1'))} >
           {' '}
           to create a board{' '}
         </Button>{' '}
@@ -22,13 +24,7 @@ const BoardEmpty = () => {
         board serves as a powerful tool to organize the workflow and ensure
         effective collaboration among team members.
       </p>
-      <div>
-        {openAddBoardModal && (
-          <Modal openModal={openModal}>
-            <p>Create New Board</p>
-          </Modal>
-        )}
-      </div>
+
     </div>
   );
 };

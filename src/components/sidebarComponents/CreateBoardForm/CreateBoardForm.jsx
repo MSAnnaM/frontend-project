@@ -31,7 +31,7 @@ const CreateBoardForm = ({ onClose }) => {
       background: selectedBackground,
     };
 
-    console.log(updatedValues);
+
 
     await dispatch(createBoard(updatedValues));
     if (resetForm) {
@@ -126,8 +126,8 @@ const CreateBoardForm = ({ onClose }) => {
               <label
                 key={idx}
                 className={`${style.create_board_label} ${selectedBackground === img.id
-                    ? ''
-                    : style.radio_semi_transparent
+                  ? ''
+                  : style.radio_semi_transparent
                   }`}
               >
                 <Field
