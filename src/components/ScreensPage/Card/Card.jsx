@@ -8,14 +8,20 @@ import Modal from 'components/UI/Modals/Modal/Modal';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteCard } from '../../../redux/card/CardApi';
+import ChangeColumn from '../ChangeColumn/ChangeColumn';
 
-const Card = ({ data, cardId }) => {
+const Card = ({ data, cardId, columnId }) => {
   const [openEditCardModal, setOpenEditCardModal] = useState(false);
+  const [isOpenChangeColumn, setIsOpenChangeColumn] = useState(false);
 
   const dispatch = useDispatch();
 
   const editCard = () => {
     setOpenEditCardModal(!openEditCardModal);
+  };
+
+  const onChange = () => {
+    setIsOpenChangeColumn(!isOpenChangeColumn);
   };
 
   const { _id, title, description, priority, deadline } = data;
@@ -68,7 +74,10 @@ const Card = ({ data, cardId }) => {
               )}
               <ul className={css.actions}>
                 <li className={css.action_item}>
-                  <Button className={css.action_btn}>
+                  <Button
+                    className={css.action_btn}
+                    onClick={() => onChange(_id)}
+                  >
                     <Icon className={css.action_btn_icon} id="icon-normal" />
                   </Button>
                 </li>
@@ -102,6 +111,13 @@ const Card = ({ data, cardId }) => {
               </ul>
             </div>
           </div>
+          {isOpenChangeColumn && (
+            <ChangeColumn
+              columnId={columnId}
+              modalClose={onChange}
+              cardId={_id}
+            />
+          )}
         </div>
       </div>
     </>

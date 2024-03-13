@@ -1,0 +1,64 @@
+.container {
+  min-width: 135px;
+  max-width: 290px;
+  height: 100px;
+  padding: 18px;
+  background-color: var(--main-back-color);
+  position: absolute;
+  right: 20px;
+  top: 14px;
+  z-index: 100;
+  border-radius: 8px;
+  overflow-y: auto;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--accent-color);
+}
+
+.btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--accent-color);
+  font-size: 14px;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: -0.28px;
+}
+
+.btn:hover {
+  color: var(--accent-color-focused);
+  .icon {
+    stroke: var(--accent-color-focused);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--accent-color);
+  fill: transparent;
+}
+
+.container::-webkit-scrollbar {
+  width: 5px;
+  height: 10%;
+}
+
+.container::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 8px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-color);
+  border-radius: 8px;
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scroll-color);
+}

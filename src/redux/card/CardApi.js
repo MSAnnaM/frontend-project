@@ -63,6 +63,18 @@ export const editCard = createAsyncThunk(
   }
 );
 
+export const transportCard = createAsyncThunk(
+  'cards/editCard',
+  async ({ newCardData, cardId }, { rejectWithValue }) => {
+    try {
+      const response = await api.put(`/cards/${cardId}`, newCardData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const deleteCard = createAsyncThunk(
   'cards/deleteCard',
   async (cardId, { rejectWithValue }) => {

@@ -56,6 +56,7 @@ export default function EditCardModal({
       cardId,
       newCardData: {
         title,
+        // columnId: '65efaa9032f8d8bc9af50cae',
         description,
         priority: selectedValue,
         deadline: startDate.getTime(),
