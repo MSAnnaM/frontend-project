@@ -4,6 +4,7 @@ import sprite from '../../../img/icons/sprite.svg';
 import * as Yup from 'yup';
 import { sendHelpEmail } from '../../../redux/user/userApi';
 import { useDispatch } from 'react-redux';
+import Notiflix from 'notiflix';
 
 const initialValues = {
   email: '',
@@ -30,6 +31,12 @@ const HelpForm = ({ onClose }) => {
     dispatch(sendHelpEmail(values));
     console.log(values);
     resetForm();
+
+    Notiflix.Notify.success(
+      'Message was successfully sent! We will contact you!'
+    );
+
+    onClose();
   };
 
   return (

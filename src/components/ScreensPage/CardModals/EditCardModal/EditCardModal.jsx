@@ -10,24 +10,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { forwardRef, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editCard } from '../../../../redux/card/CardApi';
-// import { selectCard } from '../../../../redux/card/CardSelectors';
 
 registerLocale('en-GB', enGB);
 
 export default function EditCardModal({
   cardId,
-  // boardId,
+  boardId,
   initialValues,
   closeModal,
 }) {
-  // const { title, description, priority, deadline } = useSelector(selectCard);
-  // const initialValues = {
-  //   title: title,
-  //   description: description,
-  //   priority: priority,
-  //   deadline: deadline,
-  // };
-
   const dispatch = useDispatch();
 
   const [selectedValue, setSelectedValue] = useState(initialValues.priority);
@@ -35,15 +26,6 @@ export default function EditCardModal({
   const [startDate, setStartDate] = useState(initialValues.deadline);
   const [title, setTitle] = useState(initialValues.title);
   const [description, setDescription] = useState(initialValues.description);
-
-  //   const { title, description, priority, deadline } =
-  //     useSelector(selectCard) || {};
-  //   const initialState = {
-  //     title: title || '',
-  //     description: description || '',
-  //     priority: selectedValue,
-  //     deadline: startDate.getTime(),
-  //   };
 
   useEffect(() => {
     setSelectedValue(initialValues.priority);
@@ -56,7 +38,6 @@ export default function EditCardModal({
       cardId,
       newCardData: {
         title,
-        // columnId: '65efaa9032f8d8bc9af50cae',
         description,
         priority: selectedValue,
         deadline: startDate.getTime(),
@@ -85,7 +66,12 @@ export default function EditCardModal({
   });
 
   const CustomInput = forwardRef(({ value, onClick }, ref) => (
-    <button className={style.calendar} onClick={onClick} ref={ref}>
+    <button
+      className={style.calendar}
+      type="button"
+      onClick={onClick}
+      ref={ref}
+    >
       {value}
     </button>
   ));
@@ -214,12 +200,7 @@ export default function EditCardModal({
                 selected={startDate}
                 onChange={date => setStartDate(date)}
                 minDate={new Date()}
-                customInput={
-                  <CustomInput
-                    value={startDate}
-                    onClick={() => setStartDate(startDate)}
-                  />
-                }
+                customInput={<CustomInput value={startDate} />}
                 dateFormat="MMMM d"
                 calendarClassName={style.calendar_color}
               />
