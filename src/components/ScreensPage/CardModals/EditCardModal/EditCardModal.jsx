@@ -36,11 +36,12 @@ export default function EditCardModal({
     e.preventDefault();
     const updateCardData = {
       cardId,
-      boardId,
-      title,
-      description,
-      priority: selectedValue,
-      deadline: startDate instanceof Date ? startDate.getTime() : null,
+      newCardData: {
+        title,
+        description,
+        priority: selectedValue,
+        deadline: startDate.getTime(),
+      },
     };
     dispatch(editCard(updateCardData));
     closeModal();
