@@ -39,18 +39,19 @@ export default function AddCardModal({ columnId, boardId, closeModal }) {
       boardId,
       index: 1,
     };
-    console.log(cardData);
+    // console.log(cardData);
     dispatch(addCard(cardData));
     // console.log(dispatch(addCard(cardData)));
     closeModal();
   };
 
   const handleChange = e => {
-    setSelectedValue(e.target.value);
     if (e.target.name === 'title') {
       setTitle(e.target.value);
     } else if (e.target.name === 'description') {
       setDescription(e.target.value);
+    } else {
+      setSelectedValue(e.target.value);
     }
   };
 

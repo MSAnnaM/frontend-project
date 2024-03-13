@@ -104,7 +104,7 @@ body.light {
 
   --input-back: transparent;
 
-  --calendar-back: #1f1f1f;
+  --calendar-back: #ffff;
   --calendar-active-text: #161616;
 
   --button-text: #161616;
@@ -151,7 +151,7 @@ body.violet {
 
   --input-back: transparent;
 
-  --calendar-back: #fcfcfc;
+  --calendar-back: #fff;
   --calendar-active-text: #fcfcfc;
 
   --button-text: #fff;
@@ -304,7 +304,7 @@ img {
 }
 
 .react-datepicker__day:hover,
-[aria-current='date'],
+/* [aria-current='date'], */.react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: var(--accent-color);
   border-radius: 50%;

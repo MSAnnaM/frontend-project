@@ -6,14 +6,19 @@ import Icon from '../Icon/Icon';
 import css from './Card.module.css';
 import Modal from 'components/UI/Modals/Modal/Modal';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteCard } from '../../../redux/card/CardApi';
 
-const Card = ({ data }) => {
+const Card = ({ data, cardId }) => {
   const [openEditCardModal, setOpenEditCardModal] = useState(false);
+
+  const dispatch = useDispatch();
 
   const editCard = () => {
     setOpenEditCardModal(!openEditCardModal);
   };
-  const { title, description, priority, deadline } = data;
+
+  const { _id, title, description, priority, deadline } = data;
 
   const priorityCard = {
     [css.priority_low]: priority === cardPriority.LOW,
@@ -22,11 +27,18 @@ const Card = ({ data }) => {
     [css.priority_without]: priority === cardPriority.WO,
   };
 
-  const isDeadline = date => {
-    if (date === '04/03/2024') {
-      return true;
-    }
+  const isDeadline = deadline => {
+    const dateDeadline = deadline.split('T')[0].split('-').join('');
+    const dateNow = new Date().toISOString().split('T')[0].split('-').join('');
+
+    if (dateDeadline - dateNow <= 1) return true;
+
     return false;
+  };
+
+  const formatDate = date => {
+    const dateParts = date.split('T')[0].split('-');
+    return `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
   };
 
   return (
@@ -48,7 +60,7 @@ const Card = ({ data }) => {
             </div>
             <div className={css.addition}>
               <span className={css.addition_title}>Deadline</span>
-              <span className={css.addition_value}>{deadline}</span>
+              <span className={css.addition_value}>{formatDate(deadline)}</span>
             </div>
             <div className={css.actions_wrap}>
               {isDeadline(deadline) && (
@@ -63,7 +75,15 @@ const Card = ({ data }) => {
                 <li className={css.action_item}>
                   {openEditCardModal && (
                     <Modal openModal={editCard}>
-                      <EditCardModal closeModal={editCard} />
+                      <EditCardModal
+                        closeModal={editCard}
+                        initialValues={{
+                          title,
+                          description,
+                          priority,
+                          deadline,
+                        }}
+                      />
                     </Modal>
                   )}
                   <Button className={css.action_btn} onClick={editCard}>
@@ -71,7 +91,10 @@ const Card = ({ data }) => {
                   </Button>
                 </li>
                 <li className={css.action_item}>
-                  <Button className={css.action_btn}>
+                  <Button
+                    className={css.action_btn}
+                    onClick={() => dispatch(deleteCard(_id))}
+                  >
                     <Icon className={css.action_btn_icon} id="icon-trash" />
                   </Button>
                 </li>
