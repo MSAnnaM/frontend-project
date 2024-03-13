@@ -5,7 +5,7 @@ import {
   deleteColumn,
   updateColumnById,
 } from './columnApi';
-import { Notify } from 'notiflix';
+// import { Notify } from 'notiflix';
 import {
   addCard,
   deleteCard,
@@ -46,7 +46,7 @@ const handleFulfilledAddColumn = (state, { payload }) => {
   state.error = null;
   payload.cards = [];
   state.shownBoard.columns.push(payload);
-  Notify.success(`Column added`);
+  // Notify.success(`Column added`);
 };
 
 const handleFulfilledUpdateColumnById = (state, { payload }) => {
@@ -58,7 +58,7 @@ const handleFulfilledUpdateColumnById = (state, { payload }) => {
   if (columnIndex !== -1) {
     array[columnIndex].title = payload.title;
   }
-  Notify.success(`Column updated`);
+  // Notify.success(`Column updated`);
 };
 
 const handleFulfilledDeleteColumn = (state, { payload }) => {
@@ -67,7 +67,7 @@ const handleFulfilledDeleteColumn = (state, { payload }) => {
   state.shownBoard.columns = state.shownBoard.columns.filter(
     ({ _id }) => _id !== payload
   );
-  Notify.success(`Column deleted`);
+  // Notify.success(`Column deleted`);
 };
 
 const handleFulfilledAddCard = (state, { payload }) => {
@@ -78,7 +78,7 @@ const handleFulfilledAddCard = (state, { payload }) => {
   if (columnIdx !== -1) {
     columns[columnIdx].cards.push(payload);
   }
-  Notify.success(`Card added`);
+  // Notify.success(`Card added`);
 };
 
 const handleFulfilledEditCard = (state, { payload }) => {
@@ -91,7 +91,7 @@ const handleFulfilledEditCard = (state, { payload }) => {
       card._id === payload._id ? (card = payload) : card
     );
   }
-  Notify.success(`Card updated`);
+  // Notify.success(`Card updated`);
 };
 
 const handleFulfilledDeleteCard = (state, { payload }) => {
@@ -104,7 +104,7 @@ const handleFulfilledDeleteCard = (state, { payload }) => {
       ({ _id }) => _id !== payload._id
     );
   }
-  Notify.success(`Card deleted`);
+  // Notify.success(`Card deleted`);
 };
 
 const handleFulfilledTransportCard = (state, { payload }) => {
@@ -125,7 +125,7 @@ const handleFulfilledTransportCard = (state, { payload }) => {
       ({ _id }) => _id !== payload._id
     );
   }
-  Notify.success(`Card moved`);
+  // Notify.success(`Card moved`);
 };
 
 const initialState = {
