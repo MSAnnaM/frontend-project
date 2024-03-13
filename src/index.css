@@ -104,7 +104,7 @@ body.light {
 
   --input-back: transparent;
 
-  --calendar-back: #1f1f1f;
+  --calendar-back: #ffff;
   --calendar-active-text: #161616;
 
   --button-text: #161616;
@@ -151,7 +151,7 @@ body.violet {
 
   --input-back: transparent;
 
-  --calendar-back: #fcfcfc;
+  --calendar-back: #fff;
   --calendar-active-text: #fcfcfc;
 
   --button-text: #fff;

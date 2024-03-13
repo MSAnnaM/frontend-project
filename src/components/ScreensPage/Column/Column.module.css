@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --column-background-color: #121212;
   --dashboard-title-color: #fff;
   --column-create-button-bg-color: #fff;
@@ -12,7 +12,7 @@
   --scrollbar-color: #ffffff1a;
   --scrollbar-hover-color: #ffffff33;
   --scrollbar-bg-color: #161616;
-}
+} */
 
 .column {
   display: flex;
@@ -198,10 +198,10 @@
   opacity: 1;
 }
 .card_create_btn:hover {
-  background-color: #9dc888;
+  background-color: var(--accent-color-focused);
   transition: background-color 0.5s ease-in-out;
 }
 .card_create_btn:focus {
-  background-color: #9dc888;
+  background-color: var(--accent-color-focused);
   transition: background-color 0.5s ease-in-out;
 }
