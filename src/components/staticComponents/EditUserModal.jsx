@@ -9,28 +9,12 @@ import Error from 'components/UI/Forma/Error/Error';
 import Input from 'components/UI/Forma/Input/Input';
 import Forma from 'components/UI/Forma/Forma';
 import { updateUser } from '../../redux/user/userApi';
-// import { updateUserImage } from '../../redux/user/userSlice';
 import { userSelect } from '../../redux/user/selectors';
 
 export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
-  // const { name, email, password } = useSelector(userSelect);
-
-  // const dispatch = useDispatch();
-  // const handleSubmit = data => dispatch(updateUser(data));
-
-  // const [image, setImage] = useState('');
-
-  // const editProfileImage = e => {
-  //   const file = e.target.files[0];
-  //   setImage(file);
-  // };
-
   const dispatch = useDispatch();
 
   const { name, email, password, avatarUrl } = useSelector(userSelect) || {};
-  //  const [name, setName] = useState('');
-  //   const [email, setEmail] = useState('');
-  //   const [password, setPassword] = useState('');
   const [avatarURL, setAvatarURL] = useState(null);
   const initialValues = {
     name: name || '',
@@ -39,10 +23,6 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
     avatarUrl: avatarUrl,
   };
 
-  // const handleChange = e => {
-  //   const { name: fieldName, value } = e.target;
-  //   dispatch(updateUser({ name: fieldName, value }));
-  // };
 
   const handleSubmit = data => {
     const formData = new FormData();
@@ -61,10 +41,6 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
   const handleFileChange = e => {
     const file = e.target.files[0];
     setAvatarURL(file);
-    //  const formData = new FormData();
-    // formData.append('file', file);
-    // console.log(formData);
-    // dispatch(updateUserImage(formData));
   };
 
   const [showPassword, setShowPassword] = useState(false);
@@ -73,39 +49,29 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
   return (
     <div className={style.box}>
       <h3 className={style.title}>Edit Profile</h3>
-
-      {/* <svg width={18} height={18} className={style.icon_close}>
-        <use href={`${sprite}#icon-close`} />
-      </svg> */}
-
       <div className={style.icon_div}>
-        {/* {avatarURL ? (
-          <img
-            src={URL.createObjectURL(avatarURL)}
-            width={68}
-            height={68}
-            alt="avatar"
-          />
-        ) : (
-          <svg width={68} height={68} className={style.icon_user}>
-            <use href={`${sprite}#icon-user`} />
-          </svg>
-        )} */}
-        {avatarUrl ? (
-          <img
-            src={avatarUrl}
-            className={style.img_avatar}
-            alt="avatar"
-            width={68}
-            height={68}
-          />
-        ) : (
-          <div className={style.icon_user_box}>
-            <svg width={68} height={62} className={style.icon_user}>
-              <use href={`${sprite}#icon-user`} />
-            </svg>
-          </div>
-        )}
+        {avatarURL ? (
+    <img
+      src={URL.createObjectURL(avatarURL)}
+      width={68}
+      height={68}
+      alt="avatar"
+    />
+  ) : avatarUrl ? (
+    <img
+      src={avatarUrl}
+      className={style.img_avatar}
+      alt="avatar"
+      width={68}
+      height={68}
+    />
+  ) : (
+    <div className={style.icon_user_box}>
+      <svg width={68} height={62} className={style.icon_user}>
+        <use href={`${sprite}#icon-user`} />
+      </svg>
+    </div>
+  )}
         <label htmlFor="file-upload" className={style.icon_plus_div}>
           <svg width={10} height={10} className={style.icon_plus}>
             <use href={`${sprite}#icon-plus`} />
