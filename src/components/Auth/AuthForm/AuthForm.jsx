@@ -9,6 +9,8 @@ import Forma from 'components/UI/Forma/Forma';
 
 import { useDispatch } from 'react-redux';
 import { loginUser, registerUser } from '../../../redux/user/userApi';
+import { setPassword } from '../../../redux/user/userSlice';
+import EyeOff from 'components/UI/Forma/EyeOff/EyeOff';
 
 const initialValues = {
   email: '',
@@ -21,9 +23,12 @@ export default function AuthForm({ type }) {
   const dispatch = useDispatch();
   const handleTogglePassword = () => setShowPassword(!showPassword);
   const handleSubmit = values => {
-    const {email, password} = values
-    const loginData = {email, password}
-    dispatch(type === 'login' ? loginUser(loginData) : registerUser(values));}
+    const { email, password } = values
+
+    const loginData = { email, password }
+    dispatch(setPassword(password));
+    dispatch(type === 'login' ? loginUser(loginData) : registerUser(values));
+  }
 
   return (
     <Forma initial={initialValues} schema={authSchema} handle={handleSubmit}>
@@ -44,7 +49,11 @@ export default function AuthForm({ type }) {
           name="password"
           text={`${type === 'register' ? 'Create' : 'Confirm'} a password`}
         />
-        <Eye toggle={handleTogglePassword} />
+        {showPassword ? (
+          <EyeOff toggle={handleTogglePassword} />
+        ) : (
+          <Eye toggle={handleTogglePassword} />
+        )}
       </div>
       <FormButton type="submit">
         {`${type === 'login' ? 'Log In' : 'Register'} Now`}
