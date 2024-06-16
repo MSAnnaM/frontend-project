@@ -124,6 +124,7 @@ export const updateUser = createAsyncThunk(
       setToken(savedToken);
 
       const response = await update(user);
+      console.log(response);
       return response;
     } catch (error) {
       Notiflix.Notify.warning('Oooops, something goes wrong');

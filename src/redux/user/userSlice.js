@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import {
   registerUser,
   loginUser,
@@ -11,27 +10,34 @@ import {
 
 const handleFulfilled = (state, { payload }) => {
   state.token = payload.token;
-  state.user = payload.user;
+  state.user.name = payload.user.name;
+  state.user.email = payload.user.email;
+  state.user.theme = payload.user.theme;
   state.isLoggedIn = true;
-};
-const logoutFulfilld = (state, { payload }) => {
-  state.token = null;
-  state.user = { name: null, email: null };
-  state.isLoggedIn = false;
+  localStorage.setItem('password', state.password); // Save password to localStorage
 };
 
-const refreshFulfilled = (state, action, payload) => {
-  state.user = action.payload;
+const logoutFulfilled = state => {
+  state.token = null;
+  state.user = { name: null, email: null, avatarURL: null, theme: 'dark' };
+  state.isLoggedIn = false;
+  localStorage.removeItem('password'); // Remove password from localStorage
+};
+
+const refreshFulfilled = (state, { payload }) => {
+  state.token = payload.token;
+  state.user.name = payload.name;
+  state.user.email = payload.email;
+  state.user.theme = payload.theme;
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
 
-const updateFulfilled = (state, action, payload) => {
+const updateFulfilled = (state, action) => {
   state.user = action.payload.user;
-  // state.user.avatarURL = action.payload;
 };
 
-const updateTheme = (state, action, payload) => {
+const updateTheme = (state, action) => {
   state.user.theme = action.payload;
 };
 
@@ -41,16 +47,20 @@ const registrationSlice = createSlice({
     user: {
       name: null,
       email: null,
-      password: null,
       avatarURL: null,
       theme: 'dark',
     },
+    password: localStorage.getItem('password') || null, // Initialize password from localStorage
     token: null,
     isLoading: false,
     isRefreshing: false,
     isLoggedIn: false,
   },
   reducers: {
+    setPassword: (state, action) => {
+      state.password = action.payload;
+      localStorage.setItem('password', action.payload); // Save password to localStorage
+    },
     updateUserField: (state, action) => {
       const { name, value } = action.payload;
       state.user = { ...state.user, [name]: value };
@@ -63,7 +73,7 @@ const registrationSlice = createSlice({
     builder
       .addCase(registerUser.fulfilled, handleFulfilled)
       .addCase(loginUser.fulfilled, handleFulfilled)
-      .addCase(logoutUser.fulfilled, logoutFulfilld)
+      .addCase(logoutUser.fulfilled, logoutFulfilled)
       .addCase(updateUser.fulfilled, updateFulfilled)
       .addCase(refreshUser.pending, state => {
         state.isRefreshing = true;
@@ -73,12 +83,10 @@ const registrationSlice = createSlice({
         state.isRefreshing = false;
       })
       .addCase(updateUserTheme.fulfilled, updateTheme);
-    // .addCase(updateUser.fulfilled, (state, action) => {
-    //   handleFulfilled(state, action.payload);
-    // });
   },
 });
 
-export const { updateUserField, updateUserImage } = registrationSlice.actions;
+export const { updateUserField, updateUserImage, setPassword } =
+  registrationSlice.actions;
 
 export const registrationReducer = registrationSlice.reducer;
