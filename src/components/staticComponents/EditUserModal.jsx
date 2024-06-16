@@ -16,23 +16,21 @@ import EyeOff from 'components/UI/Forma/EyeOff/EyeOff';
 
 export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
   const dispatch = useDispatch();
-  const [passwordForm, setPasswordForm] = useState("");
+
   const { name, email, avatarUrl } = useSelector(userSelect) || {};
   const passwordFromRedux = useSelector(selectPassword);
 
-  console.log(passwordForm);
+
   const [showPassword, setShowPassword] = useState(false);
   const [avatarURL, setAvatarURL] = useState(null);
   const initialValues = {
     name: name || '',
     email: email || '',
-    password: passwordForm || '',
+    password: passwordFromRedux || '',
     avatarUrl: avatarUrl,
   };
 
-  useEffect(() => {
-    setPasswordForm(passwordFromRedux)
-  }, [passwordFromRedux])
+
   const handleSubmit = data => {
     console.log(data);
 
@@ -46,7 +44,7 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
     console.log(data.password);
     if (data.password !== "") {
       dispatch(setPassword(data.password))
-      setPasswordForm(data.password);
+
     }
     dispatch(updateUser(formData));
     openModal();

@@ -14,14 +14,14 @@ const handleFulfilled = (state, { payload }) => {
   state.user.email = payload.user.email;
   state.user.theme = payload.user.theme;
   state.isLoggedIn = true;
-  localStorage.setItem('password', state.password); // Save password to localStorage
+  localStorage.setItem('password', state.password);
 };
 
 const logoutFulfilled = state => {
   state.token = null;
   state.user = { name: null, email: null, avatarURL: null, theme: 'dark' };
   state.isLoggedIn = false;
-  localStorage.removeItem('password'); // Remove password from localStorage
+  localStorage.removeItem('password');
 };
 
 const refreshFulfilled = (state, { payload }) => {
@@ -50,7 +50,7 @@ const registrationSlice = createSlice({
       avatarURL: null,
       theme: 'dark',
     },
-    password: localStorage.getItem('password') || null, // Initialize password from localStorage
+    password: localStorage.getItem('password') || null,
     token: null,
     isLoading: false,
     isRefreshing: false,
@@ -59,7 +59,7 @@ const registrationSlice = createSlice({
   reducers: {
     setPassword: (state, action) => {
       state.password = action.payload;
-      localStorage.setItem('password', action.payload); // Save password to localStorage
+      localStorage.setItem('password', action.payload);
     },
     updateUserField: (state, action) => {
       const { name, value } = action.payload;
