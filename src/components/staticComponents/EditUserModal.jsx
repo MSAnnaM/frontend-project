@@ -32,7 +32,7 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
 
 
   const handleSubmit = data => {
-    console.log(data);
+
 
     const formData = new FormData();
     if (avatarURL) {
@@ -41,7 +41,7 @@ export default function EditUserModal({ openModal, handleUpdateAvatarURL }) {
     formData.append('name', data.name);
     formData.append('email', data.email);
     formData.append('password', data.password);
-    console.log(data.password);
+
     if (data.password !== "") {
       dispatch(setPassword(data.password))
 
