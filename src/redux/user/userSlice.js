@@ -29,6 +29,7 @@ const refreshFulfilled = (state, { payload }) => {
   state.user.name = payload.name;
   state.user.email = payload.email;
   state.user.theme = payload.theme;
+  state.user.avatarUrl = payload.avatarUrl
   state.isLoggedIn = true;
   state.isRefreshing = false;
 };
@@ -47,7 +48,7 @@ const registrationSlice = createSlice({
     user: {
       name: null,
       email: null,
-      avatarURL: null,
+      avatarUrl: null,
       theme: 'dark',
     },
     password: localStorage.getItem('password') || null,
@@ -66,7 +67,7 @@ const registrationSlice = createSlice({
       state.user = { ...state.user, [name]: value };
     },
     updateUserImage: (state, action) => {
-      state.user.avatarURL = action.payload;
+      state.user.avatarUrl = action.payload;
     },
   },
   extraReducers: builder => {
