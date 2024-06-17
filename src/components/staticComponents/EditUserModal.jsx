@@ -1,7 +1,7 @@
 import style from './EditUserModal.module.css';
 import sprite from '../../img/icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { editSchema } from '../Auth/Schemas/authSchema.js';
 import FormButton from 'components/UI/Buttons/FormButton/FormButton';
 import Eye from 'components/UI/Forma/Eye/Eye';
