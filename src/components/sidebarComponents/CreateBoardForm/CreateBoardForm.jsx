@@ -15,7 +15,13 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required('Title is required'),
+  name: Yup.string().trim()
+    .min(2, 'Title must be at least 2 characters')
+    .max(12, 'Title must be no more than 32 characters')
+    .matches(
+      /^[a-zA-Zа-яА-Я0-9\s]*$/,
+      'Title can only contain letters, numbers, and spaces'
+    ).required('Title is required'),
 });
 
 const CreateBoardForm = ({ onClose }) => {
